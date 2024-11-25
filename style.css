@@ -1,0 +1,103 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    align-items: center;
+
+}
+
+
+.links {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: #ffd700;
+}
+
+button {
+    background-color: #ffd700;
+    color: black;
+    height: 2.188rem;
+    width: 5rem;
+    border-radius: 7px;
+}
+
+input {
+    height: 1.5rem;
+    width: 12rem;
+    border-radius: 7px;
+}
+::placeholder{
+   padding-left: 10%;
+}
+
+body {
+
+    background: rgba(0, 0, 0, 0.5) url(img/terran-bj.jpg) no-repeat;
+    background-size: cover;
+
+
+}
+
+.terrain {
+    height: 700px;
+    width: 600px;
+    background-image: url(img/terrain-player1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 95%;
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
+
+.table{
+    height: 300px;
+    width: 400px;
+    background-color: #ffd700;
+    position: relative;
+   top: 30px;
+   right: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   border-radius: 7px;
+}
+.global{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+footer{
+    height:400px;
+    background-color: black;
+}
+a:hover{
+    display: block;
+    box-shadow: 2px 2px 2px rgb(217, 236, 42);
+}
+
+h2{
+font-weight:bolder;
+font-size: 30px;
+}
+.save{
+    color: #ffd700;
+    background-color: black;
+    font-weight: 200;
+    font-size:large;
+}
