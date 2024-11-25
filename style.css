@@ -9,13 +9,15 @@ img {
     border-radius: 50%;
 }
 
-nav {
+nav{
     display: flex;
     justify-content: space-around;
     background-color: black;
     align-items: center;
-
+  
 }
+
+
 
 
 .links {
@@ -79,6 +81,7 @@ body {
 .global{
     display: flex;
     justify-content: space-around;
+
    
 }
 
@@ -187,4 +190,28 @@ footer {
     .footer-social {
         margin-top: 20px;
     }
+}
+.popupPlayer {
+    height: 90px;
+    width: 200px;
+    background-color: #ebd767;
+    display: none; 
+    position: fixed; 
+    top: 10%; 
+    left: 40%;
+    z-index: 1000;
+    border-radius: 7px;
+    box-shadow: 2px 2px yellow;
+    
+    
+}
+
+.popupPlayer p{
+    margin-top: 5px;
+    font-weight: bold;
+    text-align: center;
+   
+}
+.popupPlayer a{
+    color: black;
 }

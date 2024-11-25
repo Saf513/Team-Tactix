@@ -23,10 +23,15 @@
       <input type="text" placeholder="Search for player ..." name="search">
       <i class="fa-solid fa-magnifying-glass" style="color: #ffd700;"></i>
     </div>
-
+<div class="div-players">
     <div class="players">
       <a href="#">Players</a>
     </div>
+    <div class=" popupPlayer">
+      <p><a href="#">joueurs populaires</a></p>
+      <p><a href="#">nouveaux joueurs</a></p>
+      <p><a href="#">ajouter un joueurs</a></p>
+        </div></div>
 
     <div>
       <a href="#">Squads</a>
@@ -46,59 +51,85 @@
   </nav>
 
   <section>
+     
+
     <div class="global">
-         <div class="terrain">
-
-        </div>
-
-      <div class="table">
-
-        <h2>Football squad</h2>
-<div class="input-name">
-  <label for="name-squad">Name of squad:</label>
-  <input type="text" name="name-squad">
-</div>
-
-       <div class="input-formation">
-        <label for="formation">Formation:</label>
-        <select name="formation" id="formmation">
-        <option value="">Choisier une formation:</option>
-        <option value="1">4-4-3</option>
-        <option value="2">4-4-2</option>
-        <option value="3">3-5-2</option>
-        <option value="4">4-2-3-1</option></select>
-       </div>
-
-       <button class="save">save</button>
+ 
+      <div class="terrain">
       </div>
+  
+      <div class="table">
+        <h2>Football Squad</h2>
+  
+        <div class="input-name">
+          <label for="name-squad">Name of Squad:</label>
+          <input type="text" name="name-squad" id="name-squad">
+        </div>
+  
+        <div class="input-formation">
+          <label for="formation">Formation:</label>
+          <select name="formation" id="formation">
+            <option value="">Choisir une formation:</option>
+            <option value="1">4-4-3</option>
+            <option value="2">4-4-2</option>
+            <option value="3">3-5-2</option>
+            <option value="4">4-2-3-1</option>
+          </select>
+        </div>
+  
+        <button class="save">Save</button>
+      </div>
+  
     </div>
+    <!-- <div class=" popupPlayer">
+  <p><a href="#">joueurs populaires</a></p>
+  <p><a href="#">nouveaux joueurs</a></p>
+  <p><a href="#">ajouter un joueurs</a></p>
+    </div> -->
   </section>
 
- <footer>
+  <div class="terrainPlayer">
+    <div class="GK"></div>
+    <div class="RB"></div>
+    <div class="CB-left"></div>
+    <div class=" CB-right"></div>
+    <div class=" CDM "></div>
+    <div class="CM "></div>
+    <div class="CAM"></div>
+    <div class="RW "></div>
+    <div class="CF"></div>
+    <div class="LW"></div>
+    <div></div>
+   
+  </div>
+  
+
+
+  <footer>
     <div class="footer-container">
-        <div class="footer-logo">
-            <a href="#"><img src="logo/Team Tactix.png" alt="logo de TeamTactix"></a>
-        </div>
-        <div class="footer-links">
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-social">
-            <a href="#" class="social-icon"><i class="fa-brands fa-facebook" style="color: #ffd700;"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp" style="color: #ffd700;"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-instagram" style="color: #ffd700;"></i></a>
-        </div>
+      <div class="footer-logo">
+        <a href="#"><img src="logo/Team Tactix.png" alt="logo de TeamTactix"></a>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fa-brands fa-facebook" style="color: #ffd700;"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp" style="color: #ffd700;"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-instagram" style="color: #ffd700;"></i></a>
+      </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2024 TeamTactix. All rights reserved.</p>
+      <p>&copy; 2024 TeamTactix. All rights reserved.</p>
     </div>
-</footer>
+  </footer>
 
-
+  <script src="app.js"></script>
 </body>
 
 </html>
