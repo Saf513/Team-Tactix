@@ -52,16 +52,19 @@ function affich() {
                       </div>
                   </div>
               </div>
+              <div class="nom-player">
+        <p>${data[i].name}</p>
+      </div>
               <div class="score">
                   <div class="left">
-                      <p>${data[i].diving}</p> 
-                      <p>${data[i].handlin}</p>
-                      <p>${data[i].kicking}</p>
+                      <p>${data[i].pace}</p> 
+                      <p>${data[i].shooting}</p>
+                      <p>${data[i].passing}</p>
                   </div>
                   <div class="right">
-                      <p>${data[i].reflexes}</p> 
-                      <p>${data[i].speed}</p>
-                      <p>${data[i].positioning}</p>
+                      <p>${data[i].dribbling}</p> 
+                      <p>${data[i].defending}</p>
+                      <p>${data[i].physical}</p>
                   </div>
               </div>
           </div>

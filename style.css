@@ -239,6 +239,8 @@ footer {
     height: 300px;
     width: 200px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .sup {
@@ -285,5 +287,14 @@ footer {
 }
 
 .playersAffich{
-   grid-template-columns: repeat(4,100px);
+    display: grid;
+   grid-template-columns: repeat(4,1fr);
+  
+
+}
+.nom-player{
+    background-color: #ebd767;
+    position: absolute;
+    top: 58%;
+    left: 25%;
 }
