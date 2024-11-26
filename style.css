@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0%;
     margin: 0%;
 }
@@ -9,12 +9,12 @@ img {
     border-radius: 50%;
 }
 
-nav{
+nav {
     display: flex;
     justify-content: space-around;
     background-color: black;
     align-items: center;
-  
+
 }
 
 
@@ -42,8 +42,9 @@ input {
     width: 12rem;
     border-radius: 7px;
 }
-::placeholder{
-   padding-left: 10%;
+
+::placeholder {
+    padding-left: 10%;
 }
 
 body {
@@ -65,51 +66,54 @@ body {
     left: 10px;
 }
 
-.table{
+.table {
     height: 300px;
     width: 400px;
     background-color: #ffd700;
     position: relative;
-   top: 30px;
-   right: 20px;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   align-items: center;
-   border-radius: 7px;
+    top: 30px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 7px;
 }
-.global{
+
+.global {
     display: flex;
     justify-content: space-around;
 
-   
+
 }
 
-.footer-container{
+.footer-container {
     display: flex;
 }
-a:hover{
+
+a:hover {
     display: block;
     box-shadow: 2px 2px 2px rgb(217, 236, 42);
 }
 
-h2{
-font-weight:bolder;
-font-size: 30px;
+h2 {
+    font-weight: bolder;
+    font-size: 30px;
 }
-.save{
+
+.save {
     color: #ffd700;
     background-color: black;
     font-weight: 200;
-    font-size:large;
+    font-size: large;
 }
 
 footer {
-    background-color:black;
-    color:#ffd700;
+    background-color: black;
+    color: #ffd700;
     padding: 40px 20px;
     position: relative;
-    
+
 }
 
 
@@ -138,7 +142,7 @@ footer {
 }
 
 .footer-links ul li a {
-    color:#ffd700;
+    color: #ffd700;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -146,7 +150,7 @@ footer {
 
 .footer-links ul li a:hover {
     text-decoration: underline;
-    color: #ffd700; 
+    color: #ffd700;
 }
 
 
@@ -156,7 +160,7 @@ footer {
 }
 
 .footer-social a {
-    color:#ffd700;
+    color: #ffd700;
     font-size: 24px;
     margin: 0 10px;
     transition: color 0.3s ease;
@@ -191,27 +195,95 @@ footer {
         margin-top: 20px;
     }
 }
+
 .popupPlayer {
     height: 90px;
     width: 200px;
     background-color: #ebd767;
-    display: none; 
-    position: fixed; 
-    top: 10%; 
+    display: none;
+    position: fixed;
+    top: 10%;
     left: 40%;
     z-index: 1000;
     border-radius: 7px;
     box-shadow: 2px 2px yellow;
-    
-    
+
+
 }
 
-.popupPlayer p{
+.popupPlayer p {
     margin-top: 5px;
     font-weight: bold;
     text-align: center;
-   
+
 }
-.popupPlayer a{
+
+.popupPlayer a {
     color: black;
+}
+
+.GK {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    position: absolute;
+    left: 40%;
+    bottom: 20%;
+
+}
+
+.card {
+    background: url(img/card-player\ 2.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 200px;
+    position: relative;
+}
+
+.sup {
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    gap: 10px;
+    top: 20%;
+    left: 20%;
+}
+
+.img img {
+    height: 100px;
+    width: 100px;
+ position: absolute;
+ border-radius: 50%;
+ 
+
+}
+
+.supInfo img {
+    height: 20px;
+    width: 20px;
+}
+
+.supInfo p {
+    font-weight: bolder;
+    font-size: 10px;
+    text-align: center;
+
+}
+
+.score {
+    display: flex;
+    gap: 80px;
+    position: absolute;
+    top: 67%;
+    left: 22%;
+    font-weight: bolder;
+
+}
+.supInfo{
+    margin-top: 10px;
+}
+
+.playersAffich{
+   grid-template-columns: repeat(4,100px);
 }
