@@ -7,6 +7,7 @@
   <title>TeamTactix</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="media.css">
 
 </head>
 
@@ -14,9 +15,9 @@
 
   <!-- Nav Bar -->
 
-  <nav>
+  <nav class="desktop">
     <div class="log">
-      <a href="#index.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+      <a href="players.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
     </div>
 
     <div class="search-player">
@@ -50,6 +51,26 @@
     <div class="signUp">
       <button>Sign Up</button>
     </div>
+
+  </nav>
+
+  <nav class="mobile">
+    <div class="nav-mobile">
+      <div class="log">
+        <a href="players.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+      </div>
+
+      <div class="search-player">
+        <input type="text" placeholder="Search for player ..." name="search">
+        <i class="fa-solid fa-magnifying-glass" style="color: #ffd700;"></i>
+      </div>
+
+      <div class="icon">
+        <i class="fa-solid fa-user" style="color: #ffd700;"></i>
+        <i class="fa-solid fa-bars" style="color: #ffd700;"></i>
+      </div>
+    </div>
+    </div>
   </nav>
 
   <section>
@@ -57,53 +78,90 @@
 
     <div class="global">
 
-      <div class="terrain">
-        <div class="GK"></div>
-        <div class="RB"></div>
-        <div class="CB-left"></div>
-        <div class=" CB-right"></div>
-        <div class=" CDM "></div>
-        <div class="CM "></div>
-        <div class="CAM"></div>
-        <div class="RW "></div>
-        <div class="CF"></div>
-        <div class="LW"></div>
-        <div></div>
+        <div class="global-terrain">
 
-      </div>
+          <!-- terrain ou les joueurs sont placees -->
+            <div class="terrain">
+                   <!-- les joueurs -->
+                <div class=" GK">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                </div>
 
-      <div class="table">
-        <h2>Football Squad</h2>
+                <div class="RB">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                </div>
 
-        <div class="input-name">
-          <label for="name-squad">Name of Squad:</label>
-          <input type="text" name="name-squad" id="name-squad">
-        </div>
+                <div class="CB-left">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                </div>
 
-        <div class="input-formation">
-          <label for="formation">Formation:</label>
-          <select name="formation" id="formation">
-            <option value="">Choisir une formation:</option>
-            <option value="1">4-4-3</option>
-            <option value="2">4-4-2</option>
-            <option value="3">3-5-2</option>
-            <option value="4">4-2-3-1</option>
-          </select>
-        </div>
+                <div class="CB-right">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                </div>
 
-        <button class="save">Save</button>
-      </div>
+                <div class="LB">
+                    <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                </div>
 
-    </div>
-    <!-- <div class=" popupPlayer">
-  <p><a href="#">joueurs populaires</a></p>
-  <p><a href="#">nouveaux joueurs</a></p>
-  <p><a href="#">ajouter un joueurs</a></p>
-    </div> -->
+                <div class="CML">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                </div>
+
+                <div class="CMM">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                </div>
+
+               <div class="CMR">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+               </div>
+
+               <div class="RW">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+               </div>
+    
+               <div class="LW">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+              </div>
+
+              <div class="ST">
+                   <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+              </div>
+              <!-- fin -->
+            </div>
+               
+           <div class="table">
+              <h2>Football Squad</h2>
+
+              <div class="input-name">
+                 <label for="name-squad">Name of Squad:</label>
+                  <input type="text" name="name-squad" id="name-squad">
+              </div>
+
+               <div class="input-formation">
+                   <label for="formation">Formation:</label>
+                   <select name="formation" id="formation">
+                   <option value="">Choisir une formation:</option>
+                   <option value="1">4-4-3</option>
+                   <option value="2">4-4-2</option>
+                   <option value="3">3-5-2</option>
+                  <option value="4">4-2-3-1</option>
+                 </select>
+               </div>
+
+             <button class="save">Save</button>
+           </div>
+
+     </div>
+ 
+         <div class="playersAffich"></div>
+     </div>
+
   </section>
 
-  
 
+<div class="selectionne">
+ 
+</div>
 
   <footer>
     <div class="footer-container">

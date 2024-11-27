@@ -17,7 +17,9 @@ nav {
 
 }
 
-
+.mobile{
+    display: none;
+}
 
 
 .links {
@@ -29,7 +31,7 @@ a {
     color: #ffd700;
 }
 
-button {
+input-formation button ,nav button{
     background-color: #ffd700;
     color: black;
     height: 2.188rem;
@@ -55,16 +57,7 @@ body {
 
 }
 
-.terrain {
-    height: 700px;
-    width: 600px;
-    background-image: url(img/terrain-player1.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 95%;
-    position: relative;
-    top: 20px;
-    left: 10px;
-}
+
 
 .table {
     height: 300px;
@@ -82,7 +75,8 @@ body {
 
 .global {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 1rem;
 
 
 }
@@ -180,22 +174,6 @@ footer {
 }
 
 
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-links ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-social {
-        margin-top: 20px;
-    }
-}
-
 .popupPlayer {
     height: 90px;
     width: 200px;
@@ -222,15 +200,7 @@ footer {
     color: black;
 }
 
-.GK {
-    height: 100px;
-    width: 100px;
-    background-color: red;
-    position: absolute;
-    left: 40%;
-    bottom: 20%;
 
-}
 
 .card {
     background: url(img/card-player\ 2.webp);
@@ -255,9 +225,9 @@ footer {
 .img img {
     height: 100px;
     width: 100px;
- position: absolute;
- border-radius: 50%;
- 
+    position: absolute;
+    border-radius: 50%;
+
 
 }
 
@@ -282,19 +252,201 @@ footer {
     font-weight: bolder;
 
 }
-.supInfo{
+
+.supInfo {
     margin-top: 10px;
 }
 
-.playersAffich{
+.playersAffich {
     display: grid;
-   grid-template-columns: repeat(4,1fr);
-  
-
+    grid-template-columns: repeat(4, 0.2fr);
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    
 }
-.nom-player{
+
+.nom-player {
     background-color: #ebd767;
     position: absolute;
     top: 58%;
     left: 25%;
+}
+
+.filtrage {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #ffd700;
+    color: black;
+    font-weight: bolder;
+    height: 30px;
+    width: 100px;
+    gap: 10px;
+    text-align: center;
+    border-radius: 7px;
+
+}
+
+.terrain{
+    height: 700px;
+    width: 600px;
+    background-image: url(img/terrain-player1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 95%;
+    position: relative;
+    top: 20px;
+    left: 10px;
+
+}
+
+.terrain div {
+    background: url(img/bg-player.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+}
+
+.terrain p{
+    color: #ecd44c;
+    font-weight:lighter;
+}
+
+.GK {
+   
+    position: absolute;
+    left: 43%;
+    bottom: 12%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  
+  
+}
+
+
+.CB-left {
+    position: absolute;
+    bottom: 25%;
+    left: 30%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.CB-right {
+    position: absolute;
+    bottom: 25%;
+    left: 53%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.RB {
+    position: absolute;
+    bottom: 33%;
+    left: 70%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.LB {
+    position: absolute;
+    top: 53%;
+    right: 70%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.CMM {
+
+    position: absolute;
+    top: 43%;
+    left: 42%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.CML {
+
+    position: absolute;
+    top: 35%;
+    left: 12%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.CMR{
+    position: absolute;
+    top: 35%;
+    left: 71%;  
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.LW{
+    position: absolute;
+    top: 15%;
+    left: 71%;    
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.RW{
+    position: absolute;
+    top: 15%;
+    left: 12%;   
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.ST{
+    position: absolute;
+    top: 20%;
+    left: 41%; 
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.terrain button{
+border: none;
+height: auto;
+width: auto;
+}
+.play{
+    display: grid;
+    grid-template-rows: repeat(4, 0.2fr);
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    flex-wrap: wrap;
+
+    
+}
+
+/* .global .playersAffich{
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.global-terrain{
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    
+}
+.global .playersAffich{
+    display: none;
 }
