@@ -38,7 +38,7 @@ function affich() {
     for (let i = 0; i < data.length; i++) {
 
         const playerCard = `
-          <div class="card">
+          <div class="card" onclick="selection(this)">
               <div class="sup">
                   <div class="img">
                       <p><img src="${data[i].photo}" alt="Image du joueur"></p>
@@ -82,42 +82,64 @@ affich();
 
 
 
-//filtrer les joueurs
 
-function selectionne() {
-    const terrainDivs = document.querySelectorAll('.terrain div');
+
+// function selectionne() {
+//     const terrainDivs = document.querySelectorAll('.terrain div');
+//     const playersAffich = document.querySelector(".global .playersAffich");
+//     const save = document.querySelector(".save");
+//     const cards = document.querySelectorAll('.global .playersAffich .card');
+//     let selectedDiv = null; 
+
+    
+//     terrainDivs.forEach(div => {
+//         div.addEventListener('click', () => {
+//             selectedDiv = div;
+//             playersAffich.style.display = 'block'; 
+//             playersAffich.classList.add('play');
+    
+//         });
+//     });
+
+  
+//     cards.forEach(card => {
+      
+//         card.addEventListener('click', () => {
+            
+//             if (selectedDiv) { 
+//                 selectedDiv.innerHTML = card.innerHTML; 
+                
+
+             
+//             }
+//         });
+//     });
+
+//     save.addEventListener('click', () => {
+//         playersAffich.style.display = 'none';
+//     });
+// }
+
+// selectionne();
+
+
+  const terrainDivs = document.querySelectorAll('.terrain div');
     const playersAffich = document.querySelector(".global .playersAffich");
     const save = document.querySelector(".save");
-    const cards = document.querySelectorAll('.global .playersAffich ');
-    let selectedDiv = null; // Variable pour suivre la div sélectionnée
+    const cards = document.querySelectorAll('.global .playersAffich .card');
+    let selectedDiv = null;
 
-    // Afficher l'interface des joueurs (cartes) quand on clique sur une div du terrain
+    
     terrainDivs.forEach(div => {
         div.addEventListener('click', () => {
-            selectedDiv = div; // Enregistrer la div cliquée
-            playersAffich.style.display = 'block'; // Afficher l'interface des cartes
-            playersAffich.classList.add('play');
-    
+            selectedDiv = div;
+            playersAffich.style.display = 'block';
+            playersAffich.style.flexDirection='row';
+           
         });
     });
 
-    // Ajouter un écouteur d'événements pour chaque carte
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            if (selectedDiv) { 
-                selectedDiv.innerHTML = card.innerHTML; // Remplacer le contenu de la div avec la carte
-                selectedDiv.classList.remove('card'); // Ajouter une classe pour marquer la div comme occupée
-                playersAffich.style.display = 'none'; // Cacher l'interface des cartes après la sélection
-
-                return;
-            }
-        });
-    });
-
-    // Fermer l'interface des joueurs (cartes) si l'on clique sur le bouton save
-    save.addEventListener('click', () => {
-        playersAffich.style.display = 'none';
-    });
+function selection(element){
+const card=element;
+return card;
 }
-
-selectionne();
