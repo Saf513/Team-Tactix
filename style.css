@@ -203,10 +203,10 @@ footer {
 
 
 .card {
-    background: url(img/card-player\ 2.webp);
+    background: url(img/bacground\ card.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 300px;
+    height: 250px;
     width: 200px;
     position: relative;
     display: flex;
@@ -305,100 +305,7 @@ footer {
 
 }
 
-.terrain div {
-    background: url(img/bg-player.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 100px;
-    width: 100px;
-}
 
-.terrain p{
-    color: #ecd44c;
-    font-weight:lighter;
-}
-
-.GK {
-   
-    position: absolute;
-    left: 43%;
-    bottom: 12%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-  
-  
-}
-
-
-.CB-left {
-    position: absolute;
-    bottom: 25%;
-    left: 30%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-
-.CB-right {
-    position: absolute;
-    bottom: 25%;
-    left: 53%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-
-.RB {
-    position: absolute;
-    bottom: 33%;
-    left: 70%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-
-.LB {
-    position: absolute;
-    top: 53%;
-    right: 70%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-
-.CMM {
-
-    position: absolute;
-    top: 43%;
-    left: 42%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-
-.CML {
-
-    position: absolute;
-    top: 35%;
-    left: 12%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-.CMR{
-    position: absolute;
-    top: 35%;
-    left: 71%;  
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-.LW{
-    position: absolute;
-    top: 15%;
-    left: 71%;    
     display: flex;
     justify-content: center;
     align-self: center;
@@ -419,34 +326,4 @@ footer {
     justify-content: center;
     align-self: center;
 }
-.terrain button{
-border: none;
-height: auto;
-width: auto;
-}
-.play{
-    display: grid;
-    grid-template-rows: repeat(4, 0.2fr);
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    flex-wrap: wrap;
-
-    
-}
-
-/* .global .playersAffich{
-    display: flex;
-    flex-wrap: wrap;
-} */
-
-.global-terrain{
-    display: flex;
-    justify-content: center;
-    gap: 10rem;
-    
-}
-.global .playersAffich{
-    display: none;
-}
+.

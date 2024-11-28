@@ -1,0 +1,296 @@
+@media (max-width: 768px) {
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-social {
+        margin-top: 20px;
+    }
+
+    .mobile {
+        display: block;
+        flex-direction: row;
+
+    }
+
+    .global {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .nav-mobile {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links ul li {
+        margin: 0.5rem 0;
+    }
+
+    .footer-social a {
+        font-size: 1.25rem;
+    }
+
+    .global {
+
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .table {
+        height: 15rem;
+        width: 20rem;
+        margin-bottom: 3rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        width: 15rem;
+    }
+
+    .terrain {
+        height: 30rem;
+        width: 30rem;
+    }
+
+    .global-terrain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .terrain div {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    .terrain div i {
+        font-size: 1.2rem;
+        position: absolute;
+        top: 1rem;
+    }
+
+    .save {
+        width: 5rem;
+        height: 2rem;
+    }
+
+    input-formation button,
+    nav button {
+        height: 2rem;
+        width: 4rem;
+    }
+
+    .popupPlayer {
+        height: 5rem;
+        width: 12rem;
+    }
+
+    input {
+        width: 10rem;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+
+    /* Mobile layout */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .global {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+
+    }
+
+    .global-terrain {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .card {
+        width: 12rem;
+    }
+
+    .terrain {
+        height: 24rem;
+        width: 20rem;
+        margin-right: 1.1rem;
+    }
+
+    .terrain div {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+
+    .terrain div i {
+        font-size: 1rem;
+    }
+
+    .save {
+        width: 4.5rem;
+        height: 1.5rem;
+    }
+
+    input-formation button,
+    nav button {
+        height: 2rem;
+        width: 4rem;
+    }
+
+    .popupPlayer {
+        height: 5rem;
+        width: 10rem;
+    }
+
+    input {
+        width: 9rem;
+    }
+
+    .table {
+        height: 15rem;
+        width: 20rem;
+        margin-bottom: 3rem;
+        margin-left: 2.5rem;
+
+    }
+   
+}
+@media ( min-width:781px) and (max-width: 1090px) {
+    /* Réduire la taille des images */
+    img {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    /* Changer la disposition du footer pour les écrans moyens */
+    .footer-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links ul li {
+        margin: 0.5rem 0;
+    }
+
+    .footer-social a {
+        font-size: 1.25rem;
+    }
+    .global {
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .table {
+        height: 16rem;
+        width: 20rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    /* Ajuster la taille des cartes */
+    .card {
+        width: 16rem;
+    }
+
+    .terrain {
+        height: 36rem;
+        width: 30rem;
+    }
+
+    .global-terrain {
+        
+        gap: 4rem;
+    }
+
+    .terrain div {
+        height: 5.5rem;
+        width: 5.5rem;
+    }
+    .terrain div i {
+      font-size: 1.8rem;
+      position: absolute;
+      top: 1rem;
+      
+    }
+    .save {
+        width: 5.5rem;
+        height: 2rem;
+    }
+
+    /* Ajuster la taille des boutons */
+    input-formation button, nav button {
+        height: 2.125rem;
+        width: 4.75rem;
+    }
+
+    /* Ajuster la taille de la popup */
+    .popupPlayer {
+        height: 5.25rem;
+        width: 11.25rem;
+    }
+
+    /* Ajuster la taille des champs de saisie */
+    input {
+        width: 11rem;
+    }
+}
+
+    

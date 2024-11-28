@@ -32,13 +32,14 @@ window.onload = function () {
 
 
 function affich() {
-    const playersAffich = document.querySelector(".playersAffich");
+    const playersAffich = document.querySelector(".playersAffich ");
     playersAffich.innerHTML = "";
 
     for (let i = 0; i < data.length; i++) {
 
         const playerCard = `
-          <div class="card" onclick="selection(this)">
+        <div >
+          <div class="card pos"  >
               <div class="sup">
                   <div class="img">
                       <p><img src="${data[i].photo}" alt="Image du joueur"></p>
@@ -52,7 +53,8 @@ function affich() {
                       </div>
                   </div>
               </div>
-              <div class="nom-player">
+              <div class="inf">
+        <div class="nom-player">
         <p>${data[i].name}</p>
       </div>
               <div class="score">
@@ -68,6 +70,8 @@ function affich() {
                   </div>
               </div>
           </div>
+           
+</div>
       `;
 
 
@@ -82,64 +86,122 @@ affich();
 
 
 
+// function selected() {
+//     const terrainDivs = document.querySelectorAll('.terrain div'); 
+//     const playersAffich = document.querySelector(".global .playersAffich"); 
 
+//     terrainDivs.forEach(terrainDiv => {
+//         terrainDiv.addEventListener('click', () => {
+//             playersAffich.style.display = 'block';  
+        
+//             const cards = document.querySelectorAll('.card');
+//             cards.forEach(card => {
+//                 card.addEventListener('click', () => {
+//                     const selectedCard = card.cloneNode(true);
 
-// function selectionne() {
-//     const terrainDivs = document.querySelectorAll('.terrain div');
-//     const playersAffich = document.querySelector(".global .playersAffich");
-//     const save = document.querySelector(".save");
-//     const cards = document.querySelectorAll('.global .playersAffich .card');
-//     let selectedDiv = null; 
+//                     const selectedContainer = document.querySelector('.selected-container');
+//                     selectedContainer.innerHTML = '';  // Réinitialiser le conteneur
+//                     selectedContainer.appendChild(selectedCard);  // Ajouter la carte sélectionnée dans le conteneur
 
-    
-//     terrainDivs.forEach(div => {
-//         div.addEventListener('click', () => {
-//             selectedDiv = div;
-//             playersAffich.style.display = 'block'; 
-//             playersAffich.classList.add('play');
-    
+//                     // Masquer les cartes après sélection
+//                     playersAffich.style.display = 'none';
+//                 });
+//             });
 //         });
-//     });
-
-  
-//     cards.forEach(card => {
-      
-//         card.addEventListener('click', () => {
-            
-//             if (selectedDiv) { 
-//                 selectedDiv.innerHTML = card.innerHTML; 
-                
-
-             
-//             }
-//         });
-//     });
-
-//     save.addEventListener('click', () => {
-//         playersAffich.style.display = 'none';
 //     });
 // }
 
-// selectionne();
-
-
-  const terrainDivs = document.querySelectorAll('.terrain div');
-    const playersAffich = document.querySelector(".global .playersAffich");
-    const save = document.querySelector(".save");
-    const cards = document.querySelectorAll('.global .playersAffich .card');
-    let selectedDiv = null;
-
+// // Appeler la fonction pour initialiser la sélection des cartes
+// selected();
+// function selected() {
+//     let selectedTerrainDiv = null; // Variable pour garder la référence à la div du terrain sélectionnée
     
-    terrainDivs.forEach(div => {
-        div.addEventListener('click', () => {
-            selectedDiv = div;
+//     // Sélectionner toutes les div du terrain
+//     const terrainDivs = document.querySelectorAll('.terrain div');
+//     const playersAffich = document.querySelector(".global .playersAffich");  // Zone des cartes de joueurs
+
+//     // Ajouter un événement de clic sur chaque div du terrain
+//     terrainDivs.forEach(terrainDiv => {
+//         terrainDiv.addEventListener('click', () => {
+//             // Lorsque l'on clique sur une div du terrain, enregistrer cette div comme sélectionnée
+//             selectedTerrainDiv = terrainDiv;  // Stocker la div du terrain sélectionnée
+
+//             // Afficher les cartes de joueurs
+//             playersAffich.style.display = 'block';
+//         });
+//     });
+
+//     // Ajouter un événement de clic sur les cartes des joueurs
+//     const cards = document.querySelectorAll('.card');
+//     cards.forEach(card => {
+//         card.addEventListener('click', () => {
+//             // Vérifier si une div du terrain a été sélectionnée
+//             if (selectedTerrainDiv) {
+//                 // Créer une copie de la carte sélectionnée
+//                 const selectedCard = card.cloneNode(true);
+                
+//                 // Ajouter la carte sélectionnée dans la div du terrain sélectionnée
+//                 selectedTerrainDiv.innerHTML = ''; // Réinitialiser la div du terrain
+//                 selectedTerrainDiv.appendChild(selectedCard); // Ajouter la carte dans la div du terrain
+
+//                 // Masquer l'affichage des joueurs après sélection
+//                 playersAffich.style.display = 'none';
+//             } else {
+//                 alert("Veuillez d'abord sélectionner une zone sur le terrain !");  // Alerte si aucune div du terrain n'est sélectionnée
+//             }
+//         });
+//     });
+// }
+
+// // Appeler la fonction pour initialiser la sélection des cartes
+// selected();
+
+
+function selected() {
+    let selectedTerrainDiv = null; // Variable pour garder la référence à la div du terrain sélectionnée
+    
+    // Sélectionner toutes les div du terrain
+    const terrainDivs = document.querySelectorAll('.terrain div');
+    const playersAffich = document.querySelector(".global .playersAffich");  // Zone des cartes de joueurs
+
+    // Ajouter un événement de clic sur chaque div du terrain
+    terrainDivs.forEach(terrainDiv => {
+        terrainDiv.addEventListener('click', () => {
+            // Lorsque l'on clique sur une div du terrain, enregistrer cette div comme sélectionnée
+            selectedTerrainDiv = terrainDiv;  // Stocker la div du terrain sélectionnée
+
+            // Afficher les cartes de joueurs
             playersAffich.style.display = 'block';
-            playersAffich.style.flexDirection='row';
-           
         });
     });
 
-function selection(element){
-const card=element;
-return card;
+    // Ajouter un événement de clic sur les cartes des joueurs
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Vérifier si une div du terrain a été sélectionnée
+            if (selectedTerrainDiv) {
+                // Créer une copie de l'image de la carte sélectionnée
+                const cardImage = card.querySelector('img').cloneNode(true);  // Sélectionner l'image de la carte et la cloner
+                
+                // Vider le contenu de la div du terrain sélectionnée
+                selectedTerrainDiv.innerHTML = ''; // Réinitialiser le contenu de la div du terrain
+                
+                // Ajouter l'image clonée dans la div du terrain
+                selectedTerrainDiv.appendChild(cardImage); // Remplacer le contenu par l'image du joueur
+
+                // Masquer l'affichage des cartes après sélection
+                playersAffich.style.display = 'none';
+            } else {
+                alert("Veuillez d'abord sélectionner une zone sur le terrain !");  // Alerte si aucune div du terrain n'est sélectionnée
+            }
+        });
+    });
 }
+
+// Appeler la fonction pour initialiser la sélection des cartes
+selected();
+
+
+
+

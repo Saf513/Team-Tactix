@@ -1,0 +1,466 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+body {
+
+    background: rgba(0, 0, 0, 0.5) url(img/terran-bj.jpg) no-repeat;
+    background-size: cover;
+
+
+}
+img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    align-items: center;
+
+}
+.mobile{
+    display: none;
+}
+.links {
+    display: flex;
+}
+a {
+    text-decoration: none;
+    color: #ffd700;
+}
+.footer-container {
+    display: flex;
+}
+a:hover {
+    display: block;
+    box-shadow: 2px 2px 2px rgb(217, 236, 42);
+}
+footer {
+    background-color: black;
+    color: #ffd700;
+    padding: 40px 20px;
+    position: relative;
+
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 80px;
+    width: 80px;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 0 15px;
+}
+
+.footer-links ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+
+.footer-social {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-social a {
+    color: #ffd700;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #ffd700;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+::placeholder {
+    padding-left: 10%;
+}
+.global {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.table {
+    height: 300px;
+    width: 400px;
+    background-color: #ffd700;
+    position: relative;
+    top: 30px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 7px;
+}
+h2 {
+    font-weight: bolder;
+    font-size: 30px;
+}
+.save {
+    color: #ffd700;
+    background-color: black;
+    font-weight: 200;
+    font-size: large;
+    border-radius: 7px;
+    width: 80px;
+    height: 30px;
+}
+input-formation button ,nav button{
+    background-color: #ffd700;
+    color: black;
+    height: 2.188rem;
+    width: 5rem;
+    border-radius: 7px;
+}
+input {
+    height: 1.5rem;
+    width: 12rem;
+    border-radius: 7px;
+}
+.popupPlayer {
+    height: 90px;
+    width: 200px;
+    background-color: #ebd767;
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    z-index: 1000;
+    border-radius: 7px;
+    box-shadow: 2px 2px yellow;
+    padding-bottom: 10px;
+}
+.popupPlayer p {
+    margin-top: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+.popupPlayer a {
+    color: black;
+}
+.terrain{
+    height: 700px;
+    width: 600px;
+    background-image: url(img/terrain-player1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 95%;
+    position: relative;
+    top: 20px;
+    left: 10px;
+
+}
+.global-terrain{
+    display: flex;
+    justify-content: center;
+    gap: 10rem; 
+}
+.terrain div {
+    background:url(img/bg-player.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+}
+.GK {
+   
+    position: absolute;
+    left: 43%;
+    bottom: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+  
+}
+
+
+.CB-left {
+    position: absolute;
+    bottom: 25%;
+    left: 30%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.CB-right {
+    position: absolute;
+    bottom: 25%;
+    left: 53%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.RB {
+    position: absolute;
+    bottom: 33%;
+    left: 70%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.LB {
+    position: absolute;
+    top: 53%;
+    right: 70%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.CMM {
+
+    position: absolute;
+    top: 43%;
+    left: 42%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.CML {
+
+    position: absolute;
+    top: 35%;
+    left: 12%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.CMR{
+    position: absolute;
+    top: 35%;
+    left: 71%;  
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.LW{
+    position: absolute;
+    top: 15%;
+    left: 71%;    
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.RW{
+    position: absolute;
+    top: 15%;
+    left: 12%;   
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.ST{
+    position: absolute;
+    top: 20%;
+    left: 41%; 
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+/* .card{
+        background: url(img/bacground\ card.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 250px;
+        width: 200px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+}
+.sup {
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    gap: 10px;
+    top: 20%;
+    left: 20%;
+}
+.img img {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border-radius: 50%;
+}
+.supInfo img {
+    height: 20px;
+    width: 20px;
+}
+
+.supInfo p {
+    font-weight: bolder;
+    font-size: 10px;
+    text-align: center;
+
+}
+
+.score {
+    display: flex;
+    gap: 80px;
+    position: relative;
+    top: 67%;
+    left: 22%;
+    font-weight: bolder;
+
+}
+
+.supInfo {
+    margin-top: 10px;
+}
+
+.playersAffich {
+    display: grid;
+    grid-template-columns: repeat(4, 0.2fr);
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    
+}
+
+.nom-player {
+    background-color: #ebd767;
+    position: relative;
+    top: 58%;
+    left: 25%;
+}
+ */
+.global .playersAffich {
+    /* display: grid;
+    grid-template-columns: repeat(4, 0.2fr); */
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+ .card {
+    width: 300px; /* Set width for each card */
+    margin: 15px; /* Add space between cards */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    overflow: hidden; /* Prevents content from spilling out */
+    cursor: pointer; /* Change cursor on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition effect */   
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Top section of the card */
+.sup {
+    display: flex; /* Use flexbox for positioning */
+    padding: 10px;
+    background-color: #f4f4f4; /* Light background */
+}
+
+.img img {
+    width: 60px; /* Image width */
+    height: 60px; /* Image height */
+    border-radius: 50%; /* Round the image */
+    object-fit: cover; /* Ensures image fits well */
+}
+
+.supInfo {
+    margin-left: 15px; /* Space between image and info */
+    flex: 1; /* Allow the info to take remaining space */
+}
+
+.supInfo p {
+    margin: 5px 0; /* Add margin between text elements */
+    font-size: 14px; /* Set font size */
+}
+
+/* Flags and logos container */
+.drapeau {
+    display: flex;
+    justify-content: space-between; /* Align flags and logos to the sides */
+}
+
+.drapeau img {
+    width: 20px; /* Resize flags and logos */
+    height: 20px;
+}
+
+/* Player name styling */
+.nom-player {
+    padding: 10px;
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    text-align: center; /* Center the name */
+    font-size: 16px;
+    font-weight: bold;
+  
+}
+
+/* Score section styling */
+.score {
+    display: flex;
+    justify-content: space-between; /* Spread out left and right sections */
+    padding: 10px;
+    background-color: #e8e8e8;
+     /* Light gray background */
+}
+
+.score .left, .score .right {
+    width: 45%; /* Make sure both sides have equal width */
+}
+
+.score p {
+    margin: 5px 0; /* Add space between each stat */
+    font-size: 14px;
+    text-align: center; /* Center the stats */
+}
+.inf{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
