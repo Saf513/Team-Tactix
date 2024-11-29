@@ -6,15 +6,6 @@ const divplayers = document.querySelector('.div-players');
 players.addEventListener("mouseenter", () => {
     popupPlayer.style.display = "block";
 });
-// players.addEventListener("mouseleave", () => {
-//     popupPlayer.style.display = "none"
-// });
-
-// popupPlayer.addEventListener("mouseleave", () => {
-//     popupPlayer.style.display = "none"
-// });
-
-//consommer le fichier json qui contient les informations des joueurs
 const api = "players.json";
 async function playersAPI() {
     const respond = await fetch(api);
@@ -59,14 +50,16 @@ function affich() {
       </div>
               <div class="score">
                   <div class="left">
-                      <p>${data[i].pace}</p> 
-                      <p>${data[i].shooting}</p>
-                      <p>${data[i].passing}</p>
+                      <p>${data[i].pace + "  "}<span>PAC</span></p> 
+                      <p>${data[i].shooting+"   "}<span>SHOT</span></p>
+                      <p class="supprimer"><i class="fa-solid fa-trash" style="color: #00000;"></i></p>
+        
                   </div>
                   <div class="right">
-                      <p>${data[i].dribbling}</p> 
-                      <p>${data[i].defending}</p>
-                      <p>${data[i].physical}</p>
+                      <p>${data[i].dribbling+"  "} <span>DRI</span></p> 
+                      <p>${data[i].defending+" " }<span>DEF</span></p>
+                      <p class="editer"><i class="fa-solid fa-gears" style="color: #00000;"></i></p>
+    
                   </div>
               </div>
           </div>
@@ -85,80 +78,8 @@ function affich() {
 affich();
 
 
-
-// function selected() {
-//     const terrainDivs = document.querySelectorAll('.terrain div'); 
-//     const playersAffich = document.querySelector(".global .playersAffich"); 
-
-//     terrainDivs.forEach(terrainDiv => {
-//         terrainDiv.addEventListener('click', () => {
-//             playersAffich.style.display = 'block';  
-        
-//             const cards = document.querySelectorAll('.card');
-//             cards.forEach(card => {
-//                 card.addEventListener('click', () => {
-//                     const selectedCard = card.cloneNode(true);
-
-//                     const selectedContainer = document.querySelector('.selected-container');
-//                     selectedContainer.innerHTML = '';  // Réinitialiser le conteneur
-//                     selectedContainer.appendChild(selectedCard);  // Ajouter la carte sélectionnée dans le conteneur
-
-//                     // Masquer les cartes après sélection
-//                     playersAffich.style.display = 'none';
-//                 });
-//             });
-//         });
-//     });
-// }
-
-// // Appeler la fonction pour initialiser la sélection des cartes
-// selected();
-// function selected() {
-//     let selectedTerrainDiv = null; // Variable pour garder la référence à la div du terrain sélectionnée
-    
-//     // Sélectionner toutes les div du terrain
-//     const terrainDivs = document.querySelectorAll('.terrain div');
-//     const playersAffich = document.querySelector(".global .playersAffich");  // Zone des cartes de joueurs
-
-//     // Ajouter un événement de clic sur chaque div du terrain
-//     terrainDivs.forEach(terrainDiv => {
-//         terrainDiv.addEventListener('click', () => {
-//             // Lorsque l'on clique sur une div du terrain, enregistrer cette div comme sélectionnée
-//             selectedTerrainDiv = terrainDiv;  // Stocker la div du terrain sélectionnée
-
-//             // Afficher les cartes de joueurs
-//             playersAffich.style.display = 'block';
-//         });
-//     });
-
-//     // Ajouter un événement de clic sur les cartes des joueurs
-//     const cards = document.querySelectorAll('.card');
-//     cards.forEach(card => {
-//         card.addEventListener('click', () => {
-//             // Vérifier si une div du terrain a été sélectionnée
-//             if (selectedTerrainDiv) {
-//                 // Créer une copie de la carte sélectionnée
-//                 const selectedCard = card.cloneNode(true);
-                
-//                 // Ajouter la carte sélectionnée dans la div du terrain sélectionnée
-//                 selectedTerrainDiv.innerHTML = ''; // Réinitialiser la div du terrain
-//                 selectedTerrainDiv.appendChild(selectedCard); // Ajouter la carte dans la div du terrain
-
-//                 // Masquer l'affichage des joueurs après sélection
-//                 playersAffich.style.display = 'none';
-//             } else {
-//                 alert("Veuillez d'abord sélectionner une zone sur le terrain !");  // Alerte si aucune div du terrain n'est sélectionnée
-//             }
-//         });
-//     });
-// }
-
-// // Appeler la fonction pour initialiser la sélection des cartes
-// selected();
-
-
 function selected() {
-    let selectedTerrainDiv = null; // Variable pour garder la référence à la div du terrain sélectionnée
+    let selectedTerrainDiv = null; 
     
     // Sélectionner toutes les div du terrain
     const terrainDivs = document.querySelectorAll('.terrain div');
@@ -182,7 +103,7 @@ function selected() {
             // Vérifier si une div du terrain a été sélectionnée
             if (selectedTerrainDiv) {
                 // Créer une copie de l'image de la carte sélectionnée
-                const cardImage = card.querySelector('img').cloneNode(true);  // Sélectionner l'image de la carte et la cloner
+                const cardImage = card.querySelector('img').cloneNode(true);  
                 
                 // Vider le contenu de la div du terrain sélectionnée
                 selectedTerrainDiv.innerHTML = ''; // Réinitialiser le contenu de la div du terrain
@@ -201,6 +122,14 @@ function selected() {
 
 // Appeler la fonction pour initialiser la sélection des cartes
 selected();
+
+//le hover de modifier et supprimer
+
+const supprimer=document.querySelector('.supprimer');
+const suppHover=document.querySelector('.supprimer span');
+supprimer.addEventListener('mouseenter',()=>{
+    suppHover.style.display='block';
+})
 
 
 

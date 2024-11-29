@@ -184,13 +184,13 @@ input {
     position: relative;
     top: 20px;
     left: 10px;
-
 }
 .global-terrain{
     display: flex;
     justify-content: center;
     gap: 10rem; 
 }
+
 .terrain div {
     background:url(img/bg-player.png);
     background-repeat: no-repeat;
@@ -199,16 +199,13 @@ input {
     width: 100px;
 }
 .GK {
-   
     position: absolute;
     left: 43%;
     bottom: 12%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-  
-  
+    flex-direction: column;  
 }
 
 
@@ -249,7 +246,6 @@ input {
 }
 
 .CMM {
-
     position: absolute;
     top: 43%;
     left: 42%;
@@ -259,7 +255,6 @@ input {
 }
 
 .CML {
-
     position: absolute;
     top: 35%;
     left: 12%;
@@ -300,75 +295,7 @@ input {
     align-self: center;
 }
 
-/* .card{
-        background: url(img/bacground\ card.webp);
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 250px;
-        width: 200px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-}
-.sup {
-    display: flex;
-    flex-direction: row-reverse;
-    position: absolute;
-    gap: 10px;
-    top: 20%;
-    left: 20%;
-}
-.img img {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    border-radius: 50%;
-}
-.supInfo img {
-    height: 20px;
-    width: 20px;
-}
 
-.supInfo p {
-    font-weight: bolder;
-    font-size: 10px;
-    text-align: center;
-
-}
-
-.score {
-    display: flex;
-    gap: 80px;
-    position: relative;
-    top: 67%;
-    left: 22%;
-    font-weight: bolder;
-
-}
-
-.supInfo {
-    margin-top: 10px;
-}
-
-.playersAffich {
-    display: grid;
-    grid-template-columns: repeat(4, 0.2fr);
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    
-}
-
-.nom-player {
-    background-color: #ebd767;
-    position: relative;
-    top: 58%;
-    left: 25%;
-}
- */
 .global .playersAffich {
     /* display: grid;
     grid-template-columns: repeat(4, 0.2fr); */
@@ -382,13 +309,13 @@ input {
     
 }
  .card {
-    width: 300px; /* Set width for each card */
-    margin: 15px; /* Add space between cards */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    overflow: hidden; /* Prevents content from spilling out */
-    cursor: pointer; /* Change cursor on hover */
-    transition: transform 0.3s ease-in-out; /* Smooth transition effect */   
+    width: 300px; 
+    margin: 15px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+    cursor: pointer; 
+    transition: transform 0.3s ease-in-out;  
 }
 
 .card:hover {
