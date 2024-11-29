@@ -304,6 +304,7 @@ input {
     margin-top: 10%;
     margin-bottom: 10%;
     display: none;
+  display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     
@@ -390,4 +391,9 @@ input {
     display: flex;
     flex-direction: column;
     width: 300px;
+}
+.playerSelected{
+    height: 500px;
+    width: 500px;
+    background-color: chocolate;
 }

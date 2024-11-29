@@ -35,7 +35,7 @@
         </div>
 
         <div>
-            <a href="#">Squads</a>
+            <a href="squad.html">Squads</a>
         </div>
 
         <div class="news">
@@ -73,8 +73,6 @@
 
     <!-- le contenu -->
     <section>
-
-
         <div class="global">
     
             <div class="global-terrain">
@@ -84,17 +82,18 @@
                        <!-- les joueurs -->
                     <div class=" GK">
                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                
                     </div>
     
                     <div class="RB">
                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
                     </div>
     
-                    <div class="CB-left">
+                    <div class="CB-left CB">
                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
                     </div>
     
-                    <div class="CB-right">
+                    <div class="CB-right CB">
                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
                     </div>
     
@@ -102,15 +101,15 @@
                         <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
                     </div>
     
-                    <div class="CML">
+                    <div class="CML CM">
                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
                     </div>
     
-                    <div class="CMM">
+                    <div class="CMM CM">
                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
                     </div>
     
-                   <div class="CMR">
+                   <div class="CMR CM">
                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
                    </div>
     
@@ -132,21 +131,21 @@
                   <h2>Football Squad</h2>
     
                   <div class="input-name">
-                     <label for="name-squad">Name of Squad:</label>
+                     <label for="name-squad" >Name of Squad:</label>
                       <input type="text" name="name-squad" id="name-squad">
                   </div>
-    
+               
                    <div class="input-formation">
                        <label for="formation">Formation:</label>
                        <select name="formation" id="formation">
-                       <option value="">Choisir une formation:</option>
+                       <option value="0">Choisir une formation:</option>
                        <option value="1">4-4-3</option>
                        <option value="2">4-4-2</option>
                        <option value="3">3-5-2</option>
                      </select>
                    </div>
     
-                 <button class="save">Save</button>
+                 <button class="save" onclick="submit()">Save</button>
                </div>
     
          </div>
@@ -154,6 +153,8 @@
              <div class="playersAffich">
     
              </div>
+             
+-
          </div>
     
       </section>

@@ -3,6 +3,20 @@ const popupPlayer = document.querySelector('.popupPlayer');
 const global = document.querySelector('.global');
 const divplayers = document.querySelector('.div-players');
 
+
+let squad;
+let squadData = {
+    squadName: '',
+    formation: '',
+    positions: {}
+};
+if (localStorage.SquadData != null) {
+    squad = JSON.parse(localStorage.SquadData);
+}
+else {
+    squad = [];
+}
+
 players.addEventListener("mouseenter", () => {
     popupPlayer.style.display = "block";
 });
@@ -19,12 +33,13 @@ window.onload = function () {
     playersAPI();
 
 
+
 };
 
 
 function affich() {
-    const playersAffich = document.querySelector(".playersAffich ");
-    playersAffich.innerHTML = "";
+    let playersAffich = document.querySelector(".playersAffich ");
+    // playersAffich.innerHTML = ``;
 
     for (let i = 0; i < data.length; i++) {
 
@@ -51,13 +66,13 @@ function affich() {
               <div class="score">
                   <div class="left">
                       <p>${data[i].pace + "  "}<span>PAC</span></p> 
-                      <p>${data[i].shooting+"   "}<span>SHOT</span></p>
+                      <p>${data[i].shooting + "   "}<span>SHOT</span></p>
                       <p class="supprimer"><i class="fa-solid fa-trash" style="color: #00000;"></i></p>
         
                   </div>
                   <div class="right">
-                      <p>${data[i].dribbling+"  "} <span>DRI</span></p> 
-                      <p>${data[i].defending+" " }<span>DEF</span></p>
+                      <p>${data[i].dribbling + "  "} <span>DRI</span></p> 
+                      <p>${data[i].defending + " "}<span>DEF</span></p>
                       <p class="editer"><i class="fa-solid fa-gears" style="color: #00000;"></i></p>
     
                   </div>
@@ -79,58 +94,87 @@ affich();
 
 
 function selected() {
-    let selectedTerrainDiv = null; 
-    
-    // Sélectionner toutes les div du terrain
     const terrainDivs = document.querySelectorAll('.terrain div');
-    const playersAffich = document.querySelector(".global .playersAffich");  // Zone des cartes de joueurs
+    const playersAffich = document.querySelector(".global .playersAffich");
+    const playersAffih = document.querySelector(".global .playersAffich");
+    const cards = document.querySelectorAll('.card');
 
-    // Ajouter un événement de clic sur chaque div du terrain
+    let selectedTerrainDiv = null;
+
     terrainDivs.forEach(terrainDiv => {
         terrainDiv.addEventListener('click', () => {
-            // Lorsque l'on clique sur une div du terrain, enregistrer cette div comme sélectionnée
-            selectedTerrainDiv = terrainDiv;  // Stocker la div du terrain sélectionnée
 
-            // Afficher les cartes de joueurs
-            playersAffich.style.display = 'block';
+            selectedTerrainDiv = terrainDiv;
+            playersAffich.style.display = 'grid';
+
         });
     });
 
-    // Ajouter un événement de clic sur les cartes des joueurs
-    const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            // Vérifier si une div du terrain a été sélectionnée
             if (selectedTerrainDiv) {
-                // Créer une copie de l'image de la carte sélectionnée
-                const cardImage = card.querySelector('img').cloneNode(true);  
-                
-                // Vider le contenu de la div du terrain sélectionnée
-                selectedTerrainDiv.innerHTML = ''; // Réinitialiser le contenu de la div du terrain
-                
-                // Ajouter l'image clonée dans la div du terrain
-                selectedTerrainDiv.appendChild(cardImage); // Remplacer le contenu par l'image du joueur
+                const position = selectedTerrainDiv.classList.value;
+                let joueurs = data.filter(joueur => joueur.position === position);
+                if (!squadData.positions[position]) {
+                    squadData.positions[position] = [];
+                }
 
-                // Masquer l'affichage des cartes après sélection
+                //REMPLIR SQUADDATA
+                squadData.positions[position] = card.querySelector('.nom-player p').textContent;
+
+
+                const cardImage = card.querySelector('img').cloneNode(true);
+                selectedTerrainDiv.innerHTML = '';
+                selectedTerrainDiv.appendChild(cardImage);
                 playersAffich.style.display = 'none';
             } else {
-                alert("Veuillez d'abord sélectionner une zone sur le terrain !");  // Alerte si aucune div du terrain n'est sélectionnée
+                alert("Veuillez d'abord sélectionner une zone sur le terrain !");
             }
         });
+
     });
+
+    terrainDivs.forEach(
+        div=>{
+            div.addEventListener('click',()=>{
+             div.innerHTML='';
+             div.innerHTML=` <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>`;
+        })
+        }
+    )
 }
 
-// Appeler la fonction pour initialiser la sélection des cartes
 selected();
 
-//le hover de modifier et supprimer
+//la fonction de submit le squad
+function submit() {
 
-const supprimer=document.querySelector('.supprimer');
-const suppHover=document.querySelector('.supprimer span');
-supprimer.addEventListener('mouseenter',()=>{
-    suppHover.style.display='block';
-})
+    let formation = document.querySelector("#formation").value;
+    let nameSquad = document.querySelector("#name-squad").value;
+    let cont = Object.values(squadData.positions).length;
+    if (nameSquad.trim() == "") {
+        alert("Veuiller remplir le nom de squad!");
+    }
+    else if (formation == 0) {
+        alert("veuillez choisir une formation");
+    }
 
+    else if (cont != 11) {
+        alert("veuiller remplir tout les positions!")
+    }
+    squadData.squadName = nameSquad;
+    squadData.formation = formation;
+    squad.push(squadData);
+    localStorage.setItem('SquadData', JSON.stringify(squad));
+    squadData = {};
+    document.querySelector("#formation").value = 0;
+    document.querySelector("#name-squad").value = "";
+}
 
+//AFFICHER LES SQUAD
 
-
+function affichSquad(){
+  
+}
+affichSquad();
+console.log(squad);
