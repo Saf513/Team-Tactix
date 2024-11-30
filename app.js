@@ -37,7 +37,7 @@ window.onload = function () {
 
 function affich() {
     let playersAffich = document.querySelector(".playersAffich ");
-    // playersAffich.innerHTML = ``;
+    playersAffich.innerHTML = ``;
     for (let i = 0; i < data.length; i++) {
 
         const playerCard = `
@@ -203,17 +203,16 @@ window.addEventListener('click', (e) => {
 
 //LA FONCTION DE RECHERCHE
 function recherche() {
-    const searchTerm = document.querySelector('#search-player').value.toLowerCase();  
-    console.log(searchTerm)
+    const searchTerm = document.querySelector('input[name="search"]').value.toLowerCase();  
     const players = document.querySelectorAll(".player-item");  // Sélectionner toutes les entrées de la liste de joueurs
     
     // Parcourir chaque élément de la liste de joueurs
-    // players.forEach(player => {
-    //     const playerName = player.textContent.toLowerCase();  // Nom du joueur en minuscules pour comparaison
-    //     if (playerName.includes(searchTerm)) {
-    //         player.style.display = "";  // Affiche l'élément si le nom contient le texte recherché
-    //     } else {
-    //         player.style.display = "none";  // Cache l'élément si le nom ne contient pas le texte recherché
-    //     }
-    // });
+    players.forEach(player => {
+        const playerName = player.textContent.toLowerCase();  // Nom du joueur en minuscules pour comparaison
+        if (playerName.includes(searchTerm)) {
+            player.style.display = "";  // Affiche l'élément si le nom contient le texte recherché
+        } else {
+            player.style.display = "none";  // Cache l'élément si le nom ne contient pas le texte recherché
+        }
+    });
 }

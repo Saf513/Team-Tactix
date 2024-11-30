@@ -21,7 +21,11 @@ nav {
     display: none;
 }
 
-
+.global-players{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
 .links {
     display: flex;
 }
@@ -164,6 +168,11 @@ footer {
     color: black;
 }
 
+.signUp:hover {
+    background-color: #BDB76B; 
+    transform: scale(1.1); 
+    box-shadow: 0 4px 8px #BDB76B; 
+}
 
 
 .card {
@@ -226,10 +235,9 @@ footer {
 
 .playersAffich {
     display: grid;
-    grid-template-columns: repeat(4, 0.2fr);
-    justify-content: center;
-    align-items: center;
-    margin-top: 8%;
+    grid-template-columns: repeat(4, 1fr);
+place-items: center;
+    margin-top: 3%;
     margin-bottom: 8%;
 
 
@@ -315,7 +323,60 @@ margin-left: 0.2rem;
 .mobile-menu.active {
     display: block;
 }
+.btn:hover {
+    transform: rotate(10deg); 
+    transition: transform 0.3s ease-in; 
+}
 
+.btn p{
+    text-align: center;
+    margin-top: 0.5rem;
+}
+#search-player {
+    padding: 8px 30px 8px 10px;
+    border: 2px solid #ffd700;
+    border-radius: 25px;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    width: 100%; 
+    transition: all 0.3s ease-in-out; 
+    margin-top: 1.5rem;
+}
+
+
+.bar-search {
+    position: relative;
+    left: 14rem;
+    bottom:2rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+
+.bar-search:hover {
+    transform: scale(1.2); 
+    color: #BDB76B;  
+    opacity: 0.8;  
+}
+
+#search-player:focus {
+    border-color: #BDB76B;  
+    transform: scale(1.05); 
+}
+
+
+#search-player:not(:placeholder-shown) + .bar-search {
+    transform: scale(1.1); 
+    color : #BDB76B;  
+}
+
+#search-player:focus {
+    transition: all 0.3s ease-in-out; 
+} 
+.log :hover{
+box-shadow: none;
+}
 @media (max-width: 768px) {
 
     /* Réduire la taille des images */
@@ -427,9 +488,12 @@ margin-left: 0.2rem;
     }
 
     .score {
-        gap: 30px;
-        top: 60%;
+        gap: 25px;
+        position: relative;
+        top: 10rem;
         left: 15%;
+        bottom: 2.5rem;
+        margin-bottom: 1rem;
     }
 
     .supInfo {
@@ -437,21 +501,24 @@ margin-left: 0.2rem;
         margin-top: 5px;
     }
 
-    /* Players */
+   
     .playersAffich {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+        place-items: center;
         justify-content: center;
+        align-items: center;
+      
     }
 
     .nom-player {
         font-size: 0.8rem;
         top: 55%;
         left: 20%;
+        width: 60%;
+        text-align: center;
     }
-
-    /* Filtrage */
     .filtrage {
         gap: 10px;
         flex-direction:row;
@@ -462,5 +529,25 @@ margin-left: 0.2rem;
         height: 28px;
         font-size: 12px;
         text-align: center;
+    }
+
+    .btn:hover {
+        transform: rotate(10deg); 
+        transition: transform 0.3s ease-in; 
+    }
+    
+    .btn p{
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+}
+@media (max-width: 768px){
+    .playersAffich {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        place-items: center;
+        
+      
     }
 }
