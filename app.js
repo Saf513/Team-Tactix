@@ -17,9 +17,7 @@ else {
     squad = [];
 }
 
-players.addEventListener("mouseenter", () => {
-    popupPlayer.style.display = "block";
-});
+
 const api = "players.json";
 async function playersAPI() {
     const respond = await fetch(api);
@@ -40,7 +38,6 @@ window.onload = function () {
 function affich() {
     let playersAffich = document.querySelector(".playersAffich ");
     // playersAffich.innerHTML = ``;
- console.log(playersAffich)
     for (let i = 0; i < data.length; i++) {
 
         const playerCard = `
@@ -135,11 +132,11 @@ function selected() {
     });
 
     terrainDivs.forEach(
-        div=>{
-            div.addEventListener('click',()=>{
-             div.innerHTML='';
-             div.innerHTML=` <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>`;
-        })
+        div => {
+            div.addEventListener('click', () => {
+                div.innerHTML = '';
+                div.innerHTML = ` <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>`;
+            })
         }
     )
 }
@@ -155,15 +152,30 @@ function submit() {
     if (nameSquad.trim() == "") {
         alert("Veuiller remplir le nom de squad!");
     }
-    else if (formation == 0) {
+    else if (formation ==0) {
         alert("veuillez choisir une formation");
     }
 
-    else if (cont != 11) {
-        alert("veuiller remplir tout les positions!")
-    }
+    // else if (cont != 11) {
+    //     alert("veuiller remplir tout les positions!")
+    // }
     squadData.squadName = nameSquad;
-    squadData.formation = formation;
+    switch (formation) {
+        case '1':
+            squadData.formation = "4-4-3";  
+            break;
+        case '2':
+            squadData.formation = "4-4-2";
+            break;
+        case '3':
+            squadData.formation = "3-5-2";
+            break;
+        default:
+            squadData.formation = "Formation inconnue"; 
+            break;
+    }
+    
+  
     squad.push(squadData);
     localStorage.setItem('SquadData', JSON.stringify(squad));
     squadData = {};
@@ -171,10 +183,13 @@ function submit() {
     document.querySelector("#name-squad").value = "";
 }
 
-//AFFICHER LES SQUAD
-
-function affichSquad(){
-  
+//burger menu
+function burgerMenu(){
+const burgerMenu = document.querySelector('.burger-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+burgerMenu.addEventListener('click', () => {
+    // Toggle la classe "active" sur le menu mobile
+    mobileMenu.classList.toggle('active');
+});
 }
-affichSquad();
-console.log(squad);
+burgerMenu()

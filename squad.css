@@ -1,8 +1,8 @@
-
 * {
     padding: 0%;
     margin: 0%;
 }
+
 body {
 
     background: rgba(0, 0, 0, 0.5) url(img/terran-bj.jpg) no-repeat;
@@ -10,11 +10,13 @@ body {
 
 
 }
+
 img {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
 }
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -22,23 +24,29 @@ nav {
     align-items: center;
 
 }
-.mobile{
+
+.mobile {
     display: none;
 }
+
 .links {
     display: flex;
 }
+
 a {
     text-decoration: none;
     color: #ffd700;
 }
+
 .footer-container {
     display: flex;
 }
+
 a:hover {
     display: block;
     box-shadow: 2px 2px 2px rgb(217, 236, 42);
 }
+
 footer {
     background-color: black;
     color: #ffd700;
@@ -109,109 +117,311 @@ footer {
 .footer-bottom p {
     margin: 0;
 }
+
 ::placeholder {
     padding-left: 10%;
 }
- 
-    /* Conteneur principal */
+
+
+#squad-container {
+    width: 85%;
+    height: 100vh;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 10px 10px rgba(5, 8, 1, 0.2);
+    margin-left: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    z-index: 999;
+    margin-right: 2rem;
+
+}
+
+
+#squad-table {
+    width: 100%;
+    border-collapse: collapse;
+
+
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid hsl(0, 0%, 27%);
+
+}
+
+
+th {
+    background-color: #ffd700;
+    color: #fff;
+    font-size: 18px;
+}
+
+tr:nth-child(even) {
+    background-color: #F5F5DC;
+
+}
+
+tr:nth-child(odd) {
+    background-color: #BDB76B;
+
+}
+
+tr:hover {
+    background-color: #444444;
+}
+
+button {
+    background-color: #ffd700;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #BDB76B;
+    box-shadow: 0 8px 16px rgba(107, 92, 92, 0.2);
+    transform: rotate(10deg);
+}
+
+button:active {
+    background-color: #a67b0f;
+
+}
+
+
+td,
+th {
+    padding: 13px;
+}
+
+
+tbody {
+    overflow-y: auto;
+}
+
+#edit-team-form {
+    background-color: #e6ebdc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    margin: 20px auto;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    position: fixed;
+    left: 35%;
+}
+
+#edit-team-form input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #2a2929;
+    color: #fff;
+}
+
+#edit-team-form button {
+    background-color: #FFD700;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#edit-team-form button:hover {
+    background-color: #BDB76B;
+    box-shadow: 0 8px 16px rgba(107, 92, 92, 0.2);
+    transform: rotate(10deg);
+}
+
+#squad-container.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-social {
+        margin-top: 20px;
+    }
+
+    .mobile {
+        display: block;
+        flex-direction: row;
+
+    }
+
+   
+
+    .nav-mobile {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links ul li {
+        margin: 0.5rem 0;
+    }
+
+    .footer-social a {
+        font-size: 1.25rem;
+    }
+
+}
+@media (max-width: 600px) {
+    #squad-table {
+        width: 90%;
+        margin-left: 0;
+        padding: 2%;
+    }
+
     #squad-container {
         width: 80%;
-        max-width: 1200px;
-        background-color: #1e1e1e; /* Fond sombre du conteneur */
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Tableau */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th, td {
-        padding: 12px;
-        text-align: left;
-        border-bottom: 1px solid #444; /* Bordure discrète pour les cellules */
-    }
-
-    /* En-têtes de tableau */
-    th {
-        background-color: #e5ad15; /* Couleur dorée pour les en-têtes */
-        color: #fff;
-        font-size: 18px;
-    }
-
-    /* Lignes du tableau */
-    tr:nth-child(even) {
-        background-color: #2c2c2c; /* Couleur de fond des lignes paires */
-    }
-
-    tr:nth-child(odd) {
-        background-color: #1e1e1e; /* Couleur de fond des lignes impaires */
-    }
-
-    tr:hover {
-        background-color: #444444; /* Effet au survol de la ligne */
-    }
-
-    /* Style des boutons */
-    button {
-        background-color: #e5ad15; /* Boutons dorés */
-        color: #fff;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-        transition: background-color 0.3s;
-    }
-
-    button:hover {
-        background-color: #c8920f; /* Couleur dorée plus foncée au survol */
-    }
-
-    button:active {
-        background-color: #a67b0f; /* Couleur dorée encore plus foncée quand cliqué */
-    }
-
-    /* Espacement du tableau */
-    td, th {
         padding: 10px;
     }
 
-    /* Éviter l'effet d'overflow */
-    tbody {
-        overflow-y: auto;
-    }
-    <style>
-    #edit-team-form {
-        background-color: #1e1e1e;
-        padding: 20px;
-        border-radius: 8px;
-        width: 300px;
-        margin: 20px auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    #edit-team-form button {
+        width: 100%;
+        padding: 12px;
     }
     #edit-team-form input {
         width: 100%;
-        padding: 10px;
-        margin: 5px 0;
-        border-radius: 5px;
-        border: 1px solid #444;
-        background-color: #2c2c2c;
-        color: #fff;
-    }
-    #edit-team-form button {
-        background-color: #e5ad15;
-        color: #fff;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-    #edit-team-form button:hover {
-        background-color: #c8920f;
+        padding: 12px;
+        margin-bottom: 10px;
     }
 
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .footer-social {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        width: 60px;
+        height: 60px;
+    }
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+
+    .icon {
+        gap: 8px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+    #edit-team-form {
+        width: 90%;
+        left: 5%;
+    }
+
+    .footer-logo img {
+        width: 70px;
+        height: 60px;
+    }
+
+}
+@media (max-width: 600px) {
+    #squad-table {
+        width: 90%;
+        margin-left: 1.5rem;
+        padding: 2%;
+    }
+
+    #squad-container {
+        width: 80%;
+        padding: 10px;
+    }
+
+    #edit-team-form button {
+        width: 50%;
+        padding: 10px;
+        margin-left: 4rem;
+    }
+    #edit-team-form input {
+        width: 50%;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+        margin-left: 2rem;
+    }
+    #edit-team-form{
+        width: 25px;
+        width: 300px;
+        position: fixed;
+        left: 4rem;
+        display: flex;
+        flex-direction: column;
+    }
+    h2{
+        font-size: 20px;
+    }
+
+    .footer-social{
+        display: flex;
+        flex-direction: row;
+    }
+}

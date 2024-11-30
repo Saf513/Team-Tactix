@@ -27,14 +27,9 @@
     </div>
     <div class="div-players">
         <div class="players">
-            <a href="#">Players</a>
+            <a href="pla">Players</a>
         </div>
-        <div class=" popupPlayer">
-            <p><a href="#">joueurs populaires</a></p>
-            <p><a href="#">nouveaux joueurs</a></p>
-            <p><a href="#">ajouter un joueurs</a></p>
-            <p><a href="players.html">afficher tout les joueurs</a></p>
-        </div>
+        
     </div>
 
     <div>
@@ -73,22 +68,6 @@
     </div>
     </div>
 </nav>
-
-<div id="squad-container">
-    <table id="squad-table">
-        <thead>
-            <tr>
-                <th>Nom de l'équipe</th>
-                <th>Formation</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Les lignes du tableau seront ajoutées ici avec JS -->
-        </tbody>
-    </table>
-</div>
-
 <div id="edit-team-form" style="display: none;">
     <h2>Modifier l'équipe</h2>
     <label for="edit-squad-name">Nom de l'équipe:</label>
@@ -100,6 +79,26 @@
     <button onclick="saveEdit()">Sauvegarder</button>
     <button onclick="cancelEdit()">Annuler</button>
 </div>
+<div id="squad-container">
+   
+    <table id="squad-table">
+        <thead>
+            <tr>
+                <th>Nom de l'équipe</th>
+                <th>Formation</th>
+                <th>Supprimer</th>
+                <th>Modifier</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <!-- Les lignes du tableau seront ajoutées ici avec JS -->
+        </tbody>
+    </table>
+</div>
+
+
+
 
   <footer>
     <div class="footer-container">
@@ -126,6 +125,7 @@
   </footer>
 
 <script src="squad.js"></script>
+<script src="app.js"></script>
 </body>
 
 </html>

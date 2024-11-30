@@ -1,110 +1,93 @@
+// Récupérer les données du localStorage ou initialiser un tableau vide
 let squad;
-
 if (localStorage.SquadData != null) {
     squad = JSON.parse(localStorage.SquadData);
 } else {
     squad = [];
 }
 
-//AFFICHER LE TABLEAU DES SQUAD
-function affichTable() {
-    const TableBody = document.querySelector("#squad-table tbody");
-    squadTableBody.innerHTML = '';  
+console.log(squad)
+function afficherSquad(){
+    const tableBody = document.querySelector("#squad-table tbody");
+    tableBody.innerHtml="";
+    squad.forEach((teamData, index) =>{
+        const ligne = document.createElement('tr');
 
-    squad.forEach((teamData, index) => {
-    
-        //AFFICHER LE NOM
-        const row = document.createElement('tr');
-        const nameCell = document.createElement('td');
-        nameCell.textContent = teamData.squadName;
-        row.appendChild(nameCell);
+        //CREATION DE CASE DE NOME
+        const coluneName = document.createElement('td');
+        coluneName.textContent=teamData.squadName;
+        ligne.appendChild(coluneName);
 
-        //AFFICHER LA FORMATION
-        const formationCell = document.createElement('td');
-        formationCell.textContent = teamData.formation;
-        row.appendChild(formationCell);
+       //CREATION DE CASE DE FORMATION
+        const coluneFormation = document.createElement('td');
+        coluneFormation.textContent=teamData.formation;;
+        ligne.appendChild(coluneFormation);
 
-        const actionsCell = document.createElement('td');
+      //CREATION DE CASE DE SUPPRIMER
+      const coluneSupprimer = document.createElement('td');
+      const deletButton = document.createElement('button');
+      deletButton.textContent = 'suprimer';
+      deletButton.onclick = () => deletTeam(index); 
+      coluneSupprimer.appendChild(deletButton);
+      ligne.appendChild(coluneSupprimer);
 
-        // Bouton de modification
-        const editButton = document.createElement('button');
-        editButton.textContent = 'Modifier';
-        editButton.onclick = () => editTeam(index); // Fonction de modification
-        actionsCell.appendChild(editButton);
+      //CREATION DE CASE DE MODIFICATION
+      const coluneModifier = document.createElement('td');
+      const editButton = document.createElement('button');
+      editButton.textContent = 'Modifier';
+      editButton.onclick = () => editTeam(index); 
+      coluneModifier.appendChild(editButton);
+      ligne.appendChild(coluneModifier);
 
-        // Bouton de suppression
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Supprimer';
-        deleteButton.onclick = () => deleteTeam(index); // Fonction de suppression
-        actionsCell.appendChild(deleteButton);
+      tableBody.appendChild(ligne) ;
 
-        row.appendChild(actionsCell);
-
-        // Ajouter la ligne au tableau
-        squadTableBody.appendChild(row);
-    });
+    })
 }
 
-// Fonction pour modifier une équipe
-function editTeam(index) {
-    const team = squad[index];
-    // Logique pour modifier l'équipe (vous pouvez afficher un formulaire pour modifier le nom, la formation)
-    console.log("Modifier l'équipe :", team);
-    // Par exemple, vous pouvez remplir un formulaire avec les informations de l'équipe à modifier
-}
-
-// Fonction pour supprimer une équipe
-function deleteTeam(index) {
+afficherSquad();
+//FONCTION DE SUPPRIMER UNE EQUIPE
+function deletTeam(index) {
     if (confirm("Êtes-vous sûr de vouloir supprimer cette équipe ?")) {
-        squad.splice(index, 1);  // Supprimer l'équipe du tableau
-        localStorage.setItem('SquadData', JSON.stringify(squad));  // Mettre à jour le localStorage
-        displaySquadTable();  // Réafficher le tableau
+        squad.splice(index, 1);  
+        localStorage.setItem('SquadData', JSON.stringify(squad));  
+        displaySquadTable();  
     }
 }
 
-// Appeler la fonction pour afficher le tableau initial
-affichTable();
-let editIndex = null;  // Variable pour garder la trace de l'index de l'équipe que l'on modifie
-
-// Fonction pour afficher le formulaire de modification avec les informations actuelles
+// FONCTION DE MODIFIER UNE EQUIPE
 function editTeam(index) {
-    editIndex = index;  // Stocker l'index de l'équipe à modifier
-    const team = squad[index];
+const team = squad[index];
 
-    // Remplir le formulaire avec les données actuelles de l'équipe
-    document.querySelector("#edit-squad-name").value = team.squadName;
-    document.querySelector("#edit-formation").value = team.formation;
+ document.getElementById('edit-team-form').style.display = 'block';
+ document.getElementById('squad-container').classList.add('blurred');
+    // Pré-remplir les champs du formulaire avec les données de l'équipe
+    document.getElementById('edit-squad-name').value = team.squadName;
+    document.getElementById('edit-formation').value = team.formation;
 
-    // Afficher le formulaire
-    document.querySelector("#edit-team-form").style.display = "block";
-}
+    // Fonction de sauvegarde après modification
+    window.saveEdit = function() {
+        const updatedName = document.getElementById('edit-squad-name').value;
+        const updatedFormation = document.getElementById('edit-formation').value;
 
-// Fonction pour sauvegarder les modifications
-function saveEdit() {
-    // Récupérer les nouvelles valeurs du formulaire
-    const newSquadName = document.querySelector("#edit-squad-name").value;
-    const newFormation = document.querySelector("#edit-formation").value;
+        // Mettre à jour les données de l'équipe
+        squad[index] = {
+            squadName: updatedName,
+            formation: updatedFormation
+        };
 
-    // Vérifier que les champs ne sont pas vides
-    if (newSquadName.trim() === "" || newFormation.trim() === "") {
-        alert("Veuillez remplir tous les champs.");
-        return;
+        // Mettre à jour le localStorage
+        localStorage.setItem('SquadData', JSON.stringify(squad));
+
+        // Masquer le formulaire et réafficher le tableau
+        document.getElementById('edit-team-form').style.display = 'none';
+        document.getElementById('squad-container').classList.remove('blurred');
+        afficherSquad();
     }
 
-    // Mettre à jour les données de l'équipe
-    squad[editIndex].squadName = newSquadName;
-    squad[editIndex].formation = newFormation;
-
-    // Mettre à jour le localStorage avec les nouvelles données
-    localStorage.setItem('SquadData', JSON.stringify(squad));
-
-    // Cacher le formulaire et réafficher le tableau
-    document.querySelector("#edit-team-form").style.display = "none";
-    displaySquadTable();
-}
-
-// Fonction pour annuler la modification et fermer le formulaire
-function cancelEdit() {
-    // Cacher le formulaire sans enregistrer les modifications
-    document.querySelector("#edit-team-form").style.display = "none";
+    // Fonction pour annuler l'édition
+    window.cancelEdit = function() {
+        // Masquer le formulaire sans enregistrer les modifications
+        document.getElementById('edit-team-form').style.display = 'none';
+        document.getElementById('squad-container').classList.remove('blurred');
+    }
 }

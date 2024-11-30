@@ -397,3 +397,46 @@ input {
     width: 500px;
     background-color: chocolate;
 }
+/* Style pour le menu mobile caché par défaut */
+.mobile-menu {
+    display: none;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    z-index: 999;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu ul {
+    list-style-type: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.mobile-menu ul li {
+    margin: 20px 0;
+}
+
+.mobile-menu ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.mobile-menu ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour l'icône burger menu */
+.burger-menu {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Quand le menu est affiché */
+.mobile-menu.active {
+    display: block;
+}
