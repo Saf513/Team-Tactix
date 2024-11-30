@@ -1,0 +1,217 @@
+
+* {
+    padding: 0%;
+    margin: 0%;
+}
+body {
+
+    background: rgba(0, 0, 0, 0.5) url(img/terran-bj.jpg) no-repeat;
+    background-size: cover;
+
+
+}
+img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    align-items: center;
+
+}
+.mobile{
+    display: none;
+}
+.links {
+    display: flex;
+}
+a {
+    text-decoration: none;
+    color: #ffd700;
+}
+.footer-container {
+    display: flex;
+}
+a:hover {
+    display: block;
+    box-shadow: 2px 2px 2px rgb(217, 236, 42);
+}
+footer {
+    background-color: black;
+    color: #ffd700;
+    padding: 40px 20px;
+    position: relative;
+
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 80px;
+    width: 80px;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 0 15px;
+}
+
+.footer-links ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+
+.footer-social {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-social a {
+    color: #ffd700;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #ffd700;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+::placeholder {
+    padding-left: 10%;
+}
+ 
+    /* Conteneur principal */
+    #squad-container {
+        width: 80%;
+        max-width: 1200px;
+        background-color: #1e1e1e; /* Fond sombre du conteneur */
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Tableau */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #444; /* Bordure discrète pour les cellules */
+    }
+
+    /* En-têtes de tableau */
+    th {
+        background-color: #e5ad15; /* Couleur dorée pour les en-têtes */
+        color: #fff;
+        font-size: 18px;
+    }
+
+    /* Lignes du tableau */
+    tr:nth-child(even) {
+        background-color: #2c2c2c; /* Couleur de fond des lignes paires */
+    }
+
+    tr:nth-child(odd) {
+        background-color: #1e1e1e; /* Couleur de fond des lignes impaires */
+    }
+
+    tr:hover {
+        background-color: #444444; /* Effet au survol de la ligne */
+    }
+
+    /* Style des boutons */
+    button {
+        background-color: #e5ad15; /* Boutons dorés */
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #c8920f; /* Couleur dorée plus foncée au survol */
+    }
+
+    button:active {
+        background-color: #a67b0f; /* Couleur dorée encore plus foncée quand cliqué */
+    }
+
+    /* Espacement du tableau */
+    td, th {
+        padding: 10px;
+    }
+
+    /* Éviter l'effet d'overflow */
+    tbody {
+        overflow-y: auto;
+    }
+    <style>
+    #edit-team-form {
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    #edit-team-form input {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #444;
+        background-color: #2c2c2c;
+        color: #fff;
+    }
+    #edit-team-form button {
+        background-color: #e5ad15;
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    #edit-team-form button:hover {
+        background-color: #c8920f;
+    }
+
