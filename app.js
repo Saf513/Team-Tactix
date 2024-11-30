@@ -102,7 +102,8 @@ function selected() {
         terrainDiv.addEventListener('click', () => {
 
             selectedTerrainDiv = terrainDiv;
-            playersAffich.style.display = 'grid';
+            playersAffich.style.display = 'flex';
+            document.querySelector('h3').style.display='block'
 
         });
     });
@@ -124,6 +125,7 @@ function selected() {
                 selectedTerrainDiv.innerHTML = '';
                 selectedTerrainDiv.appendChild(cardImage);
                 playersAffich.style.display = 'none';
+                document.querySelector('h3').style.display='none'
             } else {
                 alert("Veuillez d'abord sélectionner une zone sur le terrain !");
             }
@@ -184,12 +186,34 @@ function submit() {
 }
 
 //burger menu
-function burgerMenu(){
+
 const burgerMenu = document.querySelector('.burger-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-burgerMenu.addEventListener('click', () => {
-    // Toggle la classe "active" sur le menu mobile
-    mobileMenu.classList.toggle('active');
+
+burgerMenu.addEventListener('click', (e) => {
+    e.stopPropagation();  
+    mobileMenu.classList.toggle('active'); 
 });
+
+window.addEventListener('click', (e) => {
+    if (!burgerMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('active'); 
+    }
+});
+
+//LA FONCTION DE RECHERCHE
+function recherche() {
+    const searchTerm = document.querySelector('#search-player').value.toLowerCase();  
+    console.log(searchTerm)
+    const players = document.querySelectorAll(".player-item");  // Sélectionner toutes les entrées de la liste de joueurs
+    
+    // Parcourir chaque élément de la liste de joueurs
+    // players.forEach(player => {
+    //     const playerName = player.textContent.toLowerCase();  // Nom du joueur en minuscules pour comparaison
+    //     if (playerName.includes(searchTerm)) {
+    //         player.style.display = "";  // Affiche l'élément si le nom contient le texte recherché
+    //     } else {
+    //         player.style.display = "none";  // Cache l'élément si le nom ne contient pas le texte recherché
+    //     }
+    // });
 }
-burgerMenu()

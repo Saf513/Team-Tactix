@@ -150,9 +150,13 @@ input-formation button ,nav button{
     border-radius: 7px;
 }
 input {
-    height: 1.5rem;
+    height: 2.3rem;
     width: 12rem;
-    border-radius: 7px;
+    border-radius:1.5 rem;
+}
+select{
+    height: 2.5rem;
+    border-radius: 1.5rem;
 }
 .popupPlayer {
     height: 90px;
@@ -295,16 +299,61 @@ input {
     align-self: center;
 }
 
+.log :hover{
+    box-shadow: none;
+}
+ 
+#search-player {
+    padding: 8px 30px 8px 10px;
+    border: 2px solid #ffd700;
+    border-radius: 25px;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    width: 100%; 
+    transition: all 0.3s ease-in-out; 
+    margin-top: 1.5rem;
+}
+
+
+.bar-search {
+    position: relative;
+    left: 14rem;
+    bottom:2rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+
+.bar-search:hover {
+    transform: scale(1.2); 
+    color: #BDB76B;  
+    opacity: 0.8;  
+}
+
+#search-player:focus {
+    border-color: #BDB76B;  
+    transform: scale(1.05); 
+}
+
+
+#search-player:not(:placeholder-shown) + .bar-search {
+    transform: scale(1.1); 
+    color : #BDB76B;  
+}
+
+#search-player:focus {
+    transition: all 0.3s ease-in-out; 
+} 
 
 .global .playersAffich {
-    /* display: grid;
-    grid-template-columns: repeat(4, 0.2fr); */
+    
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 0%;
     margin-bottom: 10%;
     display: none;
-  display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     
@@ -320,72 +369,69 @@ input {
 }
 
 .card:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: scale(1.05); 
 }
 
-/* Top section of the card */
+
 .sup {
-    display: flex; /* Use flexbox for positioning */
+    display: flex; 
     padding: 10px;
-    background-color: #f4f4f4; /* Light background */
+    background-color: #f4f4f4; 
 }
 
 .img img {
-    width: 60px; /* Image width */
-    height: 60px; /* Image height */
-    border-radius: 50%; /* Round the image */
-    object-fit: cover; /* Ensures image fits well */
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%;
+    object-fit: cover; 
 }
 
 .supInfo {
-    margin-left: 15px; /* Space between image and info */
-    flex: 1; /* Allow the info to take remaining space */
+    margin-left: 15px; 
+    flex: 1;
 }
 
 .supInfo p {
-    margin: 5px 0; /* Add margin between text elements */
-    font-size: 14px; /* Set font size */
+    margin: 5px 0; 
+    font-size: 14px; 
 }
 
-/* Flags and logos container */
 .drapeau {
     display: flex;
-    justify-content: space-between; /* Align flags and logos to the sides */
+    justify-content: space-between; 
 }
 
 .drapeau img {
-    width: 20px; /* Resize flags and logos */
+    width: 20px; 
     height: 20px;
 }
 
-/* Player name styling */
 .nom-player {
     padding: 10px;
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
-    text-align: center; /* Center the name */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
     font-size: 16px;
     font-weight: bold;
   
 }
 
-/* Score section styling */
+
 .score {
     display: flex;
-    justify-content: space-between; /* Spread out left and right sections */
+    justify-content: space-between; 
     padding: 10px;
     background-color: #e8e8e8;
-     /* Light gray background */
 }
 
 .score .left, .score .right {
-    width: 45%; /* Make sure both sides have equal width */
+    width: 45%;
 }
 
 .score p {
-    margin: 5px 0; /* Add space between each stat */
+    margin: 5px 0; 
     font-size: 14px;
-    text-align: center; /* Center the stats */
+    text-align: center; 
 }
 .inf{
     display: flex;
@@ -397,15 +443,15 @@ input {
     width: 500px;
     background-color: chocolate;
 }
-/* Style pour le menu mobile caché par défaut */
+
 .mobile-menu {
     display: none;
     background-color: black;
     position: absolute;
-    top: 0;
+    top: 4.5rem;
     right: 0;
-    width: 70%;
-    height: 100vh;
+    width: 30%;
+    height: max-content;
     z-index: 999;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -430,13 +476,32 @@ input {
     text-decoration: underline;
 }
 
-/* Style pour l'icône burger menu */
 .burger-menu {
     font-size: 24px;
     cursor: pointer;
 }
 
-/* Quand le menu est affiché */
+
 .mobile-menu.active {
     display: block;
+}
+ .mobile .icon{
+    display: flex;
+    gap: 10px;
+ }
+ .mobile .icon .user{
+    font-size: 1.5rem;
+ }
+
+ .signUp:hover {
+    background-color: #BDB76B; 
+    transform: scale(1.1); 
+    box-shadow: 0 4px 8px #BDB76B; 
+}
+
+.signUp:active {
+    transform: scale(0.95); 
+}
+.name-squad{
+    border$1.5rem
 }

@@ -34,10 +34,9 @@
     }
     .icon{
         display: flex;
-        gap: 10px;
+        gap: 15px;
     }
-   /* Styles Responsives pour Mobile/Tablette (max-width: 780px) */
-    /* Ajuster la taille du terrain */
+   
     .terrain {
         height: 40rem; /* Ajuste la hauteur à 40rem (environ 640px) */
         width: 90%; /* Prendre 90% de la largeur de l'écran */

@@ -212,13 +212,13 @@ footer {
     gap: 20px;
     position: absolute;
     top: 72%;
-    left: 22%;
+    left: 19%;
     font-weight: bolder;
 
 }
 
 .score span{
-   font-size: 1rem; 
+   font-size: 0.8rem; 
 }
 .supInfo {
     margin-top: 10px;
@@ -240,7 +240,9 @@ footer {
     background-color: #ebd767;
     position: absolute;
     top: 58%;
-    left: 25%;
+    left: 15%;
+    text-align: center;
+    width: 9rem;
 }
 
 .filtrage {
@@ -262,7 +264,7 @@ footer {
 
 }
 .left i{
-    font-size: 1.5rem;;
+    font-size: 1.2rem;;
 }
 .right i{
     font-size: 1.2rem;
@@ -270,6 +272,48 @@ footer {
 .supprimer span {
 font-size:1.2rem;
 margin-left: 0.2rem;
+}
+.mobile-menu {
+    display: none;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    z-index: 999;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu ul {
+    list-style-type: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.mobile-menu ul li {
+    margin: 20px 0;
+}
+
+.mobile-menu ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.mobile-menu ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour l'icône burger menu */
+.burger-menu {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Quand le menu est affiché */
+.mobile-menu.active {
+    display: block;
 }
 
 @media (max-width: 768px) {

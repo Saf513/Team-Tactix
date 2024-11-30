@@ -15,13 +15,14 @@
 
     <nav class="desktop">
         <div class="log">
-            <a href="players.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+            <a href="index.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
         </div>
 
         <div class="search-player">
-            <input type="text" placeholder="Search for player ..." name="search">
-            <i class="fa-solid fa-magnifying-glass" style="color: #ffd700;"></i>
+            <input type="text" placeholder="Search for player ..." name="search" id="search-player">
+            <i class="fa-solid fa-magnifying-glass bar-search" style="color: #ffd700;" onclick="recherche()"></i>
         </div>
+        
         <div class="div-players">
             <div class="players">
                 <a href="players.html">Players</a>
@@ -56,18 +57,19 @@
             </div>
 
             <div class="search-player">
-                <input type="text" placeholder="Search for player ..." name="search">
-                <i class="fa-solid fa-magnifying-glass" style="color: #ffd700;"></i>
+                <input type="text" placeholder="Search for player ..." name="search" id="search-player">
+                <i class="fa-solid fa-magnifying-glass recherche-icon" style="color: #ffd700;"  onclick="recherche()"></i>
             </div>
 
             <div class="icon">
-                <i class="fa-solid fa-user" style="color: #ffd700;"></i>
+                <i class="fa-solid fa-user user" style="color: #ffd700;"></i>
                 <i class="fa-solid fa-bars burger-menu" style="color: #ffd700;"></i>
             </div>
         </div>
 
         <div class="mobile-menu">
             <ul>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="players.html">Players</a></li>
                 <li><a href="squad.html">Squads</a></li>
                 <li><a href="#">Blog</a></li>
@@ -157,11 +159,9 @@
 
             </div>
 
+            <h3 style="display: none;">choisir vos joueurs:</h3>
             <div class="playersAffich">
-
             </div>
-
-            -
         </div>
 
     </section>

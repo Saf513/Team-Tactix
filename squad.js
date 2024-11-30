@@ -91,3 +91,21 @@ const team = squad[index];
         document.getElementById('squad-container').classList.remove('blurred');
     }
 }
+
+
+const burgerMenu = document.querySelector('.burger-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+burgerMenu.addEventListener('click', (e) => {
+    e.stopPropagation();  
+    mobileMenu.classList.toggle('active'); 
+});
+
+window.addEventListener('click', (e) => {
+    if (!burgerMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('active'); 
+    }
+});
+
+
+

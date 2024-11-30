@@ -129,10 +129,7 @@
     }
 }
 
-/* Mobile Styles */
 @media (max-width: 480px) {
-
-    /* Mobile layout */
     nav {
         flex-direction: column;
         align-items: center;
@@ -200,7 +197,17 @@
         margin-left: 2.5rem;
 
     }
-   
+   .nom-player{
+    width: 60%;
+  
+   }
+   .bar-search {
+    position: relative;
+    bottom: 2rem;
+    left: 15rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
 }
 @media ( min-width:781px) and (max-width: 1090px) {
     /* Réduire la taille des images */
@@ -290,6 +297,13 @@
     /* Ajuster la taille des champs de saisie */
     input {
         width: 11rem;
+    }
+    .bar-search {
+        position: relative;
+        bottom: 2rem;
+        left: 15rem;
+        transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
+        cursor: pointer;
     }
 }
 

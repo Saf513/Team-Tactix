@@ -250,6 +250,47 @@ tbody {
     filter: blur(5px);
     pointer-events: none;
 }
+.mobile-menu {
+    display: none;
+    background-color: black;
+    position: absolute;
+    top: 4.5rem;
+    right: 0;
+    width: 30%;
+    height: max-content;
+    z-index: 999;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu ul {
+    list-style-type: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.mobile-menu ul li {
+    margin: 20px 0;
+}
+
+.mobile-menu ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.mobile-menu ul li a:hover {
+    text-decoration: underline;
+}
+
+
+.burger-menu {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-menu.active {
+    display: block;
+}
 
 @media (max-width: 768px) {
 
