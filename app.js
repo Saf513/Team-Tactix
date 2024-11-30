@@ -92,8 +92,9 @@ affich();
 
 function selected() {
     const terrainDivs = document.querySelectorAll('.terrain div');
-    const playersAffich = document.querySelector(".global .playersAffich");
+    const playersAffich = document.querySelector(".playersAffich");
     const playersAffih = document.querySelector(".global .playersAffich");
+    const global=document.querySelector('.global')
     const cards = document.querySelectorAll('.card');
 
     let selectedTerrainDiv = null;
@@ -104,6 +105,7 @@ function selected() {
             selectedTerrainDiv = terrainDiv;
             playersAffich.style.display = 'flex';
             document.querySelector('h3').style.display='block'
+            global.classList.add('blurred');
 
         });
     });
@@ -125,7 +127,8 @@ function selected() {
                 selectedTerrainDiv.innerHTML = '';
                 selectedTerrainDiv.appendChild(cardImage);
                 playersAffich.style.display = 'none';
-                document.querySelector('h3').style.display='none'
+                document.querySelector('h3').style.display='none';
+                 global.classList.remove('blurred');
             } else {
                 alert("Veuillez d'abord sélectionner une zone sur le terrain !");
             }

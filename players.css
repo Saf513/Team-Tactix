@@ -504,8 +504,8 @@ box-shadow: none;
    
     .playersAffich {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-template-columns: repeat(2, 0.8fr);
+        gap: 0.8rem;
         place-items: center;
         justify-content: center;
         align-items: center;
