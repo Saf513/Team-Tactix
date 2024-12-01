@@ -185,7 +185,9 @@ button {
     font-size: 14px;
     transition: background-color 0.3s;
 }
-
+.signUp  button a{
+    color: black;
+}
 button:hover {
     background-color: #BDB76B;
     box-shadow: 0 8px 16px rgba(107, 92, 92, 0.2);
@@ -355,9 +357,9 @@ tbody {
     }
 
 }
-@media (max-width: 600px) {
+@media (max-width:600px) {
     #squad-table {
-        width: 90%;
+        width: 80%;
         margin-left: 0;
         padding: 2%;
     }
@@ -422,10 +424,10 @@ tbody {
     }
 
 }
-@media (max-width: 600px) {
+@media (max-width: 400px) {
     #squad-table {
-        width: 90%;
-        margin-left: 1.5rem;
+        width: 60%;
+    
         padding: 2%;
     }
 

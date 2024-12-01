@@ -12,79 +12,77 @@
 </head>
 
 <body>
-    <!-- Nav Bar -->
+   
+   <nav class="desktop">
+    <div class="log">
+        <a href="index.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+    </div>
 
-    <nav class="desktop">
+    <div class="search-player">
+        <input type="text" placeholder="Search for player ..." name="search" id="search-player">
+        <i class="fa-solid fa-magnifying-glass bar-search" style="color: #ffd700;" onclick="recherche()"></i>
+    </div>
+    
+    <div class="div-players">
+        <div class="players">
+            <a href="players.html">Players</a>
+        </div>
+
+    </div>
+
+    <div>
+        <a href="squad.html">Squads</a>
+    </div>
+
+    <div class="news">
+        <a href="blog.html">blog</a>
+    </div>
+
+    <div class="news">
+        <a href="news.html">news</a>
+    </div>
+
+    <div class="signUp">
+        <button><a href="signUp.html">Sign Up</a></button>
+    </div>
+
+</nav>
+
+
+<nav class="mobile">
+    <div class="nav-mobile">
         <div class="log">
-            <a href="index.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+            <a href="players.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
         </div>
 
         <div class="search-player">
             <input type="text" placeholder="Search for player ..." name="search" id="search-player">
-            <i class="fa-solid fa-magnifying-glass bar-search" style="color: #ffd700;" onclick="recherche()"></i>
-        </div>
-        
-        <div class="div-players">
-            <div class="players">
-                <a href="players.html">Players</a>
-            </div>
-
+            <i class="fa-solid fa-magnifying-glass recherche-icon" style="color: #ffd700;"  onclick="recherche()"></i>
         </div>
 
-        <div>
-            <a href="squad.html">Squads</a>
+        <div class="icon">
+            <i class="fa-solid fa-user user" style="color: #ffd700;"></i>
+            <i class="fa-solid fa-bars burger-menu" style="color: #ffd700;"></i>
         </div>
+    </div>
 
-        <div class="news">
-            <a href="#">blog</a>
-        </div>
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="squad.html">Squads</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="news.html*">News</a></li>
+            <li><a href="signUp.html">Sign Up</a></li>
+        </ul>
+    </div>
+</nav>
 
-        <div class="news">
-            <a href="#">news</a>
-        </div>
-
-        <div class="signUp">
-            <button>Sign Up</button>
-        </div>
-
-    </nav>
-
-    <!-- Navigation mobile -->
-
-    <nav class="mobile">
-        <div class="nav-mobile">
-            <div class="log">
-                <a href="players.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
-            </div>
-
-            <div class="search-player">
-                <input type="text" placeholder="Search for player ..." name="search" id="search-player">
-                <i class="fa-solid fa-magnifying-glass recherche-icon" style="color: #ffd700;"  onclick="recherche()"></i>
-            </div>
-
-            <div class="icon">
-                <i class="fa-solid fa-user user" style="color: #ffd700;"></i>
-                <i class="fa-solid fa-bars burger-menu" style="color: #ffd700;"></i>
-            </div>
-        </div>
-
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="players.html">Players</a></li>
-                <li><a href="squad.html">Squads</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Sign Up</a></li>
-            </ul>
-        </div>
-    </nav>
 
         
             <main>
                 <section class="news-list">
-                    <!-- Première News: Match -->
-                    <div class="news-item" data-id="1">
+                                        <div class="news-item" data-id="1">
                         <img src="https://img.lemde.fr/2022/12/18/0/0/5388/3592/1440/960/60/0/dfff460_5040162-01-06.jpg" alt="Coupe du Monde 2022" class="news-image">
                         <div class="news-text">
                             <h2>Finale de la Coupe du Monde 2022 : Une victoire historique pour l'Argentine</h2>
@@ -92,8 +90,7 @@
                         </div>
                     </div>
         
-                    <!-- Deuxième News: Transfert -->
-                    <div class="news-item" data-id="2">
+                                        <div class="news-item" data-id="2">
                         <img src="https://i.pinimg.com/736x/ea/ec/53/eaec53297119594860acfc72b20a673e.jpg" alt="Mbappé" class="news-image">
                         <div class="news-text">
                             <h2>Transfert de Kylian Mbappé : Rester au PSG ou rejoindre le Real Madrid ?</h2>
@@ -101,8 +98,7 @@
                         </div>
                     </div>
         
-                    <!-- Troisième News: Match -->
-                    <div class="news-item" data-id="3">
+                                        <div class="news-item" data-id="3">
                         <img src="https://th.bing.com/th/id/OIP.U2RsR8b3u9GEwihDt8ureAHaEK?rs=1&pid=ImgDetMain" alt="Champions League" class="news-image">
                         <div class="news-text">
                             <h2>La finale de la Ligue des champions 2023 : Manchester City couronné champion d'Europe</h2>

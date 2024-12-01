@@ -1,4 +1,4 @@
-// On récupère les éléments nécessaires
+
 const newsItems = document.querySelectorAll('.news-item');
 
 const newsDetail = document.getElementById('news-detail');
@@ -6,9 +6,8 @@ const newsTitle = document.getElementById('news-title');
 const newsContent = document.getElementById('news-content');
 const newsImage = document.getElementById('news-image');
 
-// Fonction pour afficher les détails de l'article
+
 function displayNewsDetail(id) {
-    // Simuler des données d'article
     const articles = [
         {
             id: 1,
@@ -29,32 +28,29 @@ function displayNewsDetail(id) {
             image: "https://www.les-transferts.com/wp-content/uploads/2023/06/Ligue-des-Champions-600x401.jpg"
         }
     ];
-
-    // Récupérer l'article correspondant à l'id
     const article = articles.find(a => a.id === id);
     
     if (article) {
-        // Mettre à jour le contenu de l'article dans la section des détails
         newsTitle.textContent = article.title;
         newsContent.textContent = article.content;
         newsImage.src = article.image;
-        newsImage.alt = article.title; // Ajouter une description pour l'image
-        newsDetail.style.display = 'block'; // Afficher la section des détails
+        newsImage.alt = article.title; 
+        newsDetail.style.display = 'block'; 
     }
 }
 
-// Ajout des événements au clic sur chaque article
+
 newsItems.forEach(item => {
     item.addEventListener('click', function() {
-        const articleId = parseInt(this.getAttribute('data-id')); // On récupère l'ID de l'article
-        displayNewsDetail(articleId); // Afficher les détails de l'article
+        const articleId = parseInt(this.getAttribute('data-id')); 
+        displayNewsDetail(articleId); 
     });
 });
 
-// Si vous voulez masquer les détails de l'article lorsqu'on clique ailleurs, vous pouvez ajouter un événement global comme suit :
+
 
 document.body.addEventListener('click', function(event) {
     if (!event.target.closest('.news-item') && !event.target.closest('.news-detail')) {
-        newsDetail.style.display = 'none'; // Masquer la section des détails
+        newsDetail.style.display = 'none'; 
     }
 });

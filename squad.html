@@ -13,42 +13,42 @@
 
 <body>
 
-  <!-- Nav Bar -->
-
-
-   <nav class="desktop">
+  
+  <nav class="desktop">
     <div class="log">
         <a href="index.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
     </div>
 
     <div class="search-player">
-        <input type="text" placeholder="Search for player ..." name="search">
-        <i class="fa-solid fa-magnifying-glass" style="color: #ffd700;"></i>
+        <input type="text" placeholder="Search for player ..." name="search" id="search-player">
+        <i class="fa-solid fa-magnifying-glass bar-search" style="color: #ffd700;" onclick="recherche()"></i>
     </div>
+    
     <div class="div-players">
         <div class="players">
-            <a href="pla">Players</a>
+            <a href="players.html">Players</a>
         </div>
-        
+
     </div>
 
     <div>
-        <a href="#">Squads</a>
+        <a href="squad.html">Squads</a>
     </div>
 
     <div class="news">
-        <a href="#">blog</a>
+        <a href="blog.html">blog</a>
     </div>
 
     <div class="news">
-        <a href="#">news</a>
+        <a href="news.html">news</a>
     </div>
 
     <div class="signUp">
-        <button>Sign Up</button>
+        <button><a href="signUp.html">Sign Up</a></button>
     </div>
 
 </nav>
+
 
 <nav class="mobile">
     <div class="nav-mobile">
@@ -57,27 +57,27 @@
         </div>
 
         <div class="search-player">
-            <input type="text" placeholder="Search for player ..." name="search">
-            <i class="fa-solid fa-magnifying-glass" style="color: #ffd700;"></i>
+            <input type="text" placeholder="Search for player ..." name="search" id="search-player">
+            <i class="fa-solid fa-magnifying-glass recherche-icon" style="color: #ffd700;"  onclick="recherche()"></i>
         </div>
 
         <div class="icon">
-            <i class="fa-solid fa-user" style="color: #ffd700;"></i>
+            <i class="fa-solid fa-user user" style="color: #ffd700;"></i>
             <i class="fa-solid fa-bars burger-menu" style="color: #ffd700;"></i>
         </div>
     </div>
 
     <div class="mobile-menu">
         <ul>
+            <li><a href="index.html">Home</a></li>
             <li><a href="players.html">Players</a></li>
             <li><a href="squad.html">Squads</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="newws.html">News</a></li>
+            <li><a href="news.html*">News</a></li>
             <li><a href="signUp.html">Sign Up</a></li>
         </ul>
     </div>
 </nav>
-
 
 <div id="edit-team-form" style="display: none;">
     <h2>Modifier l'équipe</h2>
@@ -103,8 +103,7 @@
             
         </thead>
         <tbody>
-            <!-- Les lignes du tableau seront ajoutées ici avec JS -->
-        </tbody>
+                    </tbody>
     </table>
 </div>
 

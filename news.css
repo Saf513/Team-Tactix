@@ -1,11 +1,9 @@
-/* Réinitialisation de base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Mise en page globale */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #111;
@@ -13,21 +11,19 @@ body {
     padding: 20px;
 }
 
-/* Conteneur principal */
 main {
     display: flex;
     justify-content: space-between;
     gap: 20px;
 }
 
-/* Liste des articles */
 .news-list {
     width: 50%;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:center ;
+    justify-content: center;
 }
 
 .news-item {
@@ -42,7 +38,7 @@ main {
     justify-content: center;
     flex-direction: column;
     align-items: center;
- 
+
 }
 
 .news-item:hover {
@@ -62,7 +58,7 @@ main {
 
 .news-text h2 {
     font-size: 1.6em;
-    color: #e5ad15; /* Or */
+    color: #e5ad15;
     margin-bottom: 10px;
 }
 
@@ -71,7 +67,6 @@ main {
     color: #ddd;
 }
 
-/* Détails de l'article */
 .news-detail {
     width: 40%;
     height: max-content;
@@ -85,7 +80,7 @@ main {
 .news-detail h2 {
     font-size: 2em;
     margin-bottom: 20px;
-    color: #e5ad15; /* Or */
+    color: #e5ad15;
 }
 
 .news-detail-image {

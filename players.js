@@ -43,8 +43,7 @@ const data = JSON.parse(localStorage.getItem('playersData')); function affich() 
             </div>
             `;
         } else {
-            // Joueur de champ : afficher dribbling, defending, shooting et pace
-            playerCard = `
+                        playerCard = `
             <div>
                 <div class="card pos">
                     <div class="sup">
@@ -102,7 +101,6 @@ window.addEventListener('click', (e) => {
     }
 });
 
-//ajouter un joueurs 
 function ajoutPlayers() {
     let formAjout = document.querySelector('.form-ajout');
 
@@ -155,3 +153,24 @@ form.addEventListener('submit', function(event) {
     console.log(joueur);
 
 });
+
+document.querySelectorAll('.supprimer').forEach((icon) => {
+    icon.addEventListener('click', function (e) {
+        e.stopPropagation();
+
+                const playerCard = e.target.closest('.card');
+        const playerId = playerCard.closest('div').id;
+
+                playerCard.closest('div').remove();
+
+                let data = JSON.parse(localStorage.getItem('playersData'));
+        const index = data.findIndex(player => (player.name + '-' + player.id) === playerId);
+        if (index > -1) {
+            data.splice(index, 1);
+        }
+        localStorage.setItem('playersData', JSON.stringify(data));
+
+                const playersAffich = document.querySelector(".playersAffich");
+        playersAffich.style.display = 'none';         playersAffich.offsetHeight;         playersAffich.style.display = 'grid';     });
+});
+

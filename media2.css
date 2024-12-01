@@ -1,16 +1,15 @@
 @media (max-width: 768px) {
-    .global .playersAffich {
+     .playersAffich {
         background: rgba(0, 0, 0, 0.5)transparent;
         justify-content: center;
-        align-items: center;
-        margin-top: 0%;
+    
         margin-bottom: 10%;
         display: none;
         flex-direction: row;
         z-index: 1000;
-        position: fixed;
-        flex-wrap: wrap;
-        overflow-y: scroll;
+        position: absolute;
+        height: 500px;
+        overflow: scroll;
         
     }
     .footer-container {
@@ -93,9 +92,7 @@
         font-size: 1.5rem;
     }
 
-    .card {
-        width: 15rem;
-    }
+   
 
     .terrain {
         height: 30rem;
@@ -274,6 +271,11 @@
     left: 15rem;
     transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
     cursor: pointer;
+}
+.modal{
+    position: absolute;
+    bottom: 30%;
+    left: 30%;  
 }
 }
 @media ( min-width:781px) and (max-width: 1090px) {

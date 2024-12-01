@@ -242,7 +242,7 @@ footer {
     place-items: center;
     margin-top: 3%;
     margin-bottom: 8%;
-   
+
 
 
 }
@@ -398,7 +398,7 @@ footer {
     border-radius: 2rem;
     height: 2.5rem;
     font-weight: bold;
-    margin-top:3rem;
+    margin-top: 3rem;
 }
 
 .ajouter-joueurs:hover {
@@ -409,7 +409,7 @@ footer {
 .form-ajout {
     height: 10rem;
     width: 20rem;
-    background-color:#ffd700;
+    background-color: #ffd700;
     flex-direction: column;
     position: absolute;
     z-index: 1000;
@@ -421,7 +421,7 @@ footer {
     align-items: center;
 }
 
-button{
+button {
     background-color: black;
     color: white;
     height: 1.8rem;
@@ -429,59 +429,65 @@ button{
     border: black;
     border-radius: 10px;
 }
- .playersAffich.blurred {
-        filter: blur(5px);
-        pointer-events: none;
-    }
 
-    #form-ajout{
-        position: absolute;
-        left: 30%;
-        bottom: 2rem;
-        flex-direction: column;
-       height:700px;
-       width: 500px;
-       margin-bottom: 2rem;
-       margin-left: 2rem;
-       margin-right: 2rem;
-       z-index: 1000;
-       align-items: center;
-       justify-content: center;
-       border-radius: 10px;
-    }
-    .attributes{
-        display: flex;
-        flex-direction: column;
-    }
-    #form-ajout-gardien{
-        position: absolute;
-        left: 30%;
-        bottom: 2rem;
-        flex-direction: column;
-       height:850px;
-       width: 500px;
-       margin-bottom: 2rem;
-       margin-left: 2rem;
-       margin-right: 2rem;
-       z-index: 1000;
-       align-items: center;
-       justify-content: center;
-       border-radius: 10px;
-    }
-   .global-players{
-        z-index: 999;
-    }
-    .global-players.blured{
-        filter: blur(5px);
-        pointer-events: none;
-    }
-    select{
-        border: 10px black;
-        width: 10rem;
-        border-radius: 10px;
-        height:2rem;
-    }
-   
+.playersAffich.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+#form-ajout {
+    position: absolute;
+    left: 30%;
+    bottom: 2rem;
+    flex-direction: column;
+    height: 700px;
+    width: 500px;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.attributes {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-ajout-gardien {
+    position: absolute;
+    left: 30%;
+    bottom: 2rem;
+    flex-direction: column;
+    height: 80px;
+    width: 500px;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.global-players {
+    z-index: 999;
+}
+
+.global-players.blured {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+select {
+    border: 10px black;
+    width: 10rem;
+    border-radius: 10px;
+    height: 2rem;
+}
+
 @media (max-width: 768px) {
 
     img {
@@ -618,6 +624,7 @@ button{
         align-items: center;
 
     }
+
     .playersAffich.blurred {
         filter: blur(5px);
         pointer-events: none;

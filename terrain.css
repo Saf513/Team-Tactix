@@ -347,7 +347,7 @@ select{
     transition: all 0.3s ease-in-out; 
 } 
 
- .global .playersAffich {
+  .playersAffich {
     background: rgba(0, 0, 0, 0.5)transparent;
     justify-content: center;
     align-items: center;
@@ -356,11 +356,10 @@ select{
     display: none;
     flex-direction: row;
     z-index: 1000;
-    /* width: 500px; */
-    position: fixed;
+    position: absolute;
     left: 5%;
     flex-wrap: wrap;
-    overflow-y: scroll;
+ 
     
 }
 .global-terrain.blurred {
@@ -523,4 +522,15 @@ button a{
     height: 2.2rem;
     border-radius: 10px;
     border: 2px black;
+}
+
+.modal{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: #ffd700;
+    height: 130px;
+    width: 250px;
+    text-align: center;
+    border-radius: 15px;
 }

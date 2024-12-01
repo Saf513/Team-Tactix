@@ -12,119 +12,121 @@
     .footer-social {
         margin-top: 20px;
     }
-.mobile{
-    display: block;
-    flex-direction:row;
 
-}
-.nav-mobile{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.desktop{
-    display: none;
-}
+    .mobile {
+        display: block;
+        flex-direction: row;
+
+    }
+
+    .nav-mobile {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .desktop {
+        display: none;
+    }
+
     .global {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-    
-    
+
+
     }
-    .icon{
+
+    .icon {
         display: flex;
         gap: 15px;
     }
-   
+
     .terrain {
-        height: 40rem; /* Ajuste la hauteur à 40rem (environ 640px) */
-        width: 90%; /* Prendre 90% de la largeur de l'écran */
-        background-size: 100% 100%; /* Ajuster le fond pour s'adapter au terrain */
+        height: 40rem;
+        width: 90%;
+        background-size: 100% 100%;
         position: relative;
-        top: 2rem; /* Décalage vers le bas */
-        left: 5%; /* Décalage vers la gauche pour centrer */
-    
+        top: 2rem;
+        left: 5%;
     }
 
-    /* Ajuster la taille des divs représentant les joueurs */
     .terrain div {
         background: url(img/bg-player.png);
         background-repeat: no-repeat;
         background-size: contain;
-        height: 8rem; /* Réduire la hauteur */
-        width: 12rem; /* Réduire la largeur */
+        height: 8rem;
+        width: 12rem;
     }
 
-    /* Réajuster les positions des joueurs */
     .GK {
         position: absolute;
-        left: 45%; /* Positionner le gardien au centre */
-        bottom: 10%; /* Un peu plus bas */
+        left: 45%;
+        bottom: 10%;
     }
 
     .CB-left {
         position: absolute;
-        bottom: 20%; /* Réduire la hauteur */
-        left: 25%; /* Déplacer plus à gauche */
+        bottom: 20%;
+        left: 25%;
     }
 
     .CB-right {
         position: absolute;
-        bottom: 20%; /* Réduire la hauteur */
-        left: 55%; /* Déplacer plus à droite */
+        bottom: 20%;
+        left: 55%;
     }
 
     .RB {
         position: absolute;
-        bottom: 30%; /* Réduire la hauteur */
-        left: 75%; /* Placer à droite */
+        bottom: 30%;
+        left: 75%;
     }
 
     .LB {
         position: absolute;
-        top: 50%; /* Réduire la hauteur */
-        right: 55%; /* Placer plus à droite */
+        top: 50%;
+        right: 55%;
     }
 
     .CMM {
         position: absolute;
-        top: 40%; /* Réduire la hauteur */
-        left: 42%; /* Garder centré */
+        top: 40%;
+        left: 42%;
     }
 
     .CML {
         position: absolute;
-        top: 30%; /* Réduire la hauteur */
-        left: 15%; /* Placer à gauche */
+        top: 30%;
+        left: 15%;
     }
 
     .CMR {
         position: absolute;
-        top: 30%; /* Réduire la hauteur */
-        left: 70%; /* Placer à droite */
+        top: 30%;
+        left: 70%;
     }
 
     .LW {
         position: absolute;
-        top: 10%; /* Réduire la hauteur */
-        left: 70%; /* Placer à droite */
+        top: 10%;
+        left: 70%;
     }
 
     .RW {
         position: absolute;
-        top: 10%; /* Réduire la hauteur */
-        left: 10%; /* Placer à gauche */
+        top: 10%;
+        left: 10%;
     }
 
     .ST {
         position: absolute;
-        top: 18%; /* Ajuster la hauteur */
-        left: 40%; /* Centrer le ST */
+        top: 18%;
+        left: 40%;
     }
 }
 
-@media (min-width: 769px) and (max-width: 1090px){
+@media (min-width: 769px) and (max-width: 1090px) {
     .table {
         height: 300px;
         width: 250px;
@@ -139,94 +141,96 @@
         align-items: center;
         border-radius: 7px;
     }
+
     .terrain {
-        height: 35rem; /* Ajuste la hauteur à 40rem (environ 640px) */
-        width: 50%; /* Prendre 90% de la largeur de l'écran */
-        background-size: 100% 100%; /* Ajuster le fond pour s'adapter au terrain */
+        height: 35rem;
+        width: 50%;
+        background-size: 100% 100%;
         position: relative;
-        top: 2rem; /* Décalage vers le bas */
-        left: 5%; /* Décalage vers la gauche pour centrer */
+        top: 2rem;
+        left: 5%;
     }
 
-    /* Ajuster la taille des divs représentant les joueurs */
     .terrain div {
         background: url(img/bg-player.png);
         background-repeat: no-repeat;
         background-size: contain;
-        height: 8rem; /* Réduire la hauteur */
-        width: 5rem; /* Réduire la largeur */
+        height: 8rem;
+        width: 5rem;
     }
+
     .global {
         display: flex;
         justify-content: space-around;
         align-items: center;
         margin-bottom: 5rem;
-    
-    
+
+
     }
+
     .GK {
         position: absolute;
-        left: 39%; /* Positionner le gardien au centre */
-        bottom: 10%; /* Un peu plus bas */
+        left: 39%;
+        bottom: 10%;
     }
 
     .CB-left {
         position: absolute;
-        bottom: 20%; /* Réduire la hauteur */
-        left: 15%; /* Déplacer plus à gauche */
+        bottom: 20%;
+        left: 15%;
     }
 
     .CB-right {
         position: absolute;
-        bottom: 20%; /* Réduire la hauteur */
-        left: 65%; /* Déplacer plus à droite */
+        bottom: 20%;
+        left: 65%;
     }
 
     .RB {
         position: absolute;
-        bottom: 30%; /* Réduire la hauteur */
-        left: 75%; /* Placer à droite */
+        bottom: 30%;
+        left: 75%;
     }
 
     .LB {
         position: absolute;
-        top: 50%; /* Réduire la hauteur */
-        right: 55%; /* Placer plus à droite */
+        top: 50%;
+        right: 55%;
     }
 
     .CMM {
         position: absolute;
-        top: 40%; /* Réduire la hauteur */
-        left: 42%; /* Garder centré */
+        top: 40%;
+        left: 42%;
     }
 
     .CML {
         position: absolute;
-        top: 30%; /* Réduire la hauteur */
-        left: 15%; /* Placer à gauche */
+        top: 30%;
+        left: 15%;
     }
 
     .CMR {
         position: absolute;
-        top: 30%; /* Réduire la hauteur */
-        left: 70%; /* Placer à droite */
+        top: 30%;
+        left: 70%;
     }
 
     .LW {
         position: absolute;
-        top: 10%; /* Réduire la hauteur */
-        left: 70%; /* Placer à droite */
+        top: 10%;
+        left: 70%;
     }
 
     .RW {
         position: absolute;
-        top: 10%; /* Réduire la hauteur */
-        left: 10%; /* Placer à gauche */
+        top: 10%;
+        left: 10%;
     }
 
     .ST {
         position: absolute;
-        top: 18%; /* Ajuster la hauteur */
-        left: 40%; /* Centrer le ST */
+        top: 18%;
+        left: 40%;
     }
 }

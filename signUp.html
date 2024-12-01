@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'inscription</title>
-    
-    <!-- <link rel="stylesheet" href="signU.css"> -->
-<link rel="stylesheet" href="media2.css">
+    <style>
+       
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+          margin-left: 400px;
+            
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffd700;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ffd700;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form-footer a {
+            text-decoration: none;
+            color: #ffd700;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+    <link rel="stylesheet" href="terrain.css">
 </head>
 <body>
     
@@ -45,8 +102,7 @@
 
     </nav>
 
-    <!-- Navigation mobile -->
-
+    
     <nav class="mobile">
         <div class="nav-mobile">
             <div class="log">
@@ -69,15 +125,15 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="players.html">Players</a></li>
                 <li><a href="squad.html">Squads</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Sign Up</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="news.html*">News</a></li>
+                <li><a href="signUp.html">Sign Up</a></li>
             </ul>
         </div>
     </nav>
 
-
     <div class="container">
+      <div>
         <h2>Créer un compte</h2>
         <form id="signupForm">
             <label for="username">Nom d'utilisateur</label>
@@ -98,8 +154,9 @@
         <div class="form-footer">
             <p>Déjà un compte ? <a href="login.html">Se connecter</a></p>
         </div>
+      </div>
     </div>
-    <footer>
+        <footer>
         <div class="footer-container">
             <div class="footer-logo">
                 <a href="#"><img src="logo/Team Tactix.png" alt="logo de TeamTactix"></a>
@@ -124,19 +181,14 @@
     </footer>
 
     <script>
-        // Fonction pour vérifier les champs du formulaire avec des expressions régulières
         function validateForm(event) {
-            event.preventDefault(); // Empêche l'envoi du formulaire si la validation échoue
-
-            // Réinitialiser les messages d'erreur
+            event.preventDefault(); 
             document.getElementById('usernameError').textContent = '';
             document.getElementById('emailError').textContent = '';
             document.getElementById('passwordError').textContent = '';
 
-            // Variables
+        
             let isValid = true;
-
-            // Validation du nom d'utilisateur : uniquement lettres, chiffres et tirets bas
             const username = document.getElementById('username').value;
             const usernamePattern = /^[a-zA-Z0-9_]{3,15}$/;
             if (username === '') {
@@ -146,8 +198,6 @@
                 document.getElementById('usernameError').textContent = 'Le nom d\'utilisateur doit être composé de 3 à 15 caractères, lettres, chiffres ou tirets bas.';
                 isValid = false;
             }
-
-            // Validation de l'email : doit être un format valide
             const email = document.getElementById('email').value;
             const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (email === '') {
@@ -157,10 +207,8 @@
                 document.getElementById('emailError').textContent = 'L\'email n\'est pas valide.';
                 isValid = false;
             }
-
-            // Validation du mot de passe : au moins 6 caractères, avec des lettres, des chiffres et des symboles
             const password = document.getElementById('password').value;
-            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/; // Minimum 6 caractères, lettres et chiffres
+            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/; 
             if (password === '') {
                 document.getElementById('passwordError').textContent = 'Le mot de passe est requis.';
                 isValid = false;
@@ -168,14 +216,10 @@
                 document.getElementById('passwordError').textContent = 'Le mot de passe doit contenir au moins 6 caractères, avec des lettres et des chiffres.';
                 isValid = false;
             }
-
-            // Si tout est valide, on soumet le formulaire
             if (isValid) {
                 document.getElementById('signupForm').submit();
             }
         }
-
-        // Écouter la soumission du formulaire
         document.getElementById('signupForm').addEventListener('submit', validateForm);
     </script>
 
