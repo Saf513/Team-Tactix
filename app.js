@@ -35,118 +35,258 @@ window.onload = function () {
 };
 
 
-function affich() {
-    let playersAffich = document.querySelector(".playersAffich ");
-    playersAffich.innerHTML = ``;
-    for (let i = 0; i < data.length; i++) {
+// function selected() {
+//     const terrainDivs = document.querySelectorAll('.terrain div');
+//     const playersAffich = document.querySelector(".playersAffich");
+//     const global = document.querySelector('.global');
+//     let joueurs = []; 
+//     let selectedTerrainDiv = null;
 
-        const playerCard = `
-        <div >
-          <div class="card pos"  >
-              <div class="sup">
-                  <div class="img">
-                      <p><img src="${data[i].photo}" alt="Image du joueur"></p>
-                  </div>
-                  <div class="supInfo">
-                      <p>${data[i].rating}</p> 
-                      <p>${data[i].position}</p>
-                      <div class="drapeau">
-                          <p><img src="${data[i].flag}" alt="Drapeau du pays"></p>
-                          <p><img src="${data[i].logo}" alt="Logo du club"></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="inf">
-        <div class="nom-player">
-        <p>${data[i].name}</p>
-      </div>
-              <div class="score">
-                  <div class="left">
-                      <p>${data[i].pace + "  "}<span>PAC</span></p> 
-                      <p>${data[i].shooting + "   "}<span>SHOT</span></p>
-                      <p class="supprimer"><i class="fa-solid fa-trash" style="color: #00000;"></i></p>
-        
-                  </div>
-                  <div class="right">
-                      <p>${data[i].dribbling + "  "} <span>DRI</span></p> 
-                      <p>${data[i].defending + " "}<span>DEF</span></p>
-                      <p class="editer"><i class="fa-solid fa-gears" style="color: #00000;"></i></p>
+//     terrainDivs.forEach(terrainDiv => {
+//         terrainDiv.addEventListener('click', () => {
+//             const position = terrainDiv.classList.value;
     
-                  </div>
-              </div>
-          </div>
-           
-</div>
-      `;
+//             joueurs = data.filter(joueur => joueur.position === position);
+        
+//             playersAffich.innerHTML = '';
+            
+//             joueurs.forEach(joueur => {
+//                 const playerCard = `
+//                     <div class="card">
+//                         <div class="sup">
+//                             <div class="img">
+//                                 <p><img src="${joueur.photo}" alt="Image du joueur"></p>
+//                             </div>
+//                             <div class="supInfo">
+//                                 <p>${joueur.rating}</p>
+//                                 <p>${joueur.position}</p>
+//                                 <div class="drapeau">
+//                                     <p><img src="${joueur.flag}" alt="Drapeau du pays"></p>
+//                                     <p><img src="${joueur.logo}" alt="Logo du club"></p>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                         <div class="inf">
+//                             <div class="nom-player">
+//                                 <p>${joueur.name}</p>
+//                             </div>
+//                             <div class="score">
+//                                 <div class="left">
+//                                     <p>${joueur.pace} <span>PAC</span></p>
+//                                     <p>${joueur.shooting} <span>SHOT</span></p>
+//                                 </div>
+//                                 <div class="right">
+//                                     <p>${joueur.dribbling} <span>DRI</span></p>
+//                                     <p>${joueur.defending} <span>DEF</span></p>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 `;
+//                 playersAffich.innerHTML += playerCard;
+//             });
+            
+//             selectedTerrainDiv = terrainDiv;
+//             playersAffich.style.display = 'flex';
+//             document.querySelector('h3').style.display = 'block';
+//             global.classList.add('blurred');
+//         });
+//     });
+//     playersAffich.addEventListener('click', (event) => {
+//         if (event.target.closest('.card')) {
+//             const card = event.target.closest('.card');
+//             console.log('Carte sélectionnée:', card);
+
+//             if (selectedTerrainDiv) {
+//                 const position = selectedTerrainDiv.classList.value;
+//                 const playerName = card.querySelector('.nom-player p').textContent;
+
+//                 if (!squadData.positions[position]) {
+//                     squadData.positions[position] = [];
+//                 }
+//                 squadData.positions[position] = playerName;
+
+//                 const cardImage = card.querySelector('img').cloneNode(true);
+//                 selectedTerrainDiv.innerHTML = '';
+//                 selectedTerrainDiv.appendChild(cardImage);
+//                 playersAffich.style.display = 'none';
+//                 document.querySelector('h3').style.display = 'none';
+//                 global.classList.remove('blurred');
+//             } else {
+//                 alert("Veuillez d'abord sélectionner une zone sur le terrain !");
+//             }
+//         }
+//     });
 
 
-        playersAffich.innerHTML += playerCard;
+//     terrainDivs.forEach(div => {
+//         div.addEventListener('click', () => {
+//             div.innerHTML = ''; // Vider la zone
+//             div.innerHTML = `<i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>`; // Réinitialiser l'icône
+//         });
+//     });
+// }
 
-    }
-}
-
-
-
-affich();
-
-
+// selected();
 function selected() {
     const terrainDivs = document.querySelectorAll('.terrain div');
     const playersAffich = document.querySelector(".playersAffich");
-    const playersAffih = document.querySelector(".global .playersAffich");
-    const global=document.querySelector('.global')
-    const cards = document.querySelectorAll('.card');
-
+    const global = document.querySelector('.global');
+    const availablePlayersContainer = document.querySelector(".available-players"); // Conteneur pour les joueurs non sélectionnés
+    let joueursDisponibles = [...data]; // Liste des joueurs disponibles
     let selectedTerrainDiv = null;
 
+    // Afficher les joueurs disponibles en haut
+    function afficherJoueursDisponibles() {
+        availablePlayersContainer.innerHTML = ''; // Réinitialiser l'affichage des joueurs disponibles
+        joueursDisponibles.forEach(joueur => {
+            const playerCard = `
+                <div class="card" data-id="${joueur.id}">
+                    <div class="sup">
+                        <div class="img">
+                            <p><img src="${joueur.photo}" alt="Image du joueur"></p>
+                        </div>
+                        <div class="supInfo">
+                            <p>${joueur.rating}</p>
+                            <p>${joueur.position}</p>
+                            <div class="drapeau">
+                                <p><img src="${joueur.flag}" alt="Drapeau du pays"></p>
+                                <p><img src="${joueur.logo}" alt="Logo du club"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inf">
+                        <div class="nom-player">
+                            <p>${joueur.name}</p>
+                        </div>
+                        <div class="score">
+                            <div class="left">
+                                <p>${joueur.pace} <span>PAC</span></p>
+                                <p>${joueur.shooting} <span>SHOT</span></p>
+                            </div>
+                            <div class="right">
+                                <p>${joueur.dribbling} <span>DRI</span></p>
+                                <p>${joueur.defending} <span>DEF</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            availablePlayersContainer.innerHTML += playerCard;
+        });
+    }
+
+    // Initialiser l'affichage des joueurs disponibles
+    afficherJoueursDisponibles();
+
+    // Sélectionner une zone sur le terrain
     terrainDivs.forEach(terrainDiv => {
         terrainDiv.addEventListener('click', () => {
-
+            const position = terrainDiv.classList.value;
             selectedTerrainDiv = terrainDiv;
             playersAffich.style.display = 'flex';
-            document.querySelector('h3').style.display='block'
+            document.querySelector('h3').style.display = 'block';
             global.classList.add('blurred');
 
+            // Filtrer les joueurs disponibles pour cette position
+            const joueursPourPosition = joueursDisponibles.filter(joueur => joueur.position === position);
+
+            // Afficher les joueurs pour cette position dans la section des joueurs affichés
+            playersAffich.innerHTML = '';
+            joueursPourPosition.forEach(joueur => {
+                const playerCard = `
+                    <div class="card" data-id="${joueur.id}">
+                        <div class="sup">
+                            <div class="img">
+                                <p><img src="${joueur.photo}" alt="Image du joueur"></p>
+                            </div>
+                            <div class="supInfo">
+                                <p>${joueur.rating}</p>
+                                <p>${joueur.position}</p>
+                                <div class="drapeau">
+                                    <p><img src="${joueur.flag}" alt="Drapeau du pays"></p>
+                                    <p><img src="${joueur.logo}" alt="Logo du club"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inf">
+                            <div class="nom-player">
+                                <p>${joueur.name}</p>
+                            </div>
+                            <div class="score">
+                                <div class="left">
+                                    <p>${joueur.pace} <span>PAC</span></p>
+                                    <p>${joueur.shooting} <span>SHOT</span></p>
+                                </div>
+                                <div class="right">
+                                    <p>${joueur.dribbling} <span>DRI</span></p>
+                                    <p>${joueur.defending} <span>DEF</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                playersAffich.innerHTML += playerCard;
+            });
         });
     });
 
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            if (selectedTerrainDiv) {
+    // Gestion du clic sur les cartes pour les ajouter à la formation
+    playersAffich.addEventListener('click', (event) => {
+        if (event.target.closest('.card')) {
+            const card = event.target.closest('.card');
+            const joueurId = card.getAttribute('data-id');
+            const joueurSelectionne = joueursDisponibles.find(joueur => joueur.id == joueurId);
+
+            if (joueurSelectionne && selectedTerrainDiv) {
+                // Ajouter le joueur à la formation (squadData)
                 const position = selectedTerrainDiv.classList.value;
-                let joueurs = data.filter(joueur => joueur.position === position);
                 if (!squadData.positions[position]) {
                     squadData.positions[position] = [];
                 }
+                squadData.positions[position] = joueurSelectionne.name;
 
-                //REMPLIR SQUADDATA
-                squadData.positions[position] = card.querySelector('.nom-player p').textContent;
-
-
+                // Mettre à jour l'affichage sur le terrain
                 const cardImage = card.querySelector('img').cloneNode(true);
                 selectedTerrainDiv.innerHTML = '';
                 selectedTerrainDiv.appendChild(cardImage);
+
+                // Retirer le joueur de la liste des joueurs disponibles
+                joueursDisponibles = joueursDisponibles.filter(joueur => joueur.id !== joueurId);
+                afficherJoueursDisponibles(); // Réafficher les joueurs disponibles
+
+                // Cacher la section des joueurs
                 playersAffich.style.display = 'none';
-                document.querySelector('h3').style.display='none';
-                 global.classList.remove('blurred');
+                document.querySelector('h3').style.display = 'none';
+                global.classList.remove('blurred');
             } else {
                 alert("Veuillez d'abord sélectionner une zone sur le terrain !");
             }
-        });
-
+        }
     });
 
-    terrainDivs.forEach(
-        div => {
-            div.addEventListener('click', () => {
-                div.innerHTML = '';
-                div.innerHTML = ` <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>`;
-            })
-        }
-    )
+    // Gestion du clic pour supprimer un joueur de la formation et le réafficher
+    terrainDivs.forEach(div => {
+        div.addEventListener('click', () => {
+            const cardImage = div.querySelector('img');
+            if (cardImage) {
+                const joueurName = cardImage.alt; // On suppose que l'alt contient le nom du joueur
+                const joueurRetire = joueursDisponibles.find(joueur => joueur.name === joueurName);
+
+                if (joueurRetire) {
+                    joueursDisponibles.push(joueurRetire); // Réajouter le joueur à la liste
+                    afficherJoueursDisponibles(); // Réafficher les joueurs
+                }
+
+                div.innerHTML = ''; // Vider la zone du terrain
+                div.innerHTML = `<i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>`; // Réinitialiser l'icône
+            }
+        });
+    });
 }
 
 selected();
+
 
 //la fonction de submit le squad
 function submit() {

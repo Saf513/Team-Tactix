@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="terrain.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="media2.css">
+    <link rel="stylesheet" href="news.css">
 </head>
 
 <body>
@@ -35,11 +36,11 @@
         </div>
 
         <div class="news">
-            <a href="blog.html">blog</a>
+            <a href="#">blog</a>
         </div>
 
         <div class="news">
-            <a href="news.html">news</a>
+            <a href="#">news</a>
         </div>
 
         <div class="signUp">
@@ -79,95 +80,45 @@
         </div>
     </nav>
 
-
-    <!-- le contenu -->
-    <section>
-        <h3 style="display: none;">choisir vos joueurs:</h3>
-        <div class="playersAffich" style="display: none;">
-        </div>
-        <div class="global">
-
-            <div class="global-terrain">
-
-                <!-- terrain ou les joueurs sont placees -->
-                <div class="terrain">
-                    <!-- les joueurs -->
-                    <div class="GK">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-
+        
+            <main>
+                <section class="news-list">
+                    <!-- Première News: Match -->
+                    <div class="news-item" data-id="1">
+                        <img src="https://img.lemde.fr/2022/12/18/0/0/5388/3592/1440/960/60/0/dfff460_5040162-01-06.jpg" alt="Coupe du Monde 2022" class="news-image">
+                        <div class="news-text">
+                            <h2>Finale de la Coupe du Monde 2022 : Une victoire historique pour l'Argentine</h2>
+                            <p>Le 18 décembre 2022, l'Argentine a remporté la Coupe du Monde 2022 après une finale épique contre la France. Lionel Messi a été l'un des héros de la compétition, menant son équipe à la victoire avec un doublé en finale.</p>
+                        </div>
                     </div>
-
-                    <div class="RB">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+        
+                    <!-- Deuxième News: Transfert -->
+                    <div class="news-item" data-id="2">
+                        <img src="https://i.pinimg.com/736x/ea/ec/53/eaec53297119594860acfc72b20a673e.jpg" alt="Mbappé" class="news-image">
+                        <div class="news-text">
+                            <h2>Transfert de Kylian Mbappé : Rester au PSG ou rejoindre le Real Madrid ?</h2>
+                            <p>Les rumeurs de transfert de Kylian Mbappé continuent d'agiter le marché. Le jeune attaquant français pourrait quitter le Paris Saint-Germain pour rejoindre le Real Madrid cet été, après une saison impressionnante avec le PSG.</p>
+                        </div>
                     </div>
-
-                    <div id="CB-left"  class="CB">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+        
+                    <!-- Troisième News: Match -->
+                    <div class="news-item" data-id="3">
+                        <img src="https://th.bing.com/th/id/OIP.U2RsR8b3u9GEwihDt8ureAHaEK?rs=1&pid=ImgDetMain" alt="Champions League" class="news-image">
+                        <div class="news-text">
+                            <h2>La finale de la Ligue des champions 2023 : Manchester City couronné champion d'Europe</h2>
+                            <p>Le 10 juin 2023, Manchester City a remporté sa première Ligue des champions en battant l'Inter Milan 1-0 en finale. Un seul but de Rodri a suffi pour offrir à Pep Guardiola et ses hommes ce titre tant convoité.</p>
+                        </div>
                     </div>
-
-                    <div id="CB-right" class="CB">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div class="LB">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div id="CML" class="CM">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div id="CMM" class="CM">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div id="CMR" class="CM">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div class="RW">
-                        <i class="fa-solid fa-user-plus fa-2x " style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div class="LW">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div class="ST">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-                    <!-- fin -->
-                </div>
-               
-                <div class="table">
-                    <h2>Football Squad</h2>
-
-                    <div class="input-name">
-                        <label for="name-squad">Name of Squad:</label>
-                        <input type="text" name="name-squad" id="name-squad">
-                    </div>
-
-                    <div class="input-formation">
-                        <label for="formation">Formation:</label>
-                        <select name="formation" id="formation">
-                            <option value="0">Choisir une formation:</option>
-                            <option value="1">4-4-3</option>
-                            <option value="2">4-4-2</option>
-                            <option value="3">3-5-2</option>
-                        </select>
-                    </div>
-
-                    <button class="save" onclick="submit()">Save</button>
-                </div>
-
-            </div>
-            <div class="available-players"></div>
-
-
-        </div>
-
-    </section>
-    <!-- footer -->
+                </section>
+        
+                <section class="news-detail" id="news-detail">
+                    <h2 id="news-title">Titre de l'article</h2>
+                    <img src="" id="news-image" alt="Image de l'article" class="news-detail-image">
+                    <p id="news-content">Contenu détaillé de l'article ici...</p>
+                </section>
+            </main>
+        
+        
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
@@ -192,9 +143,9 @@
         </div>
     </footer>
 
-    <script src="app.js"></script>
-</body>
+    
+    <script src="news.js"></script>
 
-<div class="modifier"></div>
+</body>
 
 </html>

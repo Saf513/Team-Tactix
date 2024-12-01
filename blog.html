@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="terrain.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="media2.css">
+    <link rel="stylesheet" href="news.css">
 </head>
 
 <body>
@@ -35,11 +36,11 @@
         </div>
 
         <div class="news">
-            <a href="blog.html">blog</a>
+            <a href="#">blog</a>
         </div>
 
         <div class="news">
-            <a href="news.html">news</a>
+            <a href="#">news</a>
         </div>
 
         <div class="signUp">
@@ -79,95 +80,38 @@
         </div>
     </nav>
 
-
-    <!-- le contenu -->
-    <section>
-        <h3 style="display: none;">choisir vos joueurs:</h3>
-        <div class="playersAffich" style="display: none;">
+    <section class="blog-container">
+        <div class="blog-header">
+            <h1>Blog Football : Dernières Actualités</h1>
         </div>
-        <div class="global">
 
-            <div class="global-terrain">
-
-                <!-- terrain ou les joueurs sont placees -->
-                <div class="terrain">
-                    <!-- les joueurs -->
-                    <div class="GK">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-
-                    </div>
-
-                    <div class="RB">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div id="CB-left"  class="CB">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div id="CB-right" class="CB">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div class="LB">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div id="CML" class="CM">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div id="CMM" class="CM">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div id="CMR" class="CM">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div class="RW">
-                        <i class="fa-solid fa-user-plus fa-2x " style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div class="LW">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-
-                    <div class="ST">
-                        <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
-                    </div>
-                    <!-- fin -->
-                </div>
-               
-                <div class="table">
-                    <h2>Football Squad</h2>
-
-                    <div class="input-name">
-                        <label for="name-squad">Name of Squad:</label>
-                        <input type="text" name="name-squad" id="name-squad">
-                    </div>
-
-                    <div class="input-formation">
-                        <label for="formation">Formation:</label>
-                        <select name="formation" id="formation">
-                            <option value="0">Choisir une formation:</option>
-                            <option value="1">4-4-3</option>
-                            <option value="2">4-4-2</option>
-                            <option value="3">3-5-2</option>
-                        </select>
-                    </div>
-
-                    <button class="save" onclick="submit()">Save</button>
-                </div>
-
+        <div class="blog-posts">
+            <div class="blog-item" data-id="1">
+                <h3 class="post-title">La domination de Messi au PSG : une ère terminée ?</h3>
+                <p class="post-excerpt">Le départ de Lionel Messi du Paris Saint-Germain marque la fin d'une ère pour le club français. Après avoir apporté de nombreux titres à Paris, l'Argentin se prépare à un nouveau défi en MLS...</p>
             </div>
-            <div class="available-players"></div>
 
+            <div class="blog-item" data-id="2">
+                <h3 class="post-title">Le nouveau phénomène du football : Kylian Mbappé</h3>
+                <p class="post-excerpt">Kylian Mbappé est désormais l'un des meilleurs joueurs au monde. Son avenir au PSG semble incertain, mais sa place parmi les meilleurs de l'histoire du football est assurée...</p>
+            </div>
 
+            <div class="blog-item" data-id="3">
+                <h3 class="post-title">Les jeunes talents à surveiller en 2024</h3>
+                <p class="post-excerpt">De nombreux jeunes joueurs émergent dans les ligues majeures du football. Quels sont les noms à suivre en 2024 et pourquoi ces talents pourraient devenir les stars du futur ?</p>
+            </div>
         </div>
 
+        <!-- Détails de l'article sélectionné -->
+        <div class="blog-detail" id="blog-detail">
+            <h2 id="blog-title">Titre de l'article</h2>
+            <img id="blog-image" src="" alt="Image de l'article" class="blog-image">
+            <p id="blog-content">Contenu de l'article</p>
+        </div>
     </section>
-    <!-- footer -->
+            
+        
+        
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
@@ -192,9 +136,9 @@
         </div>
     </footer>
 
-    <script src="app.js"></script>
-</body>
+    
+    <script src="news.js"></script>
 
-<div class="modifier"></div>
+</body>
 
 </html>

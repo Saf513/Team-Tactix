@@ -214,7 +214,7 @@ select{
 }
 
 
-.CB-left {
+#CB-left {
     position: absolute;
     bottom: 25%;
     left: 30%;
@@ -223,7 +223,7 @@ select{
     align-self: center;
 }
 
-.CB-right {
+#CB-right {
     position: absolute;
     bottom: 25%;
     left: 53%;
@@ -250,7 +250,7 @@ select{
     align-self: center;
 }
 
-.CMM {
+#CMM {
     position: absolute;
     top: 43%;
     left: 42%;
@@ -259,7 +259,7 @@ select{
     align-self: center;
 }
 
-.CML {
+#CML {
     position: absolute;
     top: 35%;
     left: 12%;
@@ -267,7 +267,7 @@ select{
     justify-content: center;
     align-self: center;
 }
-.CMR{
+#CMR{
     position: absolute;
     top: 35%;
     left: 71%;  
