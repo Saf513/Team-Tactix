@@ -128,7 +128,7 @@ footer {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border-radius: 7px;
+    border-radius: 15px;
 }
 h2 {
     font-weight: bolder;
@@ -151,7 +151,7 @@ input-formation button ,nav button{
     border-radius: 7px;
 }
 input {
-    height: 2.3rem;
+    height: 2rem;
     width: 12rem;
     border-radius:1.5 rem;
 }
@@ -305,7 +305,7 @@ select{
 }
  
 #search-player {
-    padding: 8px 30px 8px 10px;
+    padding: 8px 20px 8px 10px;
     border: 2px solid #ffd700;
     border-radius: 25px;
     background-color: transparent;
@@ -347,23 +347,23 @@ select{
     transition: all 0.3s ease-in-out; 
 } 
 
-.global .playersAffich {
-    
+ .global .playersAffich {
+    background: rgba(0, 0, 0, 0.5)transparent;
     justify-content: center;
     align-items: center;
     margin-top: 0%;
     margin-bottom: 10%;
     display: none;
     flex-direction: row;
-    flex-wrap: wrap;
     z-index: 1000;
-    width: 500px;
+    /* width: 500px; */
     position: fixed;
-    left: 50%;
-    top: 50%;
+    left: 5%;
+    flex-wrap: wrap;
+    overflow-y: scroll;
     
 }
-.global.blurred {
+.global-terrain.blurred {
     filter: blur(5px);
     pointer-events: none;
 }
@@ -374,7 +374,8 @@ select{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     overflow: hidden; 
     cursor: pointer; 
-    transition: transform 0.3s ease-in-out;  
+    transition: transform 0.3s ease-in-out; 
+   
 }
 
 .card:hover {
@@ -512,5 +513,14 @@ select{
     transform: scale(0.95); 
 }
 .name-squad{
-    border:1.5rem
+    border:1.5rem;
+    text-align: right;
+}
+button a{
+    color: black;
+}
+#name-squad{
+    height: 2.2rem;
+    border-radius: 10px;
+    border: 2px black;
 }

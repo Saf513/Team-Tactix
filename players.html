@@ -15,89 +15,214 @@
   <!-- Nav Bar -->
 
 
-   <nav class="desktop">
+  <nav class="desktop">
     <div class="log">
-        <a href="index.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+      <a href="index.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
     </div>
 
     <div class="search-player">
-        <input type="text" placeholder="Search for player ..." name="search " id="search-player">
-        <i class="fa-solid fa-magnifying-glass bar-search" style="color: #ffd700;"></i>
+      <input type="text" placeholder="Search for player ..." name="search " id="search-player">
+      <i class="fa-solid fa-magnifying-glass bar-search" style="color: #ffd700;"></i>
     </div>
-    
+
     <div class="div-players">
-        <div class="players">
-            <a href="players.html">Players</a>
-        </div>
-        
+      <div class="players">
+        <a href="players.html">Players</a>
+      </div>
+
     </div>
 
     <div>
-        <a href="squad.html">Squads</a>
+      <a href="squad.html">Squads</a>
     </div>
 
     <div class="news">
-        <a href="#">blog</a>
+      <a href="#">blog</a>
     </div>
 
     <div class="news">
-        <a href="#">news</a>
+      <a href="#">news</a>
     </div>
 
     <div class="signUp">
-        <button>Sign Up</button>
+      <button>Sign Up</button>
     </div>
 
-</nav>
+  </nav>
 
-<nav class="mobile">
-  <div class="nav-mobile">
+  <nav class="mobile">
+    <div class="nav-mobile">
       <div class="log">
-          <a href="players.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+        <a href="players.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
       </div>
 
       <div class="search-player">
-          <input type="text" placeholder="Search for player ..." name="search">
-          <i class="fa-solid fa-magnifying-glass" style="color: #ffd700;"></i>
+        <input type="text" placeholder="Search for player ..." name="search">
+        <i class="fa-solid fa-magnifying-glass" style="color: #ffd700;"></i>
       </div>
 
       <div class="icon">
-          <i class="fa-solid fa-user" style="color: #ffd700;"></i>
-          <i class="fa-solid fa-bars burger-menu" style="color: #ffd700;"></i>
+        <i class="fa-solid fa-user" style="color: #ffd700;"></i>
+        <i class="fa-solid fa-bars burger-menu" style="color: #ffd700;"></i>
       </div>
-  </div>
+    </div>
 
-  <div class="mobile-menu">
+    <div class="mobile-menu">
       <ul>
         <li><a href="index.html">Home</a></li>
-          <li><a href="players.html">Players</a></li>
-          <li><a href="squad.html">Squads</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Sign Up</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="squad.html">Squads</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Sign Up</a></li>
       </ul>
-  </div>
-</nav>
-
-
-
-<!-- barre de filtrage -->
- <div class="global-players">
-  <div class="filtrage">
-    <div class="btn"><p>Position</p></div>
-    <div class="btn"><p>League</p></div>
-    <div class="btn"><p>Nation</p></div>
-    <div class="btn"><p>Club</p></div>
-    <div class="btn"><p>Foot</p></div>
-   </div>
-  
-  
-    <div class="playersAffich">
-  
-      
-  
     </div>
- </div>
+  </nav>
+
+
+
+  <div class="ajouter-joueurs">
+    <button>
+      <i class="fa-solid fa-plus" style="color: #141414;"></i>
+      <span>ajouter joueur</span>
+    </button>
+  </div>
+  <div class="form-ajout">
+    <h2>position :</h2>
+    <select name="positions" id="positions">
+      <option value="0">choisir position</option>
+      <option value="1">Gardien de But</option>
+      <option value="2">Défenseurs </option>
+      <option value="3">Milieux de Terrain</option>
+      <option value="4">Attaquants</option>
+    </select>
+    <div choix-btn>
+      <button class="sauvgarder">sauvgarder</button>
+      <button class="annuler">Annuler</button>
+    </div>
+  </div>
+  <div>
+    <form id="form-ajout" class="form-ajout" style="display: none;">
+      <h2>Ajouter un joueur</h2>
+      
+      <!-- Nom du joueur -->
+      <label for="name">Nom du joueur:</label>
+      <input type="text" id="name" name="name" placeholder="Nom complet du joueur" required>
+      <!-- Position -->
+      <label for="position">Position:</label>
+      <select id="position" name="position" required>
+          <option value="ST">ST (Attaquant)</option>
+          <option value="LW">LW (Ailier gauche)</option>
+          <option value="RW">RW (Ailier droit)</option>
+          <option value="CF">CF (Centre avant)</option>
+          <option value="CAM">CAM (Milieu offensif)</option>
+          <option value="CM">CM (Milieu central)</option>
+          <option value="CDM">CDM (Milieu défensif)</option>
+          <option value="LB">LB (Arrière gauche)</option>
+          <option value="RB">RB (Arrière droit)</option>
+          <option value="CB">CB (Défenseur central)</option>
+          <option value="GK">GK (Gardien de but)</option>
+      </select>
+      
+      <!-- Nationalite -->
+      <label for="nationality">Nationalité:</label>
+      <input type="text" id="nationality" name="nationality" placeholder="Pays d'origine" required>
+    
+      <!-- Rating -->
+      <label for="rating">Note du joueur:</label>
+      <input type="number" id="rating" name="rating" min="0" max="100" placeholder="Note de 0 à 100" required>
+      
+      <!-- Attributs du joueur -->
+      <div class="attributes">
+          <label for="pace">Vitesse (Pace):</label>
+          <input type="number" id="pace" name="pace" min="0" max="99" placeholder="Vitesse" required>
+          
+          <label for="shooting">Tir (Shooting):</label>
+          <input type="number" id="shooting" name="shooting" min="0" max="99" placeholder="Tir" required>
+          
+          <label for="passing">Passes (Passing):</label>
+          <input type="number" id="passing" name="passing" min="0" max="99" placeholder="Passes" required>
+          
+          <label for="dribbling">Dribbles (Dribbling):</label>
+          <input type="number" id="dribbling" name="dribbling" min="0" max="99" placeholder="Dribbles" required>
+          
+          <label for="defending">Défense (Defending):</label>
+          <input type="number" id="defending" name="defending" min="0" max="99" placeholder="Défense" required>
+          
+          <label for="physical">Physique (Physical):</label>
+          <input type="number" id="physical" name="physical" min="0" max="99" placeholder="Physique" required>
+      </div>
+      
+      <!-- Bouton de soumission -->
+      <button type="submit" id="ajout-play">Ajouter le joueur</button>
+  </form>
+  
+  <!--form pour goolkeepers  -->
+  <form id="form-ajout-gardien" class="form-ajout">
+    <h2>Ajouter un Gardien de But</h2>
+
+    <!-- Nom du joueur -->
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name" placeholder="Entrez le nom du joueur" value="Jan Oblak" required>
+
+    <!-- Nationalite du joueur -->
+    <label for="nationality">Nationalité :</label>
+    <input type="text" id="nationality" name="nationality" placeholder="Pays d'origine" value="Slovenia" required>
+
+    <!-- Club du joueur -->
+    <label for="club">Club :</label>
+    <input type="text" id="club" name="club" placeholder="Nom du club" value="Atletico Madrid" required>
+
+    <!-- Note du joueur -->
+    <label for="rating">Note (Rating) :</label>
+    <input type="number" id="rating" name="rating" min="0" max="100" placeholder="Note du joueur" value="91" required>
+
+    <!-- Statistiques spécifiques au Gardien de But -->
+    <label for="diving">Plongée (Diving) :</label>
+    <input type="number" id="diving" name="diving" min="0" max="100" placeholder="Plongée" value="89" required>
+
+    <label for="handling">Prise de balle (Handling) :</label>
+    <input type="number" id="handling" name="handling" min="0" max="100" placeholder="Prise de balle" value="90" required>
+
+    <label for="kicking">Dégagement (Kicking) :</label>
+    <input type="number" id="kicking" name="kicking" min="0" max="100" placeholder="Dégagement" value="78" required>
+
+    <label for="reflexes">Réflexes (Reflexes) :</label>
+    <input type="number" id="reflexes" name="reflexes" min="0" max="100" placeholder="Réflexes" value="92" required>
+
+    <label for="speed">Vitesse (Speed) :</label>
+    <input type="number" id="speed" name="speed" min="0" max="100" placeholder="Vitesse" value="50" required>
+
+    <label for="positioning">Positionnement (Positioning) :</label>
+    <input type="number" id="positioning" name="positioning" min="0" max="100" placeholder="Positionnement" value="88" required>
+
+    <button type="submit">Ajouter Gardien</button>
+</form>
+
+  <div class="global-players">
+    <div class="filtrage">
+      <div class="btn">
+        <p>Position</p>
+      </div>
+      <div class="btn">
+        <p>League</p>
+      </div>
+      <div class="btn">
+        <p>Nation</p>
+      </div>
+      <div class="btn">
+        <p>Club</p>
+      </div>
+      <div class="btn">
+        <p>Foot</p>
+      </div>
+     
+      </div>
+    
+
+    <div class="playersAffich">
+    </div>
+  </div>
 
 
 

@@ -1,7 +1,7 @@
 
-const data = JSON.parse(localStorage.getItem('playersData'));function affich() {
+const data = JSON.parse(localStorage.getItem('playersData')); function affich() {
     let playersAffich = document.querySelector(".playersAffich");
-    playersAffich.innerHTML = ``;  
+    playersAffich.innerHTML = ``;
 
     for (let i = 0; i < data.length; i++) {
         let playerCard = ``;
@@ -82,7 +82,7 @@ const data = JSON.parse(localStorage.getItem('playersData'));function affich() {
             `;
         }
 
-        
+
         playersAffich.innerHTML += playerCard;
     }
 }
@@ -92,12 +92,66 @@ const burgerMenu = document.querySelector('.burger-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 burgerMenu.addEventListener('click', (e) => {
-    e.stopPropagation();  
-    mobileMenu.classList.toggle('active'); 
+    e.stopPropagation();
+    mobileMenu.classList.toggle('active');
 });
 
 window.addEventListener('click', (e) => {
     if (!burgerMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
-        mobileMenu.classList.remove('active'); 
+        mobileMenu.classList.remove('active');
     }
+});
+
+//ajouter un joueurs 
+function ajoutPlayers() {
+    let formAjout = document.querySelector('.form-ajout');
+
+    formAjout.style.display = 'flex';
+    document.querySelector('.global-players').classList.add('blured');
+}
+
+document.querySelector('.ajouter-joueurs').addEventListener('click', ajoutPlayers);
+
+
+const positionsSelect = document.getElementById('positions');
+let formAjout = document.querySelector('.form-ajout');
+document.querySelector('.sauvgarder').addEventListener('click', () => {
+    let pos = positionsSelect.value;
+    let formAjout = document.querySelector('.form-ajout');
+    if (pos != 1 && pos != 0) {
+        document.querySelector('#form-ajout').style.display = 'flex';
+        formAjout.style.display = 'none';
+    }
+
+    else if(pos==0){
+        alert('Veuillez selectionner la position');
+    }
+    else if(pos==1){
+        document.querySelector('#form-ajout-gardien').style.display='flex';
+        formAjout.style.display = 'none';
+    }
+
+})
+
+const form = document.getElementById('form-ajout');
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    document.querySelector('#form-ajout').style.display = 'none';
+    document.querySelector('.global-players').classList.remove('blured');
+
+    const joueur = {
+        name: document.getElementById('name').value,
+        nationality: document.getElementById('nationality').value,
+        club: document.getElementById('club').value,
+        rating: document.getElementById('rating').value,
+        pace: document.getElementById('pace').value,
+        shooting: document.getElementById('shooting').value,
+        passing: document.getElementById('passing').value,
+        dribbling: document.getElementById('dribbling').value,
+        defending: document.getElementById('defending').value,
+        physical: document.getElementById('physical').value,
+        position: document.querySelector('input[name="position"]').value, 
+    };
+    console.log(joueur);
+
 });

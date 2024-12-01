@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'inscription</title>
+    
+    <!-- <link rel="stylesheet" href="signU.css"> -->
+<link rel="stylesheet" href="media2.css">
+</head>
+<body>
+    
+    <nav class="desktop">
+        <div class="log">
+            <a href="index.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+        </div>
+
+        <div class="search-player">
+            <input type="text" placeholder="Search for player ..." name="search" id="search-player">
+            <i class="fa-solid fa-magnifying-glass bar-search" style="color: #ffd700;" onclick="recherche()"></i>
+        </div>
+        
+        <div class="div-players">
+            <div class="players">
+                <a href="players.html">Players</a>
+            </div>
+
+        </div>
+
+        <div>
+            <a href="squad.html">Squads</a>
+        </div>
+
+        <div class="news">
+            <a href="blog.html">blog</a>
+        </div>
+
+        <div class="news">
+            <a href="news.html">news</a>
+        </div>
+
+        <div class="signUp">
+            <button><a href="signUp.html">Sign Up</a></button>
+        </div>
+
+    </nav>
+
+    <!-- Navigation mobile -->
+
+    <nav class="mobile">
+        <div class="nav-mobile">
+            <div class="log">
+                <a href="players.html"><img src="logo/Team Tactix.png" alt="logo de site de teamtactix"></a>
+            </div>
+
+            <div class="search-player">
+                <input type="text" placeholder="Search for player ..." name="search" id="search-player">
+                <i class="fa-solid fa-magnifying-glass recherche-icon" style="color: #ffd700;"  onclick="recherche()"></i>
+            </div>
+
+            <div class="icon">
+                <i class="fa-solid fa-user user" style="color: #ffd700;"></i>
+                <i class="fa-solid fa-bars burger-menu" style="color: #ffd700;"></i>
+            </div>
+        </div>
+
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="players.html">Players</a></li>
+                <li><a href="squad.html">Squads</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h2>Créer un compte</h2>
+        <form id="signupForm">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" required>
+            <div id="usernameError" class="error"></div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <div id="emailError" class="error"></div>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required>
+            <div id="passwordError" class="error"></div>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+
+        <div class="form-footer">
+            <p>Déjà un compte ? <a href="login.html">Se connecter</a></p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="#"><img src="logo/Team Tactix.png" alt="logo de TeamTactix"></a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook" style="color: #ffd700;"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp" style="color: #ffd700;"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram" style="color: #ffd700;"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TeamTactix. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour vérifier les champs du formulaire avec des expressions régulières
+        function validateForm(event) {
+            event.preventDefault(); // Empêche l'envoi du formulaire si la validation échoue
+
+            // Réinitialiser les messages d'erreur
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+
+            // Variables
+            let isValid = true;
+
+            // Validation du nom d'utilisateur : uniquement lettres, chiffres et tirets bas
+            const username = document.getElementById('username').value;
+            const usernamePattern = /^[a-zA-Z0-9_]{3,15}$/;
+            if (username === '') {
+                document.getElementById('usernameError').textContent = 'Le nom d\'utilisateur est requis.';
+                isValid = false;
+            } else if (!usernamePattern.test(username)) {
+                document.getElementById('usernameError').textContent = 'Le nom d\'utilisateur doit être composé de 3 à 15 caractères, lettres, chiffres ou tirets bas.';
+                isValid = false;
+            }
+
+            // Validation de l'email : doit être un format valide
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'L\'email est requis.';
+                isValid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'L\'email n\'est pas valide.';
+                isValid = false;
+            }
+
+            // Validation du mot de passe : au moins 6 caractères, avec des lettres, des chiffres et des symboles
+            const password = document.getElementById('password').value;
+            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/; // Minimum 6 caractères, lettres et chiffres
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'Le mot de passe est requis.';
+                isValid = false;
+            } else if (!passwordPattern.test(password)) {
+                document.getElementById('passwordError').textContent = 'Le mot de passe doit contenir au moins 6 caractères, avec des lettres et des chiffres.';
+                isValid = false;
+            }
+
+            // Si tout est valide, on soumet le formulaire
+            if (isValid) {
+                document.getElementById('signupForm').submit();
+            }
+        }
+
+        // Écouter la soumission du formulaire
+        document.getElementById('signupForm').addEventListener('submit', validateForm);
+    </script>
+
+</body>
+</html>

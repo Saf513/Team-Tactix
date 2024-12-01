@@ -1,7 +1,7 @@
 const players = document.querySelector('.players ');
 const popupPlayer = document.querySelector('.popupPlayer');
 const global = document.querySelector('.global');
-const divplayers = document.querySelector('.div-players');
+const divplayers = document.querySelector('.div-players .card');
 
 
 let squad;
@@ -45,11 +45,11 @@ window.onload = function () {
 //     terrainDivs.forEach(terrainDiv => {
 //         terrainDiv.addEventListener('click', () => {
 //             const position = terrainDiv.classList.value;
-    
+
 //             joueurs = data.filter(joueur => joueur.position === position);
-        
+
 //             playersAffich.innerHTML = '';
-            
+
 //             joueurs.forEach(joueur => {
 //                 const playerCard = `
 //                     <div class="card">
@@ -85,7 +85,7 @@ window.onload = function () {
 //                 `;
 //                 playersAffich.innerHTML += playerCard;
 //             });
-            
+
 //             selectedTerrainDiv = terrainDiv;
 //             playersAffich.style.display = 'flex';
 //             document.querySelector('h3').style.display = 'block';
@@ -126,136 +126,102 @@ window.onload = function () {
 //         });
 //     });
 // }
-
-// selected();
 function selected() {
     const terrainDivs = document.querySelectorAll('.terrain div');
     const playersAffich = document.querySelector(".playersAffich");
-    const global = document.querySelector('.global');
-    const availablePlayersContainer = document.querySelector(".available-players"); // Conteneur pour les joueurs non sélectionnés
-    let joueursDisponibles = [...data]; // Liste des joueurs disponibles
+    const global = document.querySelector('.global-terrain');
+    let joueurs = [];
     let selectedTerrainDiv = null;
+    let playersOnField = {}; 
 
-    // Afficher les joueurs disponibles en haut
-    function afficherJoueursDisponibles() {
-        availablePlayersContainer.innerHTML = ''; // Réinitialiser l'affichage des joueurs disponibles
-        joueursDisponibles.forEach(joueur => {
-            const playerCard = `
-                <div class="card" data-id="${joueur.id}">
-                    <div class="sup">
-                        <div class="img">
-                            <p><img src="${joueur.photo}" alt="Image du joueur"></p>
-                        </div>
-                        <div class="supInfo">
-                            <p>${joueur.rating}</p>
-                            <p>${joueur.position}</p>
-                            <div class="drapeau">
-                                <p><img src="${joueur.flag}" alt="Drapeau du pays"></p>
-                                <p><img src="${joueur.logo}" alt="Logo du club"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inf">
-                        <div class="nom-player">
-                            <p>${joueur.name}</p>
-                        </div>
-                        <div class="score">
-                            <div class="left">
-                                <p>${joueur.pace} <span>PAC</span></p>
-                                <p>${joueur.shooting} <span>SHOT</span></p>
-                            </div>
-                            <div class="right">
-                                <p>${joueur.dribbling} <span>DRI</span></p>
-                                <p>${joueur.defending} <span>DEF</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            availablePlayersContainer.innerHTML += playerCard;
-        });
-    }
-
-    // Initialiser l'affichage des joueurs disponibles
-    afficherJoueursDisponibles();
-
-    // Sélectionner une zone sur le terrain
     terrainDivs.forEach(terrainDiv => {
         terrainDiv.addEventListener('click', () => {
             const position = terrainDiv.classList.value;
-            selectedTerrainDiv = terrainDiv;
-            playersAffich.style.display = 'flex';
-            document.querySelector('h3').style.display = 'block';
-            global.classList.add('blurred');
 
-            // Filtrer les joueurs disponibles pour cette position
-            const joueursPourPosition = joueursDisponibles.filter(joueur => joueur.position === position);
+            if (playersOnField[position]) {
+                const modal = createPlayerModificationModal(playersOnField[position], position);
+                document.body.appendChild(modal);
+            } else {
+                // Afficher les joueurs disponibles pour cette position
+                joueurs = data.filter(joueur => joueur.position === position && !isPlayerOnField(joueur.name));
+                playersAffich.innerHTML = '';
 
-            // Afficher les joueurs pour cette position dans la section des joueurs affichés
-            playersAffich.innerHTML = '';
-            joueursPourPosition.forEach(joueur => {
-                const playerCard = `
-                    <div class="card" data-id="${joueur.id}">
-                        <div class="sup">
-                            <div class="img">
-                                <p><img src="${joueur.photo}" alt="Image du joueur"></p>
+                joueurs.forEach(joueur => {
+                    const playerCard = `
+                        <div class="card">
+                            <div class="sup">
+                                <div class="img">
+                                    <p><img src="${joueur.photo}" alt="Image du joueur"></p>
+                                </div>
+                                <div class="supInfo">
+                                    <p>${joueur.rating}</p>
+                                    <p>${joueur.position}</p>
+                                    <div class="drapeau">
+                                        <p><img src="${joueur.flag}" alt="Drapeau du pays"></p>
+                                        <p><img src="${joueur.logo}" alt="Logo du club"></p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="supInfo">
-                                <p>${joueur.rating}</p>
-                                <p>${joueur.position}</p>
-                                <div class="drapeau">
-                                    <p><img src="${joueur.flag}" alt="Drapeau du pays"></p>
-                                    <p><img src="${joueur.logo}" alt="Logo du club"></p>
+                            <div class="inf">
+                                <div class="nom-player">
+                                    <p>${joueur.name}</p>
+                                </div>
+                                <div class="score">
+                                    <div class="left">
+                                        <p>${joueur.pace} <span>PAC</span></p>
+                                        <p>${joueur.shooting} <span>SHOT</span></p>
+                                    </div>
+                                    <div class="right">
+                                        <p>${joueur.dribbling} <span>DRI</span></p>
+                                        <p>${joueur.defending} <span>DEF</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="inf">
-                            <div class="nom-player">
-                                <p>${joueur.name}</p>
-                            </div>
-                            <div class="score">
-                                <div class="left">
-                                    <p>${joueur.pace} <span>PAC</span></p>
-                                    <p>${joueur.shooting} <span>SHOT</span></p>
-                                </div>
-                                <div class="right">
-                                    <p>${joueur.dribbling} <span>DRI</span></p>
-                                    <p>${joueur.defending} <span>DEF</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                playersAffich.innerHTML += playerCard;
-            });
+                    `;
+                    playersAffich.innerHTML += playerCard;
+                });
+
+                selectedTerrainDiv = terrainDiv;
+                playersAffich.style.display = 'flex';
+                document.querySelector('h3').style.display = 'block';
+                global.classList.add('blurred');
+            }
         });
     });
 
-    // Gestion du clic sur les cartes pour les ajouter à la formation
+    // Quand un joueur est sélectionné dans la liste
     playersAffich.addEventListener('click', (event) => {
         if (event.target.closest('.card')) {
             const card = event.target.closest('.card');
-            const joueurId = card.getAttribute('data-id');
-            const joueurSelectionne = joueursDisponibles.find(joueur => joueur.id == joueurId);
+            console.log('Carte sélectionnée:', card);
 
-            if (joueurSelectionne && selectedTerrainDiv) {
-                // Ajouter le joueur à la formation (squadData)
+            if (selectedTerrainDiv) {
                 const position = selectedTerrainDiv.classList.value;
-                if (!squadData.positions[position]) {
-                    squadData.positions[position] = [];
-                }
-                squadData.positions[position] = joueurSelectionne.name;
+                const playerName = card.querySelector('.nom-player p').textContent;
 
-                // Mettre à jour l'affichage sur le terrain
+                // Empêcher l'ajout du même joueur à la même position
+                if (playersOnField[position]) {
+                    alert('Un joueur est déjà placé sur cette position!');
+                    return;
+                }
+
+                // Ajouter le joueur à cette position
+                playersOnField[position] = {
+                    name: playerName,
+                    photo: card.querySelector('img').src,
+                    position: position
+                };
+
+                // Ajouter l'image du joueur sur le terrain
                 const cardImage = card.querySelector('img').cloneNode(true);
                 selectedTerrainDiv.innerHTML = '';
                 selectedTerrainDiv.appendChild(cardImage);
 
-                // Retirer le joueur de la liste des joueurs disponibles
-                joueursDisponibles = joueursDisponibles.filter(joueur => joueur.id !== joueurId);
-                afficherJoueursDisponibles(); // Réafficher les joueurs disponibles
+                // Mettre à jour la liste des joueurs pour ne pas réafficher ce joueur
+                joueurs = joueurs.filter(joueur => joueur.name !== playerName);
 
-                // Cacher la section des joueurs
+                // Masquer la liste des joueurs
                 playersAffich.style.display = 'none';
                 document.querySelector('h3').style.display = 'none';
                 global.classList.remove('blurred');
@@ -265,28 +231,53 @@ function selected() {
         }
     });
 
-    // Gestion du clic pour supprimer un joueur de la formation et le réafficher
-    terrainDivs.forEach(div => {
-        div.addEventListener('click', () => {
-            const cardImage = div.querySelector('img');
-            if (cardImage) {
-                const joueurName = cardImage.alt; // On suppose que l'alt contient le nom du joueur
-                const joueurRetire = joueursDisponibles.find(joueur => joueur.name === joueurName);
+    // Fonction pour vérifier si un joueur est déjà sur le terrain
+    function isPlayerOnField(playerName) {
+        return Object.values(playersOnField).some(player => player.name === playerName);
+    }
 
-                if (joueurRetire) {
-                    joueursDisponibles.push(joueurRetire); // Réajouter le joueur à la liste
-                    afficherJoueursDisponibles(); // Réafficher les joueurs
-                }
+    function createPlayerModificationModal(player, position) {
+        const modal = document.querySelector('.modal');
+        modal.style.display='block'
+        modal.classList.add('modal');
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h2>Modifier ou Supprimer le joueur</h2>
+                <div class="player-info">
+                    <p><img src="${player.photo}" alt="Image du joueur"></p>
+                    <p>Nom: ${player.name}</p>
+                    <p>Position: ${player.position}</p>
+                </div>
+                <button class="modify" data-position="${position}">Modifier</button>
+                <button class="remove" data-position="${position}">Supprimer</button>
+                <button class="close">Fermer</button>
+            </div>
+        `;
 
-                div.innerHTML = ''; // Vider la zone du terrain
-                div.innerHTML = `<i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>`; // Réinitialiser l'icône
-            }
+        // Modifier le joueur (dans le cas où vous voulez le mettre à jour)
+        modal.querySelector('.modify').addEventListener('click', () => {
+            alert('Modification du joueur');
+            modal.remove();
         });
-    });
+
+        // Supprimer le joueur
+        modal.querySelector('.remove').addEventListener('click', () => {
+            // Supprimer le joueur du terrain et réinitialiser la zone
+            delete playersOnField[position];
+            selectedTerrainDiv.innerHTML = '<i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>';
+            modal.remove();
+        });
+
+        // Fermer la modale
+        modal.querySelector('.close').addEventListener('click', () => {
+            modal.remove();
+        });
+
+        return modal;
+    }
 }
 
 selected();
-
 
 //la fonction de submit le squad
 function submit() {
@@ -297,7 +288,7 @@ function submit() {
     if (nameSquad.trim() == "") {
         alert("Veuiller remplir le nom de squad!");
     }
-    else if (formation ==0) {
+    else if (formation == 0) {
         alert("veuillez choisir une formation");
     }
 
@@ -307,7 +298,7 @@ function submit() {
     squadData.squadName = nameSquad;
     switch (formation) {
         case '1':
-            squadData.formation = "4-4-3";  
+            squadData.formation = "4-4-3";
             break;
         case '2':
             squadData.formation = "4-4-2";
@@ -316,11 +307,11 @@ function submit() {
             squadData.formation = "3-5-2";
             break;
         default:
-            squadData.formation = "Formation inconnue"; 
+            squadData.formation = "Formation inconnue";
             break;
     }
-    
-  
+
+
     squad.push(squadData);
     localStorage.setItem('SquadData', JSON.stringify(squad));
     squadData = {};
@@ -334,28 +325,13 @@ const burgerMenu = document.querySelector('.burger-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 burgerMenu.addEventListener('click', (e) => {
-    e.stopPropagation();  
-    mobileMenu.classList.toggle('active'); 
+    e.stopPropagation();
+    mobileMenu.classList.toggle('active');
 });
 
 window.addEventListener('click', (e) => {
     if (!burgerMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
-        mobileMenu.classList.remove('active'); 
+        mobileMenu.classList.remove('active');
     }
 });
 
-//LA FONCTION DE RECHERCHE
-function recherche() {
-    const searchTerm = document.querySelector('input[name="search"]').value.toLowerCase();  
-    const players = document.querySelectorAll(".player-item");  // Sélectionner toutes les entrées de la liste de joueurs
-    
-    // Parcourir chaque élément de la liste de joueurs
-    players.forEach(player => {
-        const playerName = player.textContent.toLowerCase();  // Nom du joueur en minuscules pour comparaison
-        if (playerName.includes(searchTerm)) {
-            player.style.display = "";  // Affiche l'élément si le nom contient le texte recherché
-        } else {
-            player.style.display = "none";  // Cache l'élément si le nom ne contient pas le texte recherché
-        }
-    });
-}

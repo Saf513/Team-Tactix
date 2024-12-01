@@ -1,5 +1,18 @@
 @media (max-width: 768px) {
-
+    .global .playersAffich {
+        background: rgba(0, 0, 0, 0.5)transparent;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0%;
+        margin-bottom: 10%;
+        display: none;
+        flex-direction: row;
+        z-index: 1000;
+        position: fixed;
+        flex-wrap: wrap;
+        overflow-y: scroll;
+        
+    }
     .footer-container {
         flex-direction: column;
         align-items: center;
@@ -264,13 +277,10 @@
 }
 }
 @media ( min-width:781px) and (max-width: 1090px) {
-    /* Réduire la taille des images */
     img {
         width: 3.5rem;
         height: 3.5rem;
     }
-
-    /* Changer la disposition du footer pour les écrans moyens */
     .footer-container {
         flex-direction: row;
         align-items: center;
@@ -305,8 +315,6 @@
     h2 {
         font-size: 1.75rem;
     }
-
-    /* Ajuster la taille des cartes */
     .card {
         width: 16rem;
     }
@@ -335,27 +343,21 @@
         width: 5.5rem;
         height: 2rem;
     }
-
-    /* Ajuster la taille des boutons */
     input-formation button, nav button {
         height: 2.125rem;
         width: 4.75rem;
     }
-
-    /* Ajuster la taille de la popup */
     .popupPlayer {
         height: 5.25rem;
         width: 11.25rem;
     }
-
-    /* Ajuster la taille des champs de saisie */
     input {
         width: 11rem;
     }
     .bar-search {
         position: relative;
         bottom: 2rem;
-        left: 15rem;
+        left: 13rem;
         transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
         cursor: pointer;
     }

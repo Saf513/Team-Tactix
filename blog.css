@@ -1,0 +1,138 @@
+/* Base du style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+/* Conteneur principal du blog */
+.blog-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    margin-bottom: 2rem;
+}
+
+/* En-tête */
+.blog-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.blog-header h1 {
+    color: #e5ad15; /* doré */
+    font-size: 2.5em;
+}
+
+/* Liste des articles de blog */
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Article individuel */
+.blog-item {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.blog-item:hover {
+    background-color: #333;
+}
+
+.blog-item .post-title {
+    color: #e5ad15;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.blog-item .post-excerpt {
+    color: #bbb;
+    font-size: 1em;
+}
+
+/* Section de détails de l'article */
+.blog-detail {
+    background-color: #1f1f1f;
+    display: none;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-detail h2 {
+    color: #e5ad15;
+    font-size: 2em;
+}
+
+.blog-image {
+    width: auto;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.mobile-menu {
+    display: none;
+    background-color: black;
+    position: absolute;
+    top: 4.5rem;
+    right: 0;
+    width: 30%;
+    height: max-content;
+    z-index: 999;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu ul {
+    list-style-type: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.mobile-menu ul li {
+    margin: 20px 0;
+}
+
+.mobile-menu ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.mobile-menu ul li a:hover {
+    text-decoration: underline;
+}
+
+.burger-menu {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+.mobile-menu.active {
+    display: block;
+}
+ .mobile .icon{
+    display: flex;
+    gap: 10px;
+ }
+ .mobile .icon .user{
+    font-size: 1.5rem;
+ }
+
+#blog-content {
+    margin-top: 20px;
+    color: #bbb;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
