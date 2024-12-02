@@ -91,10 +91,21 @@ function selected() {
                 selectedTerrainDiv = terrainDiv;
                 playersAffich.style.display = 'flex';
                 global.classList.add('blurred');
+            
+                
             }
         });
     });
-
+    
+    // Écouteur de clic global pour fermer playersAffich quand on clique en dehors de la zone
+    window.addEventListener('click', (e) => {
+        // Vérifie si le clic est en dehors de `playersAffich` et `terrainDivs`
+        if (!playersAffich.contains(e.target) && !Array.from(terrainDivs).some(terrainDiv => terrainDiv.contains(e.target))) {
+            playersAffich.style.display = 'none';
+            global.classList.remove('blurred');
+        }
+    });
+    
     playersAffich.addEventListener('click', (event) => {
         global.classList.remove('blurred');
 
@@ -119,6 +130,7 @@ function selected() {
 
                 playersAffich.style.display = 'none';
                 global.classList.remove('blurred');
+                
             } else {
                 alert("Veuillez d'abord sélectionner une zone sur le terrain !");
             }
@@ -201,9 +213,9 @@ function submit() {
         alert("veuillez choisir une formation");
     }
 
-    else if (cont != 11) {
-        alert("veuiller remplir tout les positions!")
-    }
+    // else if (cont != 11) {
+    //     alert("veuiller remplir tout les positions!")
+    // }
     squadData.squadName = nameSquad;
     switch (formation) {
         case '1':

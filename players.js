@@ -158,19 +158,31 @@ document.querySelectorAll('.supprimer').forEach((icon) => {
     icon.addEventListener('click', function (e) {
         e.stopPropagation();
 
-                const playerCard = e.target.closest('.card');
+        // Trouver la carte du joueur
+        const playerCard = e.target.closest('.card');
         const playerId = playerCard.closest('div').id;
 
-                playerCard.closest('div').remove();
+        // Supprimer le joueur du DOM
+        playerCard.closest('div').remove();
 
-                let data = JSON.parse(localStorage.getItem('playersData'));
+        // Récupérer et mettre à jour les données du localStorage
+        let data = JSON.parse(localStorage.getItem('playersData'));
         const index = data.findIndex(player => (player.name + '-' + player.id) === playerId);
         if (index > -1) {
             data.splice(index, 1);
         }
         localStorage.setItem('playersData', JSON.stringify(data));
 
-                const playersAffich = document.querySelector(".playersAffich");
-        playersAffich.style.display = 'none';         playersAffich.offsetHeight;         playersAffich.style.display = 'grid';     });
+        // Recalculez la disposition du grid
+        const playersAffich = document.querySelector(".playersAffich");
+
+        // Cache temporairement pour forcer un reflow
+        playersAffich.style.display = 'none'; 
+        playersAffich.offsetHeight; // Force un reflow (redessiner l'élément)
+        playersAffich.style.display = 'flex'; // Réaffiche le conteneur
+       playersAffich.style.flexWrap='wrap'
+        // Vous pouvez également ajuster dynamiquement le nombre de colonnes si nécessaire
+        updateGridLayout();
+    });
 });
 

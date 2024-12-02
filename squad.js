@@ -5,7 +5,6 @@ if (localStorage.SquadData != null) {
     squad = [];
 }
 
-console.log(squad)
 function afficherSquad(){
     const tableBody = document.querySelector("#squad-table tbody");
     tableBody.innerHtml="";

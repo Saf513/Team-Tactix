@@ -1,368 +1,368 @@
 @media (max-width: 768px) {
-     .playersAffich {
-        background: rgba(0, 0, 0, 0.5)transparent;
-        justify-content: center;
-    
-        margin-bottom: 10%;
-        display: none;
-        flex-direction: row;
-        z-index: 1000;
-        position: absolute;
-        height: 500px;
-        overflow: scroll;
-        
-    }
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-links ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-social {
-        margin-top: 20px;
-    }
-
-    .mobile {
-        display: block;
-        flex-direction: row;
-
-    }
-
-    .global {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-
-    .nav-mobile {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .desktop {
-        display: none;
-    }
-
-    img {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-logo img {
-        height: 4.5rem;
-        width: 4.5rem;
-    }
-
-    .footer-links ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-links ul li {
-        margin: 0.5rem 0;
-    }
-
-    .footer-social a {
-        font-size: 1.25rem;
-    }
-
-    .global {
-
-        gap: 1rem;
-        align-items: center;
-    }
-
-    .table {
-        height: 15rem;
-        width: 20rem;
-        margin-bottom: 3rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
+    .playersAffich {
+       background: rgba(0, 0, 0, 0.5)transparent;
+       justify-content: center;
    
+       margin-bottom: 10%;
+       display: none;
+       flex-direction: row;
+       z-index: 1000;
+       position: absolute;
+       height: 500px;
+       overflow: scroll;
+       
+   }
+   .footer-container {
+       flex-direction: column;
+       align-items: center;
+   }
 
-    .terrain {
-        height: 30rem;
-        width: 30rem;
-    }
+   .footer-links ul {
+       flex-direction: column;
+       align-items: center;
+   }
 
-    .global-terrain {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-    }
+   .footer-social {
+       margin-top: 20px;
+   }
 
-    .terrain div {
-        height: 5rem;
-        width: 5rem;
-    }
+   .mobile {
+       display: block;
+       flex-direction: row;
 
-    .terrain div i {
-        font-size: 1.2rem;
-        position: absolute;
-        top: 1rem;
-    }
+   }
 
-    .save {
-        width: 5rem;
-        height: 2rem;
-    }
+   .global {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-around;
+   }
 
-    input-formation button,
-    nav button {
-        height: 2rem;
-        width: 4rem;
-    }
+   .nav-mobile {
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+   }
 
-    .popupPlayer {
-        height: 5rem;
-        width: 12rem;
-    }
+   .desktop {
+       display: none;
+   }
 
-    input {
-        width: 8rem;
-    }
-     #search-player {
-        padding: 8px 20px 8px 10px;
-        border: 2px solid #ffd700;
-        border-radius: 25px;
-        background-color: transparent;
-        color: #fff;
-        outline: none;
-        width: 80%; 
-        transition: all 0.3s ease-in-out; 
-        margin-top: 1.5rem;
-        height: 1rem;
-    } 
-    
-    .search-player i{
-        position: relative;
-        left: 10rem;
-        bottom: 1.6rem;
-    }
-    
-    .bar-search {
-        position: relative;
-        left: 20rem;
-        bottom:4rem;
-        transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
-        cursor: pointer;
-    }
-    
-    
-    .bar-search:hover {
-        transform: scale(1.2); 
-        color: #BDB76B;  
-        opacity: 0.8;  
-    }
-    
-    #search-player:focus {
-        border-color: #BDB76B;  
-        transform: scale(1.05); 
-    }
-    
-    
-    #search-player:not(:placeholder-shown) + .bar-search {
-        transform: scale(1.1); 
-        color : #BDB76B;  
-    }
-    
-    #search-player:focus {
-        transition: all 0.3s ease-in-out; 
-    } 
-    .log :hover{
-    box-shadow: none;
+   img {
+       width: 3rem;
+       height: 3rem;
+   }
+
+   .footer-container {
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .footer-logo img {
+       height: 4.5rem;
+       width: 4.5rem;
+   }
+
+   .footer-links ul {
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .footer-links ul li {
+       margin: 0.5rem 0;
+   }
+
+   .footer-social a {
+       font-size: 1.25rem;
+   }
+
+   .global {
+
+       gap: 1rem;
+       align-items: center;
+   }
+
+   .table {
+       height: 15rem;
+       width: 20rem;
+       margin-bottom: 3rem;
+   }
+
+   h2 {
+       font-size: 1.5rem;
+   }
+
+  
+
+   .terrain {
+       height: 30rem;
+       width: 30rem;
+   }
+
+   .global-terrain {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       gap: 3rem;
+   }
+
+   .terrain div {
+       height: 5rem;
+       width: 5rem;
+   }
+
+   .terrain div i {
+       font-size: 1.2rem;
+       position: absolute;
+       top: 1rem;
+   }
+
+   .save {
+       width: 5rem;
+       height: 2rem;
+   }
+
+   input-formation button,
+   nav button {
+       height: 2rem;
+       width: 4rem;
+   }
+
+   .popupPlayer {
+       height: 5rem;
+       width: 12rem;
+   }
+
+   input {
+       width: 8rem;
+   }
+    #search-player {
+       padding: 8px 20px 8px 10px;
+       border: 2px solid #ffd700;
+       border-radius: 25px;
+       background-color: transparent;
+       color: #fff;
+       outline: none;
+       width: 80%; 
+       transition: all 0.3s ease-in-out; 
+       margin-top: 1.5rem;
+       height: 1rem;
+   } 
+   
+   .search-player i{
+       position: relative;
+       left: 10rem;
+       bottom: 1.6rem;
+   }
+   
+   .bar-search {
+       position: relative;
+       left: 20rem;
+       bottom:4rem;
+       transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
+       cursor: pointer;
+   }
+   
+   
+   .bar-search:hover {
+       transform: scale(1.2); 
+       color: #BDB76B;  
+       opacity: 0.8;  
+   }
+   
+   #search-player:focus {
+       border-color: #BDB76B;  
+       transform: scale(1.05); 
+   }
+   
+   
+   #search-player:not(:placeholder-shown) + .bar-search {
+       transform: scale(1.1); 
+       color : #BDB76B;  
+   }
+   
+   #search-player:focus {
+       transition: all 0.3s ease-in-out; 
+   } 
+   .log :hover{
+   box-shadow: none;
 }
 .recher-icon{
-    position: relative;
-    left: 4rem;
+   position: relative;
+   left: 4rem;
 }
 }
 @media (max-width: 480px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .global {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-
-
-    }
-
-    .global-terrain {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .card {
-        width: 12rem;
-    }
-
-    .terrain {
-        height: 24rem;
-        width: 20rem;
-        margin-right: 1.1rem;
-    }
-
-    .terrain div {
-        height: 3.5rem;
-        width: 3.5rem;
-    }
-
-    .terrain div i {
-        font-size: 1rem;
-    }
-
-    .save {
-        width: 4.5rem;
-        height: 1.5rem;
-    }
-
-    input-formation button,
-    nav button {
-        height: 2rem;
-        width: 4rem;
-    }
-
-    .popupPlayer {
-        height: 5rem;
-        width: 10rem;
-    }
-
-    input {
-        width: 10rem;
-    }
-
-    .table {
-        height: 15rem;
-        width: 20rem;
-        margin-bottom: 3rem;
-        margin-left: 2.5rem;
-
-    }
-   .nom-player{
-    width: 60%;
-  
+   nav {
+       flex-direction: column;
+       align-items: center;
    }
-   .bar-search {
-    position: relative;
-    bottom: 2rem;
-    left: 15rem;
-    transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
-    cursor: pointer;
+
+   .global {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-around;
+       align-items: center;
+
+
+   }
+
+   .global-terrain {
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       gap: 1rem;
+   }
+
+   .card {
+       width: 12rem;
+   }
+
+   .terrain {
+       height: 24rem;
+       width: 20rem;
+       margin-right: 1.1rem;
+   }
+
+   .terrain div {
+       height: 3.5rem;
+       width: 3.5rem;
+   }
+
+   .terrain div i {
+       font-size: 1rem;
+   }
+
+   .save {
+       width: 4.5rem;
+       height: 1.5rem;
+   }
+
+   input-formation button,
+   nav button {
+       height: 2rem;
+       width: 4rem;
+   }
+
+   .popupPlayer {
+       height: 5rem;
+       width: 10rem;
+   }
+
+   input {
+       width: 10rem;
+   }
+
+   .table {
+       height: 15rem;
+       width: 20rem;
+       margin-bottom: 3rem;
+       margin-left: 2.5rem;
+
+   }
+  .nom-player{
+   width: 60%;
+ 
+  }
+  .bar-search {
+   position: relative;
+   bottom: 2rem;
+   left: 15rem;
+   transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
+   cursor: pointer;
 }
 .modal{
-    position: absolute;
-    bottom: 30%;
-    left: 30%;  
+   position: absolute;
+   bottom: 30%;
+   left: 30%;  
 }
 }
 @media ( min-width:781px) and (max-width: 1090px) {
-    img {
-        width: 3.5rem;
-        height: 3.5rem;
-    }
-    .footer-container {
-        flex-direction: row;
-        align-items: center;
-    }
+   img {
+       width: 3.5rem;
+       height: 3.5rem;
+   }
+   .footer-container {
+       flex-direction: row;
+       align-items: center;
+   }
 
-    .footer-logo img {
-        height: 4.5rem;
-        width: 4.5rem;
-    }
+   .footer-logo img {
+       height: 4.5rem;
+       width: 4.5rem;
+   }
 
-    .footer-links ul {
-        flex-direction: column;
-        align-items: center;
-    }
+   .footer-links ul {
+       flex-direction: column;
+       align-items: center;
+   }
 
-    .footer-links ul li {
-        margin: 0.5rem 0;
-    }
+   .footer-links ul li {
+       margin: 0.5rem 0;
+   }
 
-    .footer-social a {
-        font-size: 1.25rem;
-    }
-    .global {
-        gap: 1.5rem;
-        align-items: center;
-    }
-    .table {
-        height: 16rem;
-        width: 20rem;
-    }
+   .footer-social a {
+       font-size: 1.25rem;
+   }
+   .global {
+       gap: 1.5rem;
+       align-items: center;
+   }
+   .table {
+       height: 16rem;
+       width: 20rem;
+   }
 
-    h2 {
-        font-size: 1.75rem;
-    }
-    .card {
-        width: 16rem;
-    }
+   h2 {
+       font-size: 1.75rem;
+   }
+   .card {
+       width: 16rem;
+   }
 
-    .terrain {
-        height: 36rem;
-        width: 30rem;
-    }
+   .terrain {
+       height: 36rem;
+       width: 30rem;
+   }
 
-    .global-terrain {
-        
-        gap: 4rem;
-    }
+   .global-terrain {
+       
+       gap: 4rem;
+   }
 
-    .terrain div {
-        height: 5.5rem;
-        width: 5.5rem;
-    }
-    .terrain div i {
-      font-size: 1.8rem;
-      position: absolute;
-      top: 1rem;
-      
-    }
-    .save {
-        width: 5.5rem;
-        height: 2rem;
-    }
-    input-formation button, nav button {
-        height: 2.125rem;
-        width: 4.75rem;
-    }
-    .popupPlayer {
-        height: 5.25rem;
-        width: 11.25rem;
-    }
-    input {
-        width: 11rem;
-    }
-    .bar-search {
-        position: relative;
-        bottom: 2rem;
-        left: 13rem;
-        transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
-        cursor: pointer;
-    }
+   .terrain div {
+       height: 5.5rem;
+       width: 5.5rem;
+   }
+   .terrain div i {
+     font-size: 1.8rem;
+     position: absolute;
+     top: 1rem;
+     
+   }
+   .save {
+       width: 5.5rem;
+       height: 2rem;
+   }
+   input-formation button, nav button {
+       height: 2.125rem;
+       width: 4.75rem;
+   }
+   .popupPlayer {
+       height: 5.25rem;
+       width: 11.25rem;
+   }
+   input {
+       width: 11rem;
+   }
+   .bar-search {
+       position: relative;
+       bottom: 2rem;
+       left: 13rem;
+       transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
+       cursor: pointer;
+   }
 }
 
-    
+   

@@ -321,13 +321,11 @@ footer {
     text-decoration: underline;
 }
 
-/* Style pour l'icône burger menu */
 .burger-menu {
     font-size: 24px;
     cursor: pointer;
 }
 
-/* Quand le menu est affiché */
 .mobile-menu.active {
     display: block;
 }
@@ -495,8 +493,7 @@ select {
         height: 3.5rem;
     }
 
-    /* Navigation */
-    .mobile {
+        .mobile {
         display: block;
         flex-direction: row;
 
@@ -573,8 +570,7 @@ select {
         font-size: 14px;
     }
 
-    /* Popup Player */
-    .popupPlayer {
+        .popupPlayer {
         width: 180px;
         height: 80px;
     }
@@ -583,8 +579,7 @@ select {
         font-size: 12px;
     }
 
-    /* Cartes */
-    .card {
+        .card {
         width: 180px;
         height: 230px;
     }
@@ -594,8 +589,7 @@ select {
         height: 80px;
     }
 
-    /* Sup Information */
-    .sup {
+        .sup {
         top: 15%;
         left: 15%;
     }
