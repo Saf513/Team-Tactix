@@ -134,7 +134,7 @@ h2 {
     font-weight: bolder;
     font-size: 30px;
 }
-.save {
+.save ,.Annuler{
     color: #ffd700;
     background-color: black;
     font-weight: 200;
@@ -180,6 +180,7 @@ select{
 .popupPlayer a {
     color: black;
 }
+
 .terrain{
     height: 700px;
     width: 600px;
@@ -190,6 +191,7 @@ select{
     top: 20px;
     left: 10px;
 }
+
 .global-terrain{
     display: flex;
     justify-content: center;
@@ -202,6 +204,18 @@ select{
     background-size: contain;
     height: 100px;
     width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+.terrain div span{
+    background-color: #e5ad15;
+    height: 25px;
+    width: 50px;
+    text-align: center;
+    border-radius: 5px;
 }
 .GK {
     position: absolute;
@@ -210,7 +224,6 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;  
 }
 
 
@@ -335,6 +348,7 @@ select{
 #search-player:focus {
     border-color: #BDB76B;  
     transform: scale(1.05); 
+
 }
 
 

@@ -1,5 +1,6 @@
 
-const data = JSON.parse(localStorage.getItem('playersData')); function affich() {
+const data = JSON.parse(localStorage.getItem('playersData'));
+ function affich() {
     let playersAffich = document.querySelector(".playersAffich");
     playersAffich.innerHTML = ``;
 
@@ -43,7 +44,7 @@ const data = JSON.parse(localStorage.getItem('playersData')); function affich() 
             </div>
             `;
         } else {
-                        playerCard = `
+            playerCard = `
             <div>
                 <div class="card pos">
                     <div class="sup">
@@ -109,7 +110,13 @@ function ajoutPlayers() {
 }
 
 document.querySelector('.ajouter-joueurs').addEventListener('click', ajoutPlayers);
+document.querySelector('.annuler').addEventListener('click', () => {
+    // document.querySelector('.ajouter-joueurs').style.display = "none";
+    document.querySelector('.form-ajout').style.display = "none";
+    document.querySelector('.global-players').classList.remove('blured');
 
+
+})
 
 const positionsSelect = document.getElementById('positions');
 let formAjout = document.querySelector('.form-ajout');
@@ -121,21 +128,21 @@ document.querySelector('.sauvgarder').addEventListener('click', () => {
         formAjout.style.display = 'none';
     }
 
-    else if(pos==0){
+    else if (pos == 0) {
         alert('Veuillez selectionner la position');
     }
-    else if(pos==1){
-        document.querySelector('#form-ajout-gardien').style.display='flex';
+    else if (pos == 1) {
+        document.querySelector('#form-ajout-gardien').style.display = 'flex';
         formAjout.style.display = 'none';
     }
 
 })
 
 const form = document.getElementById('form-ajout');
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', function (event) {
     event.preventDefault();
     document.querySelector('#form-ajout').style.display = 'none';
-    document.querySelector('.global-players').classList.remove('blured');
+    document.querySelector('.global-players').classList.remove('blurred');
 
     const joueur = {
         name: document.getElementById('name').value,
@@ -148,7 +155,7 @@ form.addEventListener('submit', function(event) {
         dribbling: document.getElementById('dribbling').value,
         defending: document.getElementById('defending').value,
         physical: document.getElementById('physical').value,
-        position: document.querySelector('input[name="position"]').value, 
+        position: document.querySelector('input[name="position"]').value,
     };
     console.log(joueur);
 
@@ -156,7 +163,7 @@ form.addEventListener('submit', function(event) {
 
 document.querySelectorAll('.supprimer').forEach((icon) => {
     icon.addEventListener('click', function (e) {
-        e.stopPropagation();
+        e.preventDefault();  
 
         // Trouver la carte du joueur
         const playerCard = e.target.closest('.card');
@@ -177,10 +184,10 @@ document.querySelectorAll('.supprimer').forEach((icon) => {
         const playersAffich = document.querySelector(".playersAffich");
 
         // Cache temporairement pour forcer un reflow
-        playersAffich.style.display = 'none'; 
+        playersAffich.style.display = 'none';
         playersAffich.offsetHeight; // Force un reflow (redessiner l'élément)
         playersAffich.style.display = 'flex'; // Réaffiche le conteneur
-       playersAffich.style.flexWrap='wrap'
+        playersAffich.style.flexWrap = 'wrap'
         // Vous pouvez également ajuster dynamiquement le nombre de colonnes si nécessaire
         updateGridLayout();
     });

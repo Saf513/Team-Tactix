@@ -400,7 +400,7 @@ footer {
 }
 
 .ajouter-joueurs:hover {
-    transform: rotate3d(1, 1, 0, 20deg);
+    transform: rotate3d(0, 1, 0, 30deg);
     transition: all 0.2s ease;
 }
 
@@ -459,7 +459,7 @@ button {
     left: 30%;
     bottom: 2rem;
     flex-direction: column;
-    height: 80px;
+    height: max-content;
     width: 500px;
     margin-bottom: 2rem;
     margin-left: 2rem;
@@ -468,6 +468,8 @@ button {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    background-color: #ffd700;
+    
 }
 
 .global-players {

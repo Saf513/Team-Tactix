@@ -1,4 +1,4 @@
-const players = document.querySelector('.players ');
+const players = document.querySelector('.players');
 const popupPlayer = document.querySelector('.popupPlayer');
 const global = document.querySelector('.global');
 const divplayers = document.querySelector('.div-players .card');
@@ -11,6 +11,7 @@ let squadData = {
     formation: '',
     positions: {}
 };
+
 if (localStorage.SquadData != null) {
     squad = JSON.parse(localStorage.SquadData);
 }
@@ -43,12 +44,11 @@ function selected() {
         terrainDiv.addEventListener('click', () => {
             global.classList.add('blurred');
             const position = terrainDiv.classList.value;
-            console.log(position.split(" "));
             if (playersOnField[position[1]]) {
                 const modal = createPlayerModificationModal(playersOnField[position], position);
                 document.body.appendChild(modal);
             } else {
-                
+
                 joueurs = data.filter(joueur => joueur.position === position && !isPlayerOnField(joueur.name));
                 playersAffich.innerHTML = '';
 
@@ -91,21 +91,21 @@ function selected() {
                 selectedTerrainDiv = terrainDiv;
                 playersAffich.style.display = 'flex';
                 global.classList.add('blurred');
-            
-                
+
+
             }
         });
     });
-    
+
     // Écouteur de clic global pour fermer playersAffich quand on clique en dehors de la zone
-    window.addEventListener('click', (e) => {
-        // Vérifie si le clic est en dehors de `playersAffich` et `terrainDivs`
-        if (!playersAffich.contains(e.target) && !Array.from(terrainDivs).some(terrainDiv => terrainDiv.contains(e.target))) {
-            playersAffich.style.display = 'none';
-            global.classList.remove('blurred');
-        }
-    });
-    
+    // window.addEventListener('click', (e) => {
+    //     // Vérifie si le clic est en dehors de `playersAffich` et `terrainDivs`
+    //     if (!playersAffich.contains(e.target) && !Array.from(terrainDivs).some(terrainDiv => terrainDiv.contains(e.target))) {
+    //         playersAffich.style.display = 'none';
+    //         global.classList.remove('blurred');
+    //     }
+    // });
+
     playersAffich.addEventListener('click', (event) => {
         global.classList.remove('blurred');
 
@@ -116,11 +116,20 @@ function selected() {
                 const position = selectedTerrainDiv.classList.value;
                 const playerName = card.querySelector('.nom-player p').textContent;
 
+                // Enregistrez les informations du joueur dans playersOnField
                 playersOnField[position] = {
                     name: playerName,
                     photo: card.querySelector('img').src,
-                    position: position
+                    position: position,
+                    rating: card.querySelector('.supInfo p').textContent, // Exemple, vous pouvez ajouter plus d'infos si nécessaire
+                    pace: card.querySelector('.score .left p').textContent, // Exemple
+                    shooting: card.querySelector('.score .left p').nextElementSibling.textContent, // Exemple
+                    dribbling: card.querySelector('.score .right p').textContent, // Exemple
+                    defending: card.querySelector('.score .right p').nextElementSibling.textContent // Exemple
                 };
+
+                // Ajoutez ces informations à squadData.positions
+                squadData.positions[position] = playersOnField[position];
 
                 const cardImage = card.querySelector('img').cloneNode(true);
                 selectedTerrainDiv.innerHTML = '';
@@ -130,13 +139,11 @@ function selected() {
 
                 playersAffich.style.display = 'none';
                 global.classList.remove('blurred');
-                
             } else {
                 alert("Veuillez d'abord sélectionner une zone sur le terrain !");
             }
         }
     });
-
 
     function isPlayerOnField(playerName) {
         return Object.values(playersOnField).some(player => player.name === playerName);
@@ -176,7 +183,7 @@ function selected() {
             if (playerPosition) {
                 delete playersOnField[playerPosition];
                 const selectedTerrainDiv = document.querySelector(`.terrain div[data-position="${playerPosition}"]`);
-                
+
                 if (selectedTerrainDiv) {
                     selectedTerrainDiv.innerHTML = '<i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>';
                 }
@@ -185,9 +192,9 @@ function selected() {
             }
                     modal.style.display = 'none';
         });
-        
 
-    
+
+
         modal.querySelector('.close').addEventListener('click', () => {
             global.classList.remove('blurred');
 
@@ -202,44 +209,48 @@ function selected() {
 selected();
 
 function submit() {
-
     let formation = document.querySelector("#formation").value;
     let nameSquad = document.querySelector("#name-squad").value;
-    let cont = Object.values(squadData.positions).length;
+    let cont = Object.values(squadData.positions).length; // Vérifie le nombre de joueurs dans positions
+
+    // Vérifie si le nom de l'équipe est vide ou si la formation est vide
     if (nameSquad.trim() == "") {
         alert("Veuiller remplir le nom de squad!");
-    }
-    else if (formation == 0) {
-        alert("veuillez choisir une formation");
-    }
+    } else if (formation == 0) {
+        alert("Veuillez choisir une formation");
+    } else if (cont !== 11) {
+        alert("Veuillez remplir toutes les positions avec des joueurs !");
+    } else {
+        squadData.squadName = nameSquad;
 
-    // else if (cont != 11) {
-    //     alert("veuiller remplir tout les positions!")
-    // }
-    squadData.squadName = nameSquad;
-    switch (formation) {
-        case '1':
-            squadData.formation = "4-4-3";
-            break;
-        case '2':
-            squadData.formation = "4-4-2";
-            break;
-        case '3':
-            squadData.formation = "3-5-2";
-            break;
-        default:
-            squadData.formation = "Formation inconnue";
-            break;
+        // Définition de la formation en fonction de la sélection
+        switch (formation) {
+            case '1':
+                squadData.formation = "4-4-3";
+                break;
+            case '2':
+                squadData.formation = "4-4-2";
+                break;
+            case '3':
+                squadData.formation = "3-5-2";
+                break;
+            default:
+                squadData.formation = "Formation inconnue";
+                break;
+        }
+
+        // Ajout de l'équipe dans le tableau squad
+        squad.push(squadData);
+
+        // Sauvegarde des données dans localStorage
+        localStorage.setItem('SquadData', JSON.stringify(squad));
+
+        // Réinitialisation de squadData
+        squadData = {};
+        document.querySelector("#formation").value = 0;
+        document.querySelector("#name-squad").value = "";
     }
-
-
-    squad.push(squadData);
-    localStorage.setItem('SquadData', JSON.stringify(squad));
-    squadData = {};
-    document.querySelector("#formation").value = 0;
-    document.querySelector("#name-squad").value = "";
 }
-
 
 
 const burgerMenu = document.querySelector('.burger-menu');
@@ -255,4 +266,19 @@ window.addEventListener('click', (e) => {
         mobileMenu.classList.remove('active');
     }
 });
+function annuler(){
+    const terrainDivs = document.querySelectorAll('.terrain div');
+   terrainDivs.forEach(div=>()=>{
+    div.innerHTML='';
+    div.innerHTML=`<i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+     <span>RB</span>`;
+   })
 
+}
+
+window.addEventListener('click',(e)=>{
+    let modal = document.querySelector('.playersAffich');
+    if(e.target == modal) {
+        modal.style.display='none';
+    }
+})
