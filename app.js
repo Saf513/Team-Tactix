@@ -44,12 +44,16 @@ function selected() {
         terrainDiv.addEventListener('click', () => {
             global.classList.add('blurred');
             const position = terrainDiv.classList.value;
-            if (playersOnField[position[1]]) {
+            console.log(position)
+            console.log(playersOnField[position]);
+            if (playersOnField[position]) {
+                console.log(playersOnField[position])
                 const modal = createPlayerModificationModal(playersOnField[position], position);
                 document.body.appendChild(modal);
             } else {
 
                 joueurs = data.filter(joueur => joueur.position === position && !isPlayerOnField(joueur.name));
+           
                 playersAffich.innerHTML = '';
 
                 joueurs.forEach(joueur => {
@@ -172,28 +176,86 @@ function selected() {
 
         modal.querySelector('.modify').addEventListener('click', () => {
             global.classList.remove('blurred');
-            alert('Modification du joueur');
-            modal.style.display = 'none'; 
+            const position = modal.querySelector('.modify').dataset.position;
+            const player = playersOnField[position];
+            if (player) {
+                // Créer un modal de sélection des joueurs disponibles à remplacer
+                const modalContent = document.createElement('div');
+                modalContent.classList.add('modal-players');
+                const availablePlayers = data.filter(joueur => joueur.position === player.position && !Object.values(playersOnField).some(p => p.name === joueur.name));
+        
+                availablePlayers.forEach(player => {
+                    const playerCard = `
+                        <div class="card">
+                            <div class="sup">
+                                <div class="img">
+                                    <p><img src="${player.photo}" alt="Image du joueur"></p>
+                                </div>
+                                <div class="supInfo">
+                                    <p>${player.rating}</p>
+                                    <p>${player.position}</p>
+                                </div>
+                            </div>
+                            <div class="inf">
+                                <div class="nom-player">
+                                    <p>${player.name}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    modalContent.innerHTML += playerCard;
+                });
+        
+                modal.querySelector('.modal-content').appendChild(modalContent);
+        
+                // Modal pour sélectionner un nouveau joueur
+                modalContent.querySelectorAll('.card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const selectedPlayerName = card.querySelector('.nom-player p').textContent;
+        
+                        // Remplacer le joueur dans la position sélectionnée
+                        const selectedPlayer = availablePlayers.find(p => p.name === selectedPlayerName);
+                        if (selectedPlayer) {
+                            playersOnField[position] = selectedPlayer;
+        
+                            // Mettre à jour l'image du terrain avec la photo du nouveau joueur
+                            selectedTerrainDiv.innerHTML = `<img src="${selectedPlayer.photo}" alt="Image du joueur">`;
+        
+                            // Fermer le modal
+                            modal.style.display = 'none';
+                            global.classList.remove('blurred');
+                        }
+                    });
+                });
+            }
         });
+        
 
         modal.querySelector('.remove').addEventListener('click', () => {
             global.classList.remove('blurred');
-            const playerName = player.name; 
-            const playerPosition = Object.keys(playersOnField).find(position => playersOnField[position].name === playerName);
-            if (playerPosition) {
-                delete playersOnField[playerPosition];
-                const selectedTerrainDiv = document.querySelector(`.terrain div[data-position="${playerPosition}"]`);
-
-                if (selectedTerrainDiv) {
-                    selectedTerrainDiv.innerHTML = '<i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>';
-                }
-            } else {
-                console.error("Le joueur n'existe pas dans playersOnField.");
+            const position = modal.querySelector('.remove').dataset.position;  // Récupérer la position depuis le dataset du bouton "Supprimer"
+            
+            // Supprimer le joueur de playersOnField
+            delete playersOnField[position];
+        
+            // Sélectionner toutes les divs du terrain
+            const terrainDivs = document.querySelectorAll('.terrain div');
+            
+            // Trouver la div correspondant à la position
+            const selectedTerrainDiv = Array.from(terrainDivs).find(div => div.classList.contains(position));
+        
+            if (selectedTerrainDiv) {
+                // Remplacer le contenu HTML de la div par l'icône d'ajout et la position
+                selectedTerrainDiv.innerHTML = `
+                    <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                    <span>${position}</span>
+                `;
             }
-                    modal.style.display = 'none';
+        
+            // Fermer le modal
+            modal.style.display = 'none';
         });
-
-
+        
 
         modal.querySelector('.close').addEventListener('click', () => {
             global.classList.remove('blurred');
@@ -204,6 +266,7 @@ function selected() {
         return modal;
     }
 
+   
 }
 
 selected();

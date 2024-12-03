@@ -63,22 +63,7 @@
     "defending": 39,
     "physical": 77
   },
-  {
-    "name": "Virgil van Dijk",
-    "photo": "https://cdn.sofifa.net/players/203/376/25_120.png",
-    "position": "CB-1",
-    "nationality": "Netherlands",
-    "flag": "https://cdn.sofifa.net/flags/nl.png",
-    "club": "Liverpool",
-    "logo": "https://cdn.sofifa.net/meta/team/8/120.png",
-    "rating": 90,
-    "pace": 75,
-    "shooting": 60,
-    "passing": 70,
-    "dribbling": 72,
-    "defending": 92,
-    "physical": 86
-  },
+  
   {
     "name": "Virgil van Dij",
     "photo": "https://cdn.sofifa.net/players/203/376/25_120.png",
@@ -93,22 +78,6 @@
     "passing": 70,
     "dribbling": 72,
     "defending": 92,
-    "physical": 86
-  },
-  {
-    "name": "Antonio Rudiger",
-    "photo": "https://cdn.sofifa.net/players/205/452/25_120.png",
-    "position": "CB-2",
-    "nationality": "Germany",
-    "flag": "https://cdn.sofifa.net/flags/de.png",
-    "club": "Real Madrid",
-    "logo": "https://cdn.sofifa.net/meta/team/3468/120.png",
-    "rating": 88,
-    "pace": 82,
-    "shooting": 55,
-    "passing": 73,
-    "dribbling": 70,
-    "defending": 86,
     "physical": 86
   },
   

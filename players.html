@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeamTactix</title>
   <link rel="stylesheet" href="players.css">
+  <link rel="stylesheet" href="navbar.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 </head>
@@ -43,7 +44,7 @@
     </div>
 
     <div class="signUp">
-      <button><a href="signUp.html">Sign Up</a></button>
+      <button ><a id="sigh-btn" href="signUp.html">Sign Up</a></button>
     </div>
 
   </nav>
@@ -145,8 +146,10 @@
         <input type="number" id="physical" name="physical" min="0" max="99" placeholder="Physique" required>
       </div>
 
-      <button type="submit" id="ajout-play">Ajouter le joueur</button>
-      <button id="annuler">Annuler</button>
+      <!-- <button type="submit" id="ajout-play">Ajouter le joueur</button>
+      <button class="annuler">Annuler</button> -->
+      <button type="submit" class="AjouteConfirm">Ajouter Player</button>
+      <button class="AjouteCancel">Annuler</button>
     </form>
 
     <form id="form-ajout-gardien" class="form-ajout">
@@ -200,7 +203,7 @@
       <input type="number" id="positioning" name="positioning" min="0" max="100" placeholder="Positionnement" value="88" required>
   
       <button type="submit">Ajouter Gardien de But</button>
-      <button id="annuler">Annuler</button>
+      <button class="annuler">Annuler</button>
 
   </form>
   

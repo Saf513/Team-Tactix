@@ -17,13 +17,13 @@ img {
     border-radius: 50%;
 }
 
-nav {
+/* nav {
     display: flex;
     justify-content: space-around;
     background-color: black;
     align-items: center;
 
-}
+} */
 
 .mobile {
     display: none;
@@ -185,6 +185,49 @@ button {
     font-size: 14px;
     transition: background-color 0.3s;
 }
+/* #search-player {
+    padding: 8px 20px 8px 10px;
+    border: 2px solid #ffd700;
+    border-radius: 25px;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    width: 100%; 
+    transition: all 0.3s ease-in-out; 
+    margin-top: 1.5rem;
+} */
+/* .bar-search {
+    position: relative;
+    left: 14rem;
+    bottom:2rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+
+.bar-search:hover {
+    transform: scale(1.2); 
+    color: #BDB76B;  
+    opacity: 0.8;  
+}
+
+#search-player:focus {
+    border-color: #BDB76B;  
+    transform: scale(1.05); 
+
+}
+
+
+#search-player:not(:placeholder-shown) + .bar-search {
+    transform: scale(1.1); 
+    color : #BDB76B;  
+}
+
+#search-player:focus {
+    transition: all 0.3s ease-in-out; 
+} 
+ */
+
 .signUp  button a{
     color: black;
 }
@@ -318,7 +361,7 @@ tbody {
 
    
 
-    .nav-mobile {
+    /* .nav-mobile {
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -326,7 +369,7 @@ tbody {
 
     .desktop {
         display: none;
-    }
+    } */
 
     img {
         width: 3rem;

@@ -1,5 +1,7 @@
 
 const data = JSON.parse(localStorage.getItem('playersData'));
+
+//fonction d'affichage
  function affich() {
     let playersAffich = document.querySelector(".playersAffich");
     playersAffich.innerHTML = ``;
@@ -88,6 +90,8 @@ const data = JSON.parse(localStorage.getItem('playersData'));
 }
 
 affich();
+
+//configuration d'affichage de burger-menu
 const burgerMenu = document.querySelector('.burger-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -102,20 +106,27 @@ window.addEventListener('click', (e) => {
     }
 });
 
+//afficher  la premiere form
+document.querySelector('.ajouter-joueurs').addEventListener('click', ajoutPlayers);
 function ajoutPlayers() {
     let formAjout = document.querySelector('.form-ajout');
-
     formAjout.style.display = 'flex';
     document.querySelector('.global-players').classList.add('blured');
 }
 
-document.querySelector('.ajouter-joueurs').addEventListener('click', ajoutPlayers);
+
 document.querySelector('.annuler').addEventListener('click', () => {
-    // document.querySelector('.ajouter-joueurs').style.display = "none";
     document.querySelector('.form-ajout').style.display = "none";
     document.querySelector('.global-players').classList.remove('blured');
+});
 
+document.querySelector('.AjouteConfirm').addEventListener('click', () => {
+    document.querySelector('.global-players').classList.remove('blured');   
+});
 
+document.querySelector('.AjouteCancel').addEventListener('click', () => {
+    document.getElementById('form-ajout').style.display = "none";
+    document.querySelector('.global-players').classList.remove('blured');
 })
 
 const positionsSelect = document.getElementById('positions');

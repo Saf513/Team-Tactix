@@ -9,17 +9,16 @@ img {
     border-radius: 50%;
 }
 
-nav {
+/* nav {
     display: flex;
     justify-content: space-around;
     background-color: black;
     align-items: center;
 
 }
-
-.mobile {
+ .mobile {
     display: none;
-}
+} 
 
 .global-players {
     display: flex;
@@ -31,20 +30,23 @@ nav {
     display: flex;
 }
 
-a {
-    text-decoration: none;
-    color: #ffd700;
-}
 
-input-formation button,
+
+/* input-formation button,
 nav button {
     background-color: #ffd700;
     color: black;
     height: 2.188rem;
     width: 5rem;
     border-radius: 7px;
+} */
+.mobile {
+    display: none;
+} 
+a {
+    text-decoration: none;
+    color: #ffd700;
 }
-
 input {
     height: 1.5rem;
     width: 12rem;
@@ -176,7 +178,9 @@ footer {
     box-shadow: 0 4px 8px #BDB76B;
 }
 
-
+#sigh-btn{
+    color:black;
+}
 .card {
     background: url(img/bacground\ card.webp);
     background-repeat: no-repeat;
@@ -340,7 +344,7 @@ footer {
     margin-top: 0.5rem;
 }
 
-#search-player {
+/* #search-player {
     padding: 8px 30px 8px 10px;
     border: 2px solid #ffd700;
     border-radius: 25px;
@@ -385,7 +389,7 @@ footer {
 
 .log :hover {
     box-shadow: none;
-}
+} */
 
 .ajouter-joueurs button {
     background-color: #ffd700;
@@ -501,7 +505,7 @@ select {
 
     }
 
-    .nav-mobile {
+    /* .nav-mobile {
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -509,7 +513,7 @@ select {
 
     .desktop {
         display: none;
-    }
+    } */
 
     .links {
         flex-direction: column;
@@ -521,11 +525,11 @@ select {
         font-size: 14px;
     }
 
-    input-formation button,
+    /* input-formation button,
     nav button {
         width: 4.5rem;
         height: 2rem;
-    }
+    } */
 
     input {
         width: 10rem;
