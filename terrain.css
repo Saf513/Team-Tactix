@@ -549,3 +549,8 @@ button a{
     text-align: center;
     border-radius: 15px;
 }
+.modal-players{
+    position: relative;
+    bottom: 20%;
+    
+}

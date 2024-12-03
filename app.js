@@ -2,7 +2,7 @@ const players = document.querySelector('.players');
 const popupPlayer = document.querySelector('.popupPlayer');
 const global = document.querySelector('.global');
 const divplayers = document.querySelector('.div-players .card');
-
+let playersOnField = {};
 
 
 let squad;
@@ -38,16 +38,13 @@ function selected() {
     const global = document.querySelector('.global-terrain');
     let joueurs = [];
     let selectedTerrainDiv = null;
-    let playersOnField = {};
+    // let playersOnField = {};
 
     terrainDivs.forEach(terrainDiv => {
         terrainDiv.addEventListener('click', () => {
             global.classList.add('blurred');
             const position = terrainDiv.classList.value;
-            console.log(position)
-            console.log(playersOnField[position]);
             if (playersOnField[position]) {
-                console.log(playersOnField[position])
                 const modal = createPlayerModificationModal(playersOnField[position], position);
                 document.body.appendChild(modal);
             } else {
@@ -101,14 +98,6 @@ function selected() {
         });
     });
 
-    // Écouteur de clic global pour fermer playersAffich quand on clique en dehors de la zone
-    // window.addEventListener('click', (e) => {
-    //     // Vérifie si le clic est en dehors de `playersAffich` et `terrainDivs`
-    //     if (!playersAffich.contains(e.target) && !Array.from(terrainDivs).some(terrainDiv => terrainDiv.contains(e.target))) {
-    //         playersAffich.style.display = 'none';
-    //         global.classList.remove('blurred');
-    //     }
-    // });
 
     playersAffich.addEventListener('click', (event) => {
         global.classList.remove('blurred');
@@ -125,11 +114,11 @@ function selected() {
                     name: playerName,
                     photo: card.querySelector('img').src,
                     position: position,
-                    rating: card.querySelector('.supInfo p').textContent, // Exemple, vous pouvez ajouter plus d'infos si nécessaire
-                    pace: card.querySelector('.score .left p').textContent, // Exemple
-                    shooting: card.querySelector('.score .left p').nextElementSibling.textContent, // Exemple
-                    dribbling: card.querySelector('.score .right p').textContent, // Exemple
-                    defending: card.querySelector('.score .right p').nextElementSibling.textContent // Exemple
+                    rating: card.querySelector('.supInfo p').textContent, 
+                    pace: card.querySelector('.score .left p').textContent,
+                    shooting: card.querySelector('.score .left p').nextElementSibling.textContent, 
+                    dribbling: card.querySelector('.score .right p').textContent, 
+                    defending: card.querySelector('.score .right p').nextElementSibling.textContent 
                 };
 
                 // Ajoutez ces informations à squadData.positions
@@ -175,13 +164,15 @@ function selected() {
         modal.style.display = 'block';
 
         modal.querySelector('.modify').addEventListener('click', () => {
-            global.classList.remove('blurred');
+            // global.classList.remove('blurred');
+            // document.querySelector('.modal-conten').innerHTML=''
             const position = modal.querySelector('.modify').dataset.position;
             const player = playersOnField[position];
             if (player) {
                 // Créer un modal de sélection des joueurs disponibles à remplacer
                 const modalContent = document.createElement('div');
                 modalContent.classList.add('modal-players');
+        
                 const availablePlayers = data.filter(joueur => joueur.position === player.position && !Object.values(playersOnField).some(p => p.name === joueur.name));
         
                 availablePlayers.forEach(player => {
@@ -233,21 +224,18 @@ function selected() {
 
         modal.querySelector('.remove').addEventListener('click', () => {
             global.classList.remove('blurred');
-            const position = modal.querySelector('.remove').dataset.position;  // Récupérer la position depuis le dataset du bouton "Supprimer"
-            
-            // Supprimer le joueur de playersOnField
+            const position = modal.querySelector('.remove').dataset.position;  
+        
             delete playersOnField[position];
         
-            // Sélectionner toutes les divs du terrain
             const terrainDivs = document.querySelectorAll('.terrain div');
-            
-            // Trouver la div correspondant à la position
+        
             const selectedTerrainDiv = Array.from(terrainDivs).find(div => div.classList.contains(position));
         
             if (selectedTerrainDiv) {
                 // Remplacer le contenu HTML de la div par l'icône d'ajout et la position
                 selectedTerrainDiv.innerHTML = `
-                    <i class="fa-solid fa-user-plus fa-2x" style="color: #e5ad15;"></i>
+                        <i class="fa-solid fa-user-plus fa-2x icon-user" style="color: #e5ad15;"></i>
                     <span>${position}</span>
                 `;
             }
@@ -274,7 +262,8 @@ selected();
 function submit() {
     let formation = document.querySelector("#formation").value;
     let nameSquad = document.querySelector("#name-squad").value;
-    let cont = Object.values(squadData.positions).length; // Vérifie le nombre de joueurs dans positions
+    let cont = Object.values(playersOnField).length; 
+    console.log(cont)
 
     // Vérifie si le nom de l'équipe est vide ou si la formation est vide
     if (nameSquad.trim() == "") {

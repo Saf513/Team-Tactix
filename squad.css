@@ -228,9 +228,9 @@ button {
 } 
  */
 
-.signUp  button a{
+/* .signUp  button a{
     color: black;
-}
+} */
 button:hover {
     background-color: #BDB76B;
     box-shadow: 0 8px 16px rgba(107, 92, 92, 0.2);

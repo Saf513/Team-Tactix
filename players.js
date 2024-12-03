@@ -1,7 +1,5 @@
 
 const data = JSON.parse(localStorage.getItem('playersData'));
-
-//fonction d'affichage
  function affich() {
     let playersAffich = document.querySelector(".playersAffich");
     playersAffich.innerHTML = ``;
@@ -90,8 +88,6 @@ const data = JSON.parse(localStorage.getItem('playersData'));
 }
 
 affich();
-
-//configuration d'affichage de burger-menu
 const burgerMenu = document.querySelector('.burger-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -106,48 +102,43 @@ window.addEventListener('click', (e) => {
     }
 });
 
-//afficher  la premiere form
-document.querySelector('.ajouter-joueurs').addEventListener('click', ajoutPlayers);
+//QUAND CLIQUE SUR BUTTON AJOUTER JOUEUR LE PREMIERE MODAL SERA AFFICHER
 function ajoutPlayers() {
-    let formAjout = document.querySelector('.form-ajout');
-    formAjout.style.display = 'flex';
-    document.querySelector('.global-players').classList.add('blured');
+let formAjout = document.querySelector('.form-ajout');
+formAjout.style.display = 'flex';
+document.querySelector('.global-players').classList.add('blured');
 }
+document.querySelector('.ajouter-joueurs').addEventListener('click', ajoutPlayers);
 
-
+//QUAND CLIQUE SUR ANNULE DANS LE PREMIER MODAL
 document.querySelector('.annuler').addEventListener('click', () => {
     document.querySelector('.form-ajout').style.display = "none";
     document.querySelector('.global-players').classList.remove('blured');
 });
 
-document.querySelector('.AjouteConfirm').addEventListener('click', () => {
-    document.querySelector('.global-players').classList.remove('blured');   
-});
-
+// document.querySelector('.AjouteConfirm').addEventListener('click', () => {} )
+//ANNULER DE DEUXIEME MODEL
 document.querySelector('.AjouteCancel').addEventListener('click', () => {
     document.getElementById('form-ajout').style.display = "none";
     document.querySelector('.global-players').classList.remove('blured');
 })
 
-const positionsSelect = document.getElementById('positions');
-let formAjout = document.querySelector('.form-ajout');
 document.querySelector('.sauvgarder').addEventListener('click', () => {
-    let pos = positionsSelect.value;
+    let positionsSelect = document.getElementById('positions');
+    let pos = positionsSelect.value;    
     let formAjout = document.querySelector('.form-ajout');
     if (pos != 1 && pos != 0) {
         document.querySelector('#form-ajout').style.display = 'flex';
         formAjout.style.display = 'none';
-    }
-
-    else if (pos == 0) {
+    } else if (pos == 0) {
         alert('Veuillez selectionner la position');
-    }
-    else if (pos == 1) {
+    } else if (pos == 1) {
         document.querySelector('#form-ajout-gardien').style.display = 'flex';
         formAjout.style.display = 'none';
     }
+    document.querySelector('.global-players').classList.remove('blured');
 
-})
+});
 
 const form = document.getElementById('form-ajout');
 form.addEventListener('submit', function (event) {
@@ -155,7 +146,9 @@ form.addEventListener('submit', function (event) {
     document.querySelector('#form-ajout').style.display = 'none';
     document.querySelector('.global-players').classList.remove('blurred');
 
+    // Récupération des valeurs du formulaire
     const joueur = {
+        id: new Date().getTime(),  // Utilisation du timestamp pour générer un ID unique
         name: document.getElementById('name').value,
         nationality: document.getElementById('nationality').value,
         club: document.getElementById('club').value,
@@ -166,11 +159,137 @@ form.addEventListener('submit', function (event) {
         dribbling: document.getElementById('dribbling').value,
         defending: document.getElementById('defending').value,
         physical: document.getElementById('physical').value,
-        position: document.querySelector('input[name="position"]').value,
+        position: document.querySelector('input[name="position"]:checked').value,  // Assuming radio buttons for position
+        photo: document.getElementById('photo').value, // Assuming there's a photo input field
+        flag: document.getElementById('flag').value,   // Assuming there's a flag input field
+        logo: document.getElementById('logo').value,   // Assuming there's a logo input field
     };
-    console.log(joueur);
 
+    // Vérification si des données sont présentes dans localStorage
+    let playersData = JSON.parse(localStorage.getItem('playersData')) || [];
+
+    // Si la position est un gardien (GK), ajouter des attributs spécifiques
+    if (joueur.position === 'GK') {
+        joueur.diving = joueur.pace;
+        joueur.handling = joueur.shooting;
+        joueur.kicking = joueur.passing;
+        joueur.reflexes = joueur.dribbling;
+        joueur.speed = joueur.defending;
+        joueur.positioning = joueur.physical;
+    } else {
+        joueur.pace = joueur.pace;
+        joueur.shooting = joueur.shooting;
+        joueur.passing = joueur.passing;
+        joueur.dribbling = joueur.dribbling;
+        joueur.defending = joueur.defending;
+        joueur.physical = joueur.physical;
+    }
+
+    // Ajouter le joueur à la liste des joueurs
+    playersData.push(joueur);
+
+    // Mettre à jour localStorage avec les nouvelles données
+    localStorage.setItem('playersData', JSON.stringify(playersData));
+
+    // Affichage des joueurs dans le DOM
+    affich(); // Appeler la fonction d'affichage pour mettre à jour la liste des joueurs
+
+    // Fermer le formulaire d'ajout et enlever l'effet de flou
+    document.querySelector('.form-ajout').style.display = 'none';
+    document.querySelector('.global-players').classList.remove('blurred');
 });
+
+// Fonction d'affichage des joueurs (à adapter selon votre structure)
+function affich() {
+    const playersAffich = document.querySelector(".playersAffich");
+    playersAffich.innerHTML = '';  // Réinitialiser l'affichage
+
+    // Récupérer les données du localStorage
+    let data = JSON.parse(localStorage.getItem('playersData')) || [];
+
+    // Parcourir la liste des joueurs et générer le HTML
+    data.forEach(player => {
+        let playerCard = '';
+
+        if (player.position.toUpperCase() === "GK") {
+            playerCard = `
+            <div>
+                <div class="card pos">
+                    <div class="sup">
+                        <div class="img">
+                            <p><img src="${player.photo}" alt="Image du joueur"></p>
+                        </div>
+                        <div class="supInfo">
+                            <p>${player.rating}</p> 
+                            <p>${player.position}</p>
+                            <div class="drapeau">
+                                <p><img src="${player.flag}" alt="Drapeau du pays"></p>
+                                <p><img src="${player.logo}" alt="Logo du club"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inf">
+                        <div class="nom-player">
+                            <p>${player.name}</p>
+                        </div>
+                        <div class="score">
+                            <div class="left">
+                                <p>${player.diving + " "}<span>PAC</span></p>
+                                <p>${player.kicking + " "}<span>SHOT</span></p>
+                            </div>
+                            <div class="right">
+                                <p>${player.handling + " "}<span>HAN</span></p> 
+                                <p>${player.reflexes + " "}<span>REF</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        } else {
+            playerCard = `
+            <div>
+                <div class="card pos">
+                    <div class="sup">
+                        <div class="img">
+                            <p><img src="${player.photo}" alt="Image du joueur"></p>
+                        </div>
+                        <div class="supInfo">
+                            <p>${player.rating}</p> 
+                            <p>${player.position}</p>
+                            <div class="drapeau">
+                                <p><img src="${player.flag}" alt="Drapeau du pays"></p>
+                                <p><img src="${player.logo}" alt="Logo du club"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inf">
+                        <div class="nom-player">
+                            <p>${player.name}</p>
+                        </div>
+                        <div class="score">
+                            <div class="left">
+                                <p>${player.pace + " "}<span>PAC</span></p> 
+                                <p>${player.shooting + " "}<span>SHOT</span></p>
+                            </div>
+                            <div class="right">
+                                <p>${player.dribbling + " "}<span>DRI</span></p> 
+                                <p>${player.defending + " "}<span>DEF</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        // Ajouter la carte du joueur au conteneur
+        playersAffich.innerHTML += playerCard;
+    });
+}
+
+affich(); // Appel initial pour afficher les joueurs
+
 
 document.querySelectorAll('.supprimer').forEach((icon) => {
     icon.addEventListener('click', function (e) {
