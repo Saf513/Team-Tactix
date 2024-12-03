@@ -292,6 +292,10 @@
 .icon-user{
     display: none;
    }
+   .modal-content{
+    position: relative;
+    left: 5%;
+   }
 }
 @media ( min-width:781px) and (max-width: 1090px) {
     .icon-user{

@@ -38,8 +38,7 @@ function selected() {
     const global = document.querySelector('.global-terrain');
     let joueurs = [];
     let selectedTerrainDiv = null;
-    // let playersOnField = {};
-
+    
     terrainDivs.forEach(terrainDiv => {
         terrainDiv.addEventListener('click', () => {
             global.classList.add('blurred');
@@ -109,8 +108,7 @@ function selected() {
                 const position = selectedTerrainDiv.classList.value;
                 const playerName = card.querySelector('.nom-player p').textContent;
 
-                // Enregistrez les informations du joueur dans playersOnField
-                playersOnField[position] = {
+                                playersOnField[position] = {
                     name: playerName,
                     photo: card.querySelector('img').src,
                     position: position,
@@ -121,8 +119,7 @@ function selected() {
                     defending: card.querySelector('.score .right p').nextElementSibling.textContent 
                 };
 
-                // Ajoutez ces informations à squadData.positions
-                squadData.positions[position] = playersOnField[position];
+                                squadData.positions[position] = playersOnField[position];
 
                 const cardImage = card.querySelector('img').cloneNode(true);
                 selectedTerrainDiv.innerHTML = '';
@@ -164,13 +161,10 @@ function selected() {
         modal.style.display = 'block';
 
         modal.querySelector('.modify').addEventListener('click', () => {
-            // global.classList.remove('blurred');
-            // document.querySelector('.modal-conten').innerHTML=''
-            const position = modal.querySelector('.modify').dataset.position;
+                                    const position = modal.querySelector('.modify').dataset.position;
             const player = playersOnField[position];
             if (player) {
-                // Créer un modal de sélection des joueurs disponibles à remplacer
-                const modalContent = document.createElement('div');
+                                const modalContent = document.createElement('div');
                 modalContent.classList.add('modal-players');
         
                 const availablePlayers = data.filter(joueur => joueur.position === player.position && !Object.values(playersOnField).some(p => p.name === joueur.name));
@@ -199,21 +193,17 @@ function selected() {
         
                 modal.querySelector('.modal-content').appendChild(modalContent);
         
-                // Modal pour sélectionner un nouveau joueur
-                modalContent.querySelectorAll('.card').forEach(card => {
+                                modalContent.querySelectorAll('.card').forEach(card => {
                     card.addEventListener('click', () => {
                         const selectedPlayerName = card.querySelector('.nom-player p').textContent;
         
-                        // Remplacer le joueur dans la position sélectionnée
-                        const selectedPlayer = availablePlayers.find(p => p.name === selectedPlayerName);
+                                                const selectedPlayer = availablePlayers.find(p => p.name === selectedPlayerName);
                         if (selectedPlayer) {
                             playersOnField[position] = selectedPlayer;
         
-                            // Mettre à jour l'image du terrain avec la photo du nouveau joueur
-                            selectedTerrainDiv.innerHTML = `<img src="${selectedPlayer.photo}" alt="Image du joueur">`;
+                                                        selectedTerrainDiv.innerHTML = `<img src="${selectedPlayer.photo}" alt="Image du joueur">`;
         
-                            // Fermer le modal
-                            modal.style.display = 'none';
+                                                        modal.style.display = 'none';
                             global.classList.remove('blurred');
                         }
                     });
@@ -233,15 +223,13 @@ function selected() {
             const selectedTerrainDiv = Array.from(terrainDivs).find(div => div.classList.contains(position));
         
             if (selectedTerrainDiv) {
-                // Remplacer le contenu HTML de la div par l'icône d'ajout et la position
-                selectedTerrainDiv.innerHTML = `
+                                selectedTerrainDiv.innerHTML = `
                         <i class="fa-solid fa-user-plus fa-2x icon-user" style="color: #e5ad15;"></i>
                     <span>${position}</span>
                 `;
             }
         
-            // Fermer le modal
-            modal.style.display = 'none';
+                        modal.style.display = 'none';
         });
         
 
@@ -265,8 +253,7 @@ function submit() {
     let cont = Object.values(playersOnField).length; 
     console.log(cont)
 
-    // Vérifie si le nom de l'équipe est vide ou si la formation est vide
-    if (nameSquad.trim() == "") {
+        if (nameSquad.trim() == "") {
         alert("Veuiller remplir le nom de squad!");
     } else if (formation == 0) {
         alert("Veuillez choisir une formation");
@@ -275,8 +262,7 @@ function submit() {
     } else {
         squadData.squadName = nameSquad;
 
-        // Définition de la formation en fonction de la sélection
-        switch (formation) {
+                switch (formation) {
             case '1':
                 squadData.formation = "4-4-3";
                 break;
@@ -291,14 +277,11 @@ function submit() {
                 break;
         }
 
-        // Ajout de l'équipe dans le tableau squad
-        squad.push(squadData);
+                squad.push(squadData);
 
-        // Sauvegarde des données dans localStorage
-        localStorage.setItem('SquadData', JSON.stringify(squad));
+                localStorage.setItem('SquadData', JSON.stringify(squad));
 
-        // Réinitialisation de squadData
-        squadData = {};
+                squadData = {};
         document.querySelector("#formation").value = 0;
         document.querySelector("#name-squad").value = "";
     }

@@ -505,16 +505,6 @@ select {
 
     }
 
-    /* .nav-mobile {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .desktop {
-        display: none;
-    } */
-
     .links {
         flex-direction: column;
         align-items: center;
@@ -658,6 +648,27 @@ select {
     .btn p {
         text-align: center;
         margin-top: 0.5rem;
+    }
+    .form-ajout {
+        height: 10rem;
+        width: 18rem;
+        background-color: #ffd700;
+        flex-direction: column;
+        position: absolute;
+        z-index: 1000;
+        top: 25%;
+        left: 20%;
+        display: none;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    #form-ajout-gardien {
+        position: absolute;
+        left: 15%;
+        bottom: 2.5rem;
+        width: 350px;
+        
     }
 }
 
