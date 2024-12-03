@@ -59,6 +59,7 @@ const team = squad[index];
         localStorage.setItem('SquadData', JSON.stringify(squad));
         document.getElementById('edit-team-form').style.display = 'none';
         document.getElementById('squad-container').classList.remove('blurred');
+        location.reload();
         afficherSquad();
     }
     window.cancelEdit = function() {

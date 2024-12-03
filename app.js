@@ -315,5 +315,6 @@ window.addEventListener('click',(e)=>{
     let modal = document.querySelector('.playersAffich');
     if(e.target == modal) {
         modal.style.display='none';
+        
     }
 })

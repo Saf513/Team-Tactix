@@ -443,7 +443,7 @@ button {
     bottom: 2rem;
     flex-direction: column;
     height: 700px;
-    width: 500px;
+    /*width: 500px;*/
     margin-bottom: 2rem;
     margin-left: 2rem;
     margin-right: 2rem;
@@ -651,23 +651,25 @@ select {
     }
     .form-ajout {
         height: 10rem;
-        width: 18rem;
+        width: 250px;
         background-color: #ffd700;
         flex-direction: column;
         position: absolute;
         z-index: 1000;
         top: 25%;
-        left: 20%;
+        left: 10%;
         display: none;
         gap: 1rem;
         justify-content: center;
         align-items: center;
+        width: max-content;
     }
     #form-ajout-gardien {
         position: absolute;
-        left: 15%;
+        left: 10%;
         bottom: 2.5rem;
-        width: 350px;
+        width: 250px;
+        
         
     }
 }
